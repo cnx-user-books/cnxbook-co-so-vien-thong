@@ -1,0 +1,295 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Tin tức và hệ thống thông tin</title>
+  <metadata>
+  <md:content-id>m30831</md:content-id><md:title>Tin tức và hệ thống thông tin</md:title>
+  <md:abstract>- LỊCH SỬ PHÁT TRIỂN CÔNG NGHỆ VIỄN THÔNG ĐIỆN TỬ.
+- PHÂN LOẠI CÁC NGUỒN TIN TỨC VÀ CÁC HỆ THỐNG THÔNG TIN.
+- SÓNG XÁC ĐỊNH VÀ SÓNG NGẪU NHIÊN.
+- SƠ ĐỒ KHỐI MỘT HỆ VIỄN THÔNG.
+- SỰ PHÂN CHIA CÁC VÙNG TẦN SỐ (FREQUENCY ALLOCATIONS).
+- SỰ TRUYỀN SÓNG ĐIỆN TỪ.
+- SỰ ĐO TIN TỨC.
+- CÁC HỆ THÔNG TIN  LÝ TƯỞNG.
+- MÃ HÓA (CODING).</md:abstract>
+  <md:uuid>b818afcb-0ecf-4e57-a320-f15c5e57f0b6</md:uuid>
+</metadata>
+
+<content>
+    <para id="id5704110">LỊCH SỬ PHÁT TRIỂN CÔNG NGHỆ VIỄN THÔNG ĐIỆN TỬ.</para>
+    <list id="id5704117" list-type="bulleted">
+      <item>Từ cuối thế kỹ 18 đầu thế kỹ 19, công nghệ phát thanh và truyền thông bằng điện đã được phát triển.</item>
+      <item>Năm 1820, George Ohm đã đưa ra công thức phương trình toán học để giải thích các tín hiệu điện chạy qua một dây dẫn rất thành công.</item>
+      <item>Năm 1830 Michall Faraday đã tìm ra định luật dẫn điện từ trường.</item>
+      <item>Có thể coi lịch sử thông tin dữ liệu được bắt đầu vào năm 1937 với sự phát minh điện tín Samuel F. B.Morse. Đó là hệ thống truyền các xung điện biểu diễn cho các dấu chấm và vạch (tương đương với các số nhị phân 1, 0) trên các đường dây đồng nhờ các máy cơ điện. Các tổ hợp khác nhau của các mã này thay cho các chữ, số, dấu,...được gọi là mã Morse.</item>
+      <item>Năm 1840, Morse đăng ký sáng kiến về điện tín ở Mỹ.</item>
+      <item>Năm 1844 đường đây điện tín đầu tiên được thiết lập giữa Baltimore và Washington DC.</item>
+      <item>Năm 1849, bản tin đầu tiên được in ra nhưng với vận tốc rất chậm nhưng đến năm 1860 vận tốc in đạt 15 bps.</item>
+      <item>Năm 1850, đại số Boole của George Boole tạo ra nền móng cho logic học và phát triển rờ le điện. Trong khoảng thời gian gian này, các đường cáp đầu tiên xuyên qua đại tây dương để lắp đặt hệ thống điện tín.</item>
+      <item>James Clerk Maxwell đã đưa ra học thuyết điện từ trường bằng các công thức toán học vào năm 1980. Căn cứ vào các học thuyết này Henrich Hertz đã truyền đi và nhận được sóng vô tuyến thành công bằng cách dùng điện trường lần đầu tiên trong lịch sử.</item>
+      <item>Tổng đài điện thoại đầu tiên được thiết lập vào năm 1876 (ngay sau khi Alexander Grâhm Bell đã phát minh ra điện thoại). Năm năm sau Bell bắt đầu dịch vụ gọi đường dài giữa New York và Chocago. Cùng khoảng thời gian đó, Guglieno Marconi của Italia đã lắp đặt một trạm phát sóng vô tuyến để phát các tín hiệu điện tín.</item>
+      <item>Năm 1900, Einstein, một nhà vật lý nổi tiếng về học thuyết tương đối đã viết rất nhiều tài liệu quan trọng về vật lý chất rắn, thống kê học, điện từ trường và cơ học lượng tử. Vào khoảng thờigian này, phòng thí nghiệm Bell của Mỹ đã phát minh và sáng chế ra ống phóng điện cực cho các kính thiên văn xoay được. Tiếp theo đó, Le De Forest trở thành nguươì khởi xướng trong lĩnh vực vi mạch điện tử thông qua phát minh của ông về một ống chân không ba cực. Lúc này, hệ thống tổng đài tương tự tự động có khả năng hoạt động không cần bảng chuyển mạch.</item>
+      <item>Năm 1910, Erwin Schrodinger đã thiết lập nền tảng cho cơ học lượng tử thông qua công bố của ông về cân bằng sóng đẻ giải thích cấu tạo nguyên tử và các đặc điểm của chúng. Vào khảng thời gian này, phát thanh công cộng được bắt dầu bằng cách phát sóng.</item>
+      <item>Năm 1920, Harold .S. Black của phòng thí nghiệm Bell đã phát minh ra một máy khuếch đại phản hồi âm bản mà ngày nay vẫn còn dùng trong lĩnh vực viễn thông và công ngệ máy điện đàm.</item>
+      <item>V.K.Zworykin (Mỹ) đã phát minh ra đèn hình cho vô tuyến truyền hình và cáp đồng trục (phương tiện truyền dẫn hiệu quả hơn các dây đồng bình thường).</item>
+      <item>Cuối những năm 1940, phòng thí nghiệm Bell đã đặt ra nền móng cho cho các chất bán dẫn có độ tích hợp cao. Howard Aiken của đại học Harward cộng tác với IBM đã thành công trong việc lắp đặt một máy điện toán đầu tiên có kích thước 50 feets và 8 feets. Và sau đó, J.Presper Ecker với Jonh Mauchly của đại chọc Pénnylvania đã phát triển máy điện toán lên một bậc gọi là máy điện toán ENIAC. Von Neuman dựa vào đây để phát triển máy điện toán có lưu giữ chương trình.</item>
+      <item>Vào những năm 1960, các loại LSI (Large Scale Interated), các máy điện toán mini, cáp quang và máy phân chia thời gian được phát triển và thương mại hoá thành công.</item>
+      <item>Vào những năm 1970, truyền hình ảnh qua vệ tinh, các hệ thống tổng đài điện tử cũng lần lượt ra đời.</item>
+    </list>
+    <section id="id-385505501333">
+      <title>Phân loại các nguồn tin tức và các hệ thống thông tin.</title>
+      <para id="id5704359">- Một nguồn tin digital ( digital information sourse ) tạo ra 1 tập hợp hữu hạn các bản tin ( Message ) có thể.</para>
+      <para id="id5704368">Ví dụ : Máy đánh chữ ; có một số hữu hạn các ký tự ( bản tin ) được phát ra từ nguồn này.</para>
+      <para id="id5704377">- Một nguồn tin tức analog tạo ra các bản tin được xác định liên tục.</para>
+      <para id="id5704384">Ví dụ một micro: Điện thế ra diễn tả tin tức về âm thanh và nó được phân bố trên một dãy liên tục nhiều trị giá.</para>
+      <para id="id5704394">- Hệ thống thông tin digital chuyển tin tức từ một nguồn digital đến thiết bị thu ( Sink ).</para>
+      <para id="id5704404">- Hệ thống thông tin analog chuyển tin tức từ một nguồn analog đến Sink.</para>
+      <para id="id5704411">Nói một cách chặt chẽ, sóng digital được định nghĩa như là một hàm theo thời gian và chỉ có một tập hợp các trị giá rời rạc. Nếu dạng sóng digital là dạng sóng nhị phân, thì chỉ có hai trị giá. Dạng sóng analog là một hàm theo thời gian có khoảng các trị giá liên tục.</para>
+      <para id="id5704425">Một hệ thống thông tin digital điện tử thường có các điện thế và dòng điện với dạng sóng digital. Tuy nhiên, nó vẫn có thể có các dạng sóng analog. Thí dụ, tin tức từ một nguồn nhị phân có thể phát đến sink bằng cách dùng một sóng sin 1000Hz để diễn tả bit 1 và một sóng sin 500Hz để diễn tả bit 0. Ở đây nguồn tin tức digital được phát đến sink bằng cách dùng các sóng analog, nhưng vẫn cứ gọi là hệ thống viễn thông digital.</para>
+      <para id="id5704440">Xa hơn nữa, sóng analog này được gọi là tín hiệu digital vì nó mô tả 1 nguồn tin digital. Tương tự, một tín hiệu analog mô tả một nguồn tin analog . Từ quan điểm đó ta thấy một kỹ sư Viễn thông digital cần hiểu làm sao để phân tích các mạch analog cũng như các mạch digital.</para>
+      <para id="id5704454">Viễn thông digital có những lợi điểm:</para>
+      <para id="id5704460">- Các mạch digital tương đối rẻ có thể được dùng.</para>
+      <para id="id5704466">- Khoảng tác động lớn hơn. ( Khoảng giữa các trị lớn nhất và nhỏ nhất ).</para>
+      <para id="id5704474">- Dữ liệu từ tiếng nói, hình và các nguồn dữ liệu khác có thể được trộn lẫn và truyền đi trên cùng một hệ truyền digital.</para>
+      <para id="id5704484">- Trong các hệ truyền với khoảng cách xa, nhiễu không chồng chất từ repeater đến repeater. ( Trạm phát lại ).</para>
+      <para id="id5704492">- Sai số trong dữ liệu được phân tích thì nhỏ, dù khi có một lượng nhiễu lớn trên tín hiệu thu được.</para>
+      <para id="id5704504">- Nhiễu có thể được sửa chữa ( corrected ) bằng cách dùng sự mã hóa.</para>
+      <para id="id5704511">Nhưng nó cũng có những bất lợi:</para>
+      <para id="id5704516">- Thông thường, nó cần một hệ rộng dãy tần ( Band width ) lớn hơn hệ analog.</para>
+      <para id="id5704524">- Cần đến sự đồng bộ hóa.</para>
+      <para id="id5704529">Với nhiều ưu điểm, các hệ digital trở nên ngày càng phổ biến.</para>
+    </section>
+    <section id="id-215217140304">
+      <title>Sóng xác định và sóng ngẫu nhiên.</title>
+      <para id="id5704549">Trong các hệ Viễn thông, ta phân các dạng sóng làm hai loại lớn: Xác định và Ngẫu nhiên.</para>
+      <para id="id5704557">- Định nghĩa: Một dạng sóng xác định có thể được mô hình hóa như một hàm hoàn toàn riêng biệt của thời gian.</para>
+      <para id="id5704566">Thí dụ: Nếu</para>
+      <para id="id5704571">w(t) = A cos ( 0t + o )</para>
+      <para id="id5719296">Diễn tả một dạng sóng , với A, 0 , o là các hằng đã biết. Thì dạng sóng w(t) được nói là được xác định.</para>
+      <para id="id5719326">- Định nghĩa: Một dạng sóng ngẫu nhiên không thể được chuyên biệt hóa hoàn toàn như là nột hàm theo thời gian và phải mô hình hóa 1 cách xác xuất. Các dạng sóng biểu diễn một nguồn không thể xác định được. Thí dụ, trong hệ viễn thông digital, ta có thể gửi tin tức ứng với bất kỳ một mẫu tự nào - Mỗi mẫu tự được biểu diễn bằng một dạng sóng xác định. Nhưng khi ta xét dạng sóng được phát từ nguồn ta thấy rằng đó là dạng sóng ngẫu nhiên, vì ta không biết chính xác những ký tự sẽ được phát.</para>
+      <para id="id5719353">Do đó, ta thực sự cần thiết kế hệ viễn thông dùng dạng sóng ngẫu nhiên và tất nhiên bất kỳ nhiễu nào được đưa vào sẽ cũng được mô tả bằng một dạng sóng ngẫu nhiên. Kỹ thuật này cần đến những khái niệm vể xác suất và thống kê. ( Sẽ làm việc phân tích và thiết kế phức tạp hơn ). Nhưnng may thay , nếu ta trình bày tín hiệu bằng dạng sóng “ tiêu biểu “ xác định, thì ta vẫn có thể được hầu hết, nhưng không tất cả các kết quả.</para>
+    </section>
+    <section id="id-465358286546">
+      <title>SƠ ĐỒ KHỐI MỘT HỆ THỐNG VIỄN THÔNG.</title>
+      <figure id="id5719395">
+        <media id="id1163782974301" alt=""><image src="../../media/graphics1-2daf.png" mime-type="image/png" height="177" width="607"/></media>
+      </figure>
+      <para id="id5719419">Hình 1.1 Sơ đồ khối của một hệ thống viễn thông.</para>
+      <para id="id5719425">Chủ đích một hệ Viễn thông là truyền một tin tức từ nguồn, ký hiệu là s(t), đến Sink. Tin tức lấy ra từ Sink ký hiệu là <figure id="id5719437"><media id="id1163781564698" alt=""><image src="graphics2.wmf" mime-type="image/wmf" height="19" width="15"/></media></figure>(t); tin tức có thể là digital hay analog, tùy vào hệ được dùng. Nó có thể là tin tức về Video, audio hay vài loại khác.</para>
+      <para id="id5719467">Trong các hệ multiplex ( đa hợp ), có thể sẽ có nhiều nguồn vào và nhiều Sink. Phổ của s(t) và <figure id="id5719476"><media id="id4194922" alt=""><image src="graphics3.wmf" mime-type="image/wmf" height="19" width="15"/></media></figure>(t) tập trung quanh f = 0. Chúng được gọi là những tín hiệu băng gốc ( base band ).</para>
+      <section id="id-936737127952">
+        <title>Khối xử lý tín hiệu: </title>
+        <para id="id5719515">Ở máy phát tùy điều kiện nguồn sao cho sự truyền có hiệu quả. Thí dụ: Trong 1 hệ digital, nó là một vi xử lý. Trong hệ analog, nó không gì hơn là 1 lọc hạ thông. Trong hệ lai, nó là mạch lấy mẫu tin tức vào ( analog ) và digital - hóa để có một biến điệu mã xung ( Pulse code modulation ) PCM.</para>
+        <para id="id5719531">Tín hiệu ra của khối XLTH ở máy phát cũng là tín hiệu băng gốc vì các tần số tập trung gần f = 0.</para>
+      </section>
+      <section id="id-698231636043">
+        <title>Khối sóng mang:</title>
+        <para id="id5719548">Ở máy phát đổi tín hiệu băng gốc đã xử lý thành một băng tần để truyền đưa vào kênh truyền. Thí dụ: Nếu kênh gồm một cặp dây xoắn ( twisted - pair ) telephone, phổ của sm(t) sẽ nằm trong dãy âm tần ( audio ), từ 300 -&gt; 3.700Hz. Nhưng nếu kênh gồm cáp quang, phổ của sm(t) sẽ là tần số ánh sáng.</para>
+        <para id="id5719574">- Nếu kênh truyền đi những tín hiệu băng gốc, không cần dùng khối sóng mang và sm(t) có thể là tín hiệu ra của khối XLTH.</para>
+        <para id="id5719589">- Khối sóng mang thì cần khi kênh có thể chỉ truyền các tần số thuộc 1 băng xung quanh fc , với fc &gt;&gt; 0. Trong trường hợp này sm(t) được gọi là tín hiệu dãy thông ( Band pass Signal ). Vì nó được thiết kế để có những tần số thuộc 1 băng quanh fc. Thí dụ, một đài phát biến điệu AM với một tần số kết hợp 850 KHz có sóng mang fc = 850 KHz.</para>
+        <para id="id5719632">Sự áp tín hiệu băng gốc dạng sóng s(t) thành tín hiệu dãy thông sm(t) được gọi là sự biến điệu ( modulation ). ( s(t) là tín hiệu audio trong đài phát AM ). </para>
+        <para id="id5719648">Tín hiệu dãy thông bất kỳ có dạng:</para>
+        <para id="id5719654">sm(t0 = s (t) cos [ c(t) + (t) ]</para>
+        <para id="id5719682">Với c = 2fc, fc là tần số sóng mang.</para>
+        <para id="id5719714">Nếu s(t) = 1 và (t) = 0 thì sm(t) sẽ là một tín hiệu hình sin thuần túy với f = fc và băng tần bằng 0.</para>
+        <para id="id5719741">Trong sự biến điệu bởi mạch sóng mang, sóng vào s(t) làm cho R (t) và/hoặc (t) thay đổi như là một hàm của s(t). Sự thay đổi trong R (t) và (t) làm cho sm(t) có một khổ băng phụ thuộc vào những tính chất của s(t0 và vào hàm áp được dùng để phát ra R (t) và (t).</para>
+      </section>
+      <section id="id-764998288286">
+        <title>Các kênh truyền:</title>
+        <para id="id5719786">Có thể phân chia làm 2 loại: dây mềm ( softwire ) và dây cứng (hardwire). Vài loại kênh dây mềm tiêu biểu như: Không khí, chân không và nước biển. Vài loại kênh truyền dây cứng: Cặp dây xoắn telephone, cáp đồng trục, ống dẫn sóng và cáp quang.</para>
+        <para id="id5719803">Một cách tổng quát, kênh truyền làm giảm tín hiệu, nhiễu của kênh truyền và / hoặc nhiễu do máy thu khiến cho <figure id="id5719813"><media id="id1163783537108" alt=""><image src="graphics4.wmf" mime-type="image/wmf" height="19" width="15"/></media></figure>(t) bị xấu đi so với nguồn. Nhiễu của kênh có sự gia tăng từ nguồn điện, dây cao thế, sự đánh lửa hoặc nhiễu do sự đóng ngắt của một computer.</para>
+        <para id="id5719845">Kênh có thể chứa bộ phận khuếch đại tác động, thí dụ: Hệ thống repeater trong telephone hoặc như vệ tinh tiếp chuyển trong hệ thống viễn thông trong không gian. Dĩ nhiên, các bộ phận này cần thiết để giữ cho tín hiệu lớn hơn nhiễu.</para>
+        <para id="id5719859">Kênh cũng có thể có nhiều đường ( multiple paths ) giữa input và output và chúng có thời gian trễ ( time delay ), tính chất giảm biên ( attenuation ) khác nhau. Những tính chất này có thể thay đổi theo thời gian. Sự thay đổi này làm thay đổi bất thường ( fading ) tín hiệu ở ngõ ra của kênh. ( Ta có thể quan sát sự fading khi nghe khi nghe 1 đài sóng ngắn ở xa ).</para>
+        <para id="id5719873">Máy thu nhận tín hiệu ở ngỏ ra của kênh và đổi nó thành tín hiệu băng gốc.</para>
+      </section>
+    </section>
+    <section id="id-806138554162">
+      <title>Sự phân chia các vùng tần số (Frequency Allocations).</title>
+      <para id="id5719895">Trong các hệ thông tin dùng không khí làm kênh truyền, các điều kiện về giao thoa và truyền sóng thì phụ thuộc chặt chẽ vào tần số truyền.</para>
+      <para id="id5719905">Về mặt lý thuyết, bất kỳ một kiểu biến điệu nào (Am, Fm, một băng cạnh - single sideband, phase shift keying, frequency shift keying...) đều có thể được dùng cho bất kỳ tần số truyền nào. Tuy nhiên, theo những qui ước quốc tế, kiểu biến điệu độ rộng băng, loại tin được truyền cần được xếp đặt cho từng băng tần.</para>
+      <para id="id5719922">Bảng sau đây cho danh sách các băng tần, ký hiệu, điều kiện truyền và công dụng tiêu biểu của chúng.</para>
+      <table id="id5719931" summary="">
+        <tgroup cols="4">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <colspec colnum="4" colname="c4"/>
+          <tbody>
+            <row>
+              <entry>Băng tần</entry>
+              <entry>Ký hiệu</entry>
+              <entry>Đặt tính truyền</entry>
+              <entry>Những ứng dụng tiêu biểu</entry>
+            </row>
+            <row>
+              <entry>3 - 30KHz</entry>
+              <entry>VLFvery low frequency</entry>
+              <entry>Sóng đất. Suy giảm ít ngày và đêm. Nhiểu không khí cao</entry>
+              <entry>Thông tin dưới nước</entry>
+            </row>
+            <row>
+              <entry>30- 300KHz</entry>
+              <entry>LFlow frequency</entry>
+              <entry>Tương tự VLF. Ít tin cậy. Bị hấp thu vào ban ngày</entry>
+              <entry>Hướng dẫn radio cho hải hành</entry>
+            </row>
+            <row>
+              <entry>300-3000KHz</entry>
+              <entry>MFMedium frequency </entry>
+              <entry>Sóng đất và sóng trời ban đêm. Suy giảm ít vào ban và nhiểu vào ban ngày. Nhiểu không khí</entry>
+              <entry>Radio hàng hải. Tần số cấp cứu phát sống Am</entry>
+            </row>
+            <row>
+              <entry>3 - 30MHz</entry>
+              <entry>HFHight frequency </entry>
+              <entry>Sự phản xạ ở tần ion cần thay đổi theo thời gian trong ngày, theo mùa và theo tần số. Nhiểu không khí ít tại 30Mhz</entry>
+              <entry>radio nghiệp dư. Phát thanh quốc tế. Viễn thông quân sự. Thông tin đường dài cho không hành và hải hành. Điện thoại, điện tín, fax.</entry>
+            </row>
+            <row>
+              <entry>30- 300MHz</entry>
+              <entry>VHFVery high frequency</entry>
+              <entry>Gần với LOS. Sự tán xạ gây bởi những thay đổi nhiệt độ. Nhiễu không gian.</entry>
+              <entry>Truyền hình VHF. Radio FM stereo. Trợ giúp không hành.</entry>
+            </row>
+            <row>
+              <entry>0.3 - 3 GHz1.0 - 2.0 GHz2.0 - 4.0 GHz</entry>
+              <entry>UHFUltra high frequencyLS</entry>
+              <entry>Truyền LOS. Nhiễu không gian.</entry>
+              <entry>Truyền hình VHF. Radio FM Stereo. Trợ giúp không hành.</entry>
+            </row>
+            <row>
+              <entry>3 - 30 GHz2 - 4.04.0 - 8.08.0 - 12.012.0 - 18.018.0 - 27.027.0-40.0</entry>
+              <entry>SHFSupper high frequencySCXKUKKa</entry>
+              <entry>Truyền LOS. Suy giảm do Oxi và hơi nước trong không khí. Sự hấp thụ do hơi nước rất cao tại 22.2 GHz</entry>
+              <entry>Viễn thông vệ tinh. Radar microwave links.</entry>
+            </row>
+            <row>
+              <entry>30 - 300 GHz26.5 - 4033.0 - 50.040.0 - 75.075.0 - 110.0110 - 300</entry>
+              <entry>EHFExtremely high frequencyRQVWMm</entry>
+              <entry>Tương tự trên. Hơi nước hấp thụ rất mạnh tại 183GHz. Oxy hấp thu tại 60 và 119 GHz .</entry>
+              <entry>Radar, vệ tinh, thí nghiệm.</entry>
+            </row>
+            <row>
+              <entry>103 - 107</entry>
+              <entry>IR (Hồng ngoại ) ánh sáng khả kiến và UV ( Tử ngoại )</entry>
+              <entry>Truyền LOS</entry>
+              <entry>Viễn thông quang</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+    <section id="id-61832860599">
+      <title>Sự truyền sóng điện từ.</title>
+      <para id="id5720612">Các đặc tính truyền của sóng điện từ được truyền trong kênh truyền dây mềm thì phụ thuôc nhiều vào tần số. Điều này được thấy từ bảng kê ở trên. Phổ điện từ có thể được chia làm 3 băng lớn: Sóng mặt đất ( Ground ware ), sóng trời ( Sky ware ) và sóng truyền theo đường tầm mắt ( light of sight ) LOS.</para>
+      <figure id="id5720629">
+        <media id="id1163790423024" alt=""><image src="../../media/graphics5-b7ca.png" mime-type="image/png" height="598" width="649"/></media>
+      </figure>
+      <para id="id5720653">1. Tần số của sóng đất nhỏ hơn 2 MHz. Ở đây sóng điện từ có khuynh hướng truyền theo chu vi trái đất. Kiểu truyền này được dùng trong các đài AM. Ở đấy sự phủ sóng địa phương theo đường cong mặt đất và tín hiệu truyền trên đường chân trời thấy được. Câu hỏi thường được đặt ra: “ Tần số thấp nhất của sóng có thể dùng là bao nhiêu ? Câu trả lời là tần số này tùy thuộc vào chiều dài của anhten phát.</para>
+      <para id="id5720687">Để sự bức xạ có hiệu quả, antenna cần dài hơn 1/10 bước sóng. </para>
+      <para id="id5720698">Ví dụ: Với sóng mang fC = 10KHz, bước sóng là:</para>
+      <para id="id5720710"> = <figure id="id5720718"><media id="id1163785183696" alt=""><image src="graphics6.wmf" mime-type="image/wmf" height="47" width="24"/></media></figure></para>
+      <para id="id5720742"> = ( 3.108m/s )/104Hz = 3.104 m</para>
+      <para id="id5720767">Như vậy, một anten dài ít nhất 3.000m để bức xạ có hiệu quả một sóng điện từ 10KHz!</para>
+      <para id="id5720775">2. Khoảng tần số của sóng trời là 2 đến 30 Mhz. Sự truyền của sóng này dựa vào sự phản xạ tầng ion ( ion sphere - tầng điện ly ) và mặt đất. Nhờ đó, có thể truyền một khoảng rất xa.</para>
+      <para id="id5720798">Tầng ion có biểu đồ phân bố như sau:</para>
+      <figure id="id5720806">
+        <media id="id1163790027319" alt=""><image src="../../media/graphics7-5ccc.png" mime-type="image/png" height="208" width="410"/></media>
+      </figure>
+      <para id="id5720830">Hình 1.3: Biểu đồ phân bố tầng ion</para>
+      <para id="id5720836">Sự ion hóa xãy ra do sự kích thích các phân tử khí bởi các bức xạ vũ trụ từ mặt trời. Tầng ion gồm các lớp E, F1, F2, D. Lớp D chỉ hình thành vào ban ngày và là lớp chủ yếu hấp thụ sóng trời. Lớp F là lớp chính, làm phản xạ sóng trời về trái đất.</para>
+      <para id="id5720862">Thực tế, sự khúc xạ từng bậc qua các lớp của tầng ion khiến tầng này tác dụng như một vật phản xạ làm sóng trời bị phản xạ trở lại trái đất.</para>
+      <figure id="id5720878">
+        <media id="id1163786064256" alt=""><image src="../../media/graphics8-67c3.png" mime-type="image/png" height="223" width="447"/></media>
+      </figure>
+      <para id="id5720902">Hình 1.4: Sự phản xạ sóng trời bở tầng ion.</para>
+      <para id="id5720908">Chỉ số khúc xạ n thay đổi theo độ cao của tầng ion, vì mật độ electron tự do thay đổi.</para>
+      <para id="id5720916">n = <figure id="id5720921"><media id="id1163781826934" alt=""><image src="graphics9.wmf" mime-type="image/wmf" height="49" width="67"/></media></figure></para>
+      <para id="id5720944">Trong đó:N: Mật độ electron tự do ( số e-/m3 ).</para>
+      <para id="id5720965">f: tần số của sóng (Hz).</para>
+      <para id="id5720972">- Dưới vùng ion hóa, n = 1</para>
+      <para id="id5720978">- Trong vùng ion hóa, n &lt; 1 ( Vì N &gt; 0 ) Sóng bị khúc xạ theo định luật Snell:</para>
+      <para id="id5720985">nsinr = sini</para>
+      <para id="id5721011">Trong đó:I : Góc đến</para>
+      <para id="id5721028">r: Góc khúc xạ.</para>
+      <para id="id5721043">a. Với những sóng có tần số f &lt; 2MHz :</para>
+      <para id="id5721049">81N &gt; f2 nên n trở nên ảo. Tầng ion sẽ làm giảm sóng đến.</para>
+      <para id="id5721061">b. Với những sóng có tần số từ 2 - 30 MHz ( Sóng trời ), sự truyền sóng, góc phản xạ và sự hao hụt tín hiệu tại một điểm phản xạ ở tầng ion tùy thuộc vào f, vào thời gian trong ngày, theo mùa và sự tác động của vết đen mặt trời.</para>
+      <para id="id5721080">Ban ngày, N rất lớn làm n ảo. Sóng bị hấp thu, có rất ít sóng trở lại trái đất.</para>
+      <para id="id5721087">Ban đêm, N nhỏ nên n &lt; 1. Khi đó, nếu sóng truyền từ trái đất lên tầng ion thì r &gt; I. Sẽ xãy ra hiện tượng khúc xạ từng bậc. Do sự phản xạ nhiều lần giữa tầng ion và mặt đất, sóng trời truyền đi rất xa. Vì thế, có những sóng trời phát ra từ những đài xa bên kia trái đất vẫn có thể thu được trên băng sóng ngắn.</para>
+      <para id="id5721126">3. Sự truyền LOS là phương thức truyền cho các tần số trên 30 MHz. Ở đó, sóng điện từ truyền theo đường thẳng.</para>
+      <para id="id5721140">Trong trường hợp này f2 &gt;&gt; 81N làm cho n  1 và như vậy có rất ít sóng bị khúc xạ bởi tầng ion. Sóng sẽ truyền ngang qua tầng này. Tính chất đó được dùng cho thông tin vệ tinh.</para>
+      <para id="id5721166">Cách truyền LOS bất lợi cho việc truyền thông tin giữa 2 trạm mặt đất, khi mà đường đi tín hiệu phải ở trên đường chân trời. Độ cong mặt đất sẽ chặn đường truyền LOS.</para>
+      <figure id="id5721186">
+        <media id="id1163791397511" alt=""><image src="../../media/graphics10-a3ec.png" mime-type="image/png" height="274" width="611"/></media>
+      </figure>
+      <para id="id5705691">Hình 1.5</para>
+      <para id="id5705696">Anten phát cần phải đặt trên cao, sao cho anten thu phải “ thấy “ được nó.</para>
+      <para id="id5705703">d2 + r2 = ( r + h )2</para>
+      <para id="id5705723">d2 = 2rh + h2 h2 &lt;&lt; 2 rh</para>
+      <para id="id5705745">Như vậy: d = <figure id="id5705751"><media id="id1163783306673" alt=""><image src="graphics11.wmf" mime-type="image/wmf" height="24" width="40"/></media></figure></para>
+      <para id="id5705775">Bán kính trái đất là 3.960 miles. Tuy nhiên, tại những tần số LOS bán kính hiệu dụng là <figure id="id5705783"><media id="id7556971" alt=""><image src="graphics12.wmf" mime-type="image/wmf" height="43" width="53"/></media></figure>. Vậy khoảng cách d = <figure id="id5705810"><media id="id1163785880139" alt=""><image src="graphics13.wmf" mime-type="image/wmf" height="24" width="40"/></media></figure> miles. Trong đó h tính bằng feet.</para>
+      <para id="id5705836">Thí dụ: Các đài truyền hình có tần số trên 30MHz trong băng VHF và UHF, vùng phủ sóng của các đài công suất lớn bị giới hạn bởi đường tầm mắt. Với một tháp anten 1000 ft  d = 44,7miles.</para>
+      <para id="id5705862">Nếu anten thu cao 30 feet , d = 7,75 miles. Vậy với chiều cao đài phát và máy thu này, đài có vùng phủ sóng có bán kính 44,7 + 7,75 = 52,5 miles.</para>
+      <para id="id5705872">* Với những tần số 30 - 60 MHz, tín hiệu có thể bị tán xạ bởi tầng ozon. Sự tán xạ là do sự bất thường của n ở lớp dưới của tầng này. (  50 miles trên mặt đất ). Khiến cho thông tin có thể truyền đi xa hơn cả 1000 miles.</para>
+      <para id="id5705900">* Tương tự sự phản xạ ở tầng tropo ( trong vòng 10 miles cao hơn mặt đất ) có thể truyền tín hiệu ( 40 MHz - 4GHz ) xa vài trăm miles.</para>
+      <para id="id5705914">1 miles = 1.609,31 m</para>
+      <para id="id5705919">1 feet = 0.3048 m </para>
+      <para id="id5705923">sea miles = 1852 m.</para>
+    </section>
+    <section id="id-693262130454">
+      <title>Sự đo tin tức.</title>
+      <para id="id5705940">Định nghĩa: Tin tức gửi từ 1 nguồn digital, khi bản tin thứ j được truyền đi là :</para>
+      <para id="id5705951">IJ = log2 <figure id="id5705967"><media id="id1163781307165" alt=""><image src="graphics14.wmf" mime-type="image/wmf" height="63" width="46"/></media></figure> bits</para>
+      <para id="id5705996">PJ: Là xác suất của việc truyền bản tin thứ J</para>
+      <para id="id5706013">Cơ số (base) của log xác định đơn vị được dùng để đo tin tức.Nếu log cơ số 2, thì đơn vị là bits.Với log tự nhiên đơn vị là Nats.Và với log cơ số 10 đơn vị sẽ là Hastley</para>
+      <para id="id5706035">Bit, đơn vị đo tin có ý nghĩa khác với bit là đơn vị của dữ liệu nhị phân.Tuy nhiên người ta vẫn hay dùng ” bit ” để ký hiệu cho cả hai loại đơn vị.</para>
+      <para id="id5706046">Công thức trên được viết lại với cơ số tự nhiên và cơ số 10:</para>
+      <para id="id5706053">IJ = <figure id="id5706062"><media id="id4527610" alt=""><image src="graphics15.wmf" mime-type="image/wmf" height="57" width="260"/></media></figure></para>
+      <para id="id5706086">Một cách tổng quát, nội dung tin tức sẽ thay đổi từ bản tin này đến bản tin khác, vì PJ sẽ không bằng nhau. Như vậy, ta cần đến một sự đo tin tức trung bình của nguồn. </para>
+      <para id="id5706103">Định nghĩa: Số đo tin tức trung bình (average information) của 1 nguồn là:</para>
+      <para id="id5706115">H = <figure id="id5706119"><media id="id7908592" alt=""><image src="graphics16.wmf" mime-type="image/wmf" height="68" width="289"/></media></figure></para>
+      <para id="id5706143">m: Số bản tin.</para>
+      <para id="id5706150">PJ : Xác suất của sự gởi bản tin thứ J</para>
+      <para id="id5706161">Tin tức trung bình còn gọi là entropy.</para>
+      <para id="id5706167">Ví dụ: Tìm information content (dung lượng tin tức ) tin tức của một bản tin gồm một word digitaldài 12digit , trong đó mỗi digit có thể lấy một trong 4 mức có thể. Xác suất của sự gởi một mức bất kỳ trong 4 mức được giả sử bằng nhau và mức của một digit không tùy thuộc vào trị giá được lấy của digit trước đó.</para>
+      <para id="id5706181">Trong một string gồm 12 symbol (digit) mà ở đó mỗi symbol gồm một trong 4 mức đó là 4.4.....4 = 412 bits, tổ hợp (word) khác nhau.</para>
+      <para id="id5706203">Vì mỗi mức gồm bằng nhau tất cả các word khác nhau đều bằng nhau. Vậy:</para>
+      <para id="id5706210">PJ = <figure id="id5706220"><media id="id1163782983927" alt=""><image src="graphics17.wmf" mime-type="image/wmf" height="63" width="100"/></media></figure></para>
+      <para id="id5706244">hoặc</para>
+      <para id="id5706248">IJ = <figure id="id5706258"><media id="id1163791851549" alt=""><image src="graphics18.wmf" mime-type="image/wmf" height="117" width="235"/></media></figure></para>
+      <para id="id5706282">Trong ví dụ trên ta thấy dung lượng tin ( information content ) trong bất kỳ một bản tin có thể nào đó đều bằng với dung tin trong bất kỳ bản tin có thể khác (24 bits). Vậy tin tức trung bình H là 24 bits.</para>
+      <para id="id5706299">Giả sử rằng chỉ có 2 mức (nhị phân) được cho phép cho mỗi digit và rằng tất cả các wordthì gần bằng nhau Vậy tin tức sẽ là IJ = 12 bits cho word nhị phân và tin tức trung bình là H = 12bits.</para>
+      <para id="id5706316">Ở đó tất cả word 12 bits sẽ cho 12 bits tin tức vì các word gần bằng nhau Nếu chúng không bằng nhau một vài trong các word 12 bits sẽ chứa hơn 12 bits tin tức và một vài sẽ chứa ít hơn .Và tin tức trung bình sẽ chứa ít hơn.</para>
+      <para id="id5706325">Đinh nghĩa:</para>
+      <para id="id5706330">Nhịp độ của nguồn (nate source) được cho bởi </para>
+      <para id="id5706336">R = <figure id="id5706343"><media id="id1163788258309" alt=""><image src="graphics19.wmf" mime-type="image/wmf" height="43" width="21"/></media></figure> bits/sec</para>
+      <para id="id5706372">H: Tin tức trung bình.</para>
+      <para id="id5706377">T: Thời gian cần thiết để gửi một bản tin.</para>
+      <para id="id5706383">Định nghĩa trên được áp dụng cho một nguồn digital.</para>
+    </section>
+    <section id="id-194324636899">
+      <title>Các hệ thông tin lý tưởng.</title>
+      <para id="id5706401">Có một số tiêu chuẩn được dùng để đánh giá tín hiệu quả của một hệ thông tin . Đó là giá thành, độ rộng kênh, công suất truyền, tỷ số s/n tại những điểm khác nhau của hệ, thời gian trể ngang qua hệ thống. Và xác suất bit error của hệ digital.</para>
+      <para id="id5706415">Trong các hệ digital, hệ tối ưu có thể được nghĩa như là một hệ có xác suất bit error tối thiểu ở ngõ ra của hệ với sự cưỡng chế về công suất được phát và độ rộng kênh.</para>
+      <para id="id5706429">Điều này làm nảy ra câu hỏi: liệu có thể phát minh một hệ không có bit error ở ngõ ra dù khi có nhiễu thâm nhập vào kênh ? Câu hỏi này được Claude Shannon trả lời là có thể, với vài giả thiết Shannon chứng minh rằng một dung lượng kênh C (bits/sec) sẽ được tính sao cho nếu nhịp độ tin tức R (bits/sec) nhỏ hơn C, thì xác suất của bit error tiến đến zero.</para>
+      <para id="id5706450">Phương trình của C là:</para>
+      <para id="id5706455">C = B <figure id="id5706459"><media id="id1163791687301" alt=""><image src="graphics20.wmf" mime-type="image/wmf" height="47" width="86"/></media></figure></para>
+      <para id="id5706483">B: Độ rộng kênh (Hz) và S/N là tổng số công suất tín hiệu trên nhiễu tại ngõ vô của máy thu digital.</para>
+      <para id="id5706492">- Trong các hệ analog, hệ tối ưu có chỗ định nghĩa như là một hệ có tổng số S/N lớn nhất ở ngõ ra máy thu với sự cưỡng chế về công suất được phát và độ rộng kênh.</para>
+      <para id="id5706503">Ta có thể đặt câu hỏi: Liệu có thể thiết kế một hệ thống với tổng số S/N lớn vô hạn ở ngõ ra khi nhiễu thâm nhập vào kênh ? Câu trả lời là dĩ nhiên là không.</para>
+    </section>
+    <section id="id-599360682916">
+      <title>Mã hóa (CODING).</title>
+      <para id="id5706526">Nếu dữ liệu ở ngõ ra của một hệ thông tin digital có errors, có thể giảm error bằng cách dùng một trong hai kỹ thuật :</para>
+      <para id="id5706538">-Automatic Repeat request (ARQ).</para>
+      <para id="id5706545">-Forward error conection (FEC).</para>
+      <para id="id5706552">Trong một hệ ARQ, khi máy thu phân tích được error trong khối dữ liệu, nó yêu cầu khối dữ liệu phát trở lại.</para>
+      <para id="id5706561">Trong một hệ FEC dữ liệu được phát ra cần được mã hóa sao máy thu có thể sữa sai như là các sai số đã phân tích. Biện pháp này cũng được xếp loại như sự mã hóa kênh, vì nó được dùng để sữa sai khi kênh bị nhiễu.</para>
+      <para id="id5706575">Sự chọn lựa ARQ hay FEC tùy vào áp dụng riêng. ARQ thường được dùng trong hệ thông tin computer.</para>
+      <para id="id5706583">FEC được dùng đễ sửa sai trễ các kênh simplex (1 way).</para>
+      <para id="id5706590">Hệ thông tin với FEC được vẽ ở hình dưới đây. Về mặt lý thuyết dung lượng kênh của Shannon chứng tỏ rằng một trị giá vô hạn của S/N chỉ giới hạn nhịp độ truyền. Đó là xác suất của error P(E) có thể tiến đến zero khi nhịp độ tin tức nhỏ hơn dung lượng kênh. </para>
+      <para id="id5706605">Tín hiệu sốMã hoá và xử lýMạch sóng mangMạch sóng mangkênhBộ thu tín hiệu số<figure id="id5706818"><media id="id8767218" alt=""><image src=".wmf" mime-type="image/wmf" height="39" width="45"/></media></figure>g(t)s(t)r(t)m<figure id="id5706928"><media id="id7942888" alt=""><image src=".wmf" mime-type="image/wmf" height="37" width="47"/></media></figure>Mã hoá và xử lýnhiễuTruyềnNhận </para>
+      <para id="id5707154">Hình 1.6</para>
+    </section>
+  </content>
+</document>

@@ -1,0 +1,1388 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Viễn thông số</title>
+  <metadata>
+  <md:content-id>m30771</md:content-id><md:title>Viễn thông số</md:title>
+  <md:abstract>+ ĐẠI CƯƠNG.
++ CHUYỂN ĐỔI TƯƠNG TỰ SỐ ADC (ANALOG-DIGITAL CONVERTER).
++ CHUYỂN ĐỔI SỐ-TƯƠNG TỰ DAC (DIGITAL ANALOG CONVERTER).
++ VIỄN THÔNG MÃ HOÁ ( CODED COMMUNICATION).
++ BIẾN ĐIỆU MÃ XUNG- PCM ( PULSE CODE MODULATION).
++ LƯỢNG TỬ HOÁ KHÔNG ĐỀU ĐẶN ( NONUNIFORM QUANTIZATION).
++ KỸ THUẬT BIẾN ĐIỆU LUÂN PHIÊN (ALTERNATE MODULATION TECHNIQUES).
++ NHIỄU LƯỢNG TỬ (QUANTIZATION NOISE).
++ GIỚI THIỆU VỀ MÃ HOÁ ENTROPY VÀ NÉN DỮ LIỆU.
++ GIỚI THIỆU VỀ SỬA LỖI TIẾP CHUYỂN (FORWARD ERROR CORRECTION).</md:abstract>
+  <md:uuid>d32e42a1-4a48-45f8-b120-8cef919a07eb</md:uuid>
+</metadata>
+  <content>
+    <para id="id6456022">ĐẠI CƯƠNG</para>
+    <para id="id6456027">Trong các chương trước, ta đã nói về sự truyền các tín hiệu analog. Sóng mang được dùng là một sinusoid liên tục ( AM, FM và PM ) hoặc một hàm thời gian rời rạc (biến điệu xung). </para>
+    <para id="id6456039">Chương này ta thêm một kỹ thuật truyền khác. Tín hiệu được truyền bây giờ trở thành một thanh phaăn của một hệ rời rạc. Như vậy, thay vì truyền những trị điện thế liên tục, ta tập trung vào một tập hợp hữu hạn các trị rời rạc.</para>
+    <para id="id6456053">Trước nhất ta xem sự truyền của một danh mục các số. Danh mục này có thể là kết quả từ sự lấy mẫu một hàm thời gian liên tục, hoặc tin tức gốc có thể có dạng một danh mục. Tính chất cơ bản của một hệ viễn thông digital là những số trong danh mục có thể chỉ lấy những trị rời rạc. </para>
+    <para id="id6456068">Nhiều tín hiệu đã có dạng một danh mục các số lấy ra từ một tập hợp hữu hạn. Thí dụ, thời gian của ngày ( nếu ta làm tròn giây hay phút ); số lượng của một hạng mục nào đó được sản xuất trong mỗi giờ ( thí dụ: số xe ); thông tin được phát ra bởi computer...</para>
+    <para id="id6456082">Tín hiệu analog có thể được truyền theo những kỹ thuật digital. Khi đó, nhất thiết tín hiệu analog cần phải chuyển đổi thành tín hiệu số.</para>
+    <para id="id6456093">Sự đổi qui cách từ analog thành digital được thực hiện nhờ ADC (Analog to Digital Converter).</para>
+    <para id="id6456101">CHUYỂN ĐỔI TƯƠNG TỰ SỐ ADC (analog-digital converter)</para>
+    <para id="id6456107">Bước thứ nhất để chuyển đổi một tín hiệu analog liên tục thành dạng digital là đổi tín hiệu thành một danh mục các số. ( Điều này được thực hiện bằng cách lấy mẫu hàm thời gian). Danh mục các số kết quả biểu diễn cho những trị liên tục. Đó là mặc dù một mẫu nào đó có thể trưng ra như là một số làm tròn, nhưng thực tế nó sẽ được tiếp tục như một số thập phân vô hạn. Danh mục các số analog sau đó phải được mã hoá thành các Code Words rời rạc. Biện pháp trước nhất để hoàn tất việc đó là làm tròn mỗi số trong danh mục. Thí dụ, nếu các mẫu nằm trong khoảng từ 0 đến 10V, mỗi mẫu sẽ được làm tròn đến số nguyên gần nhất. Vậy các từ mã ( code words ) sẽ rút ra từ 11 số nguyên ( từ 0 đến 10 ).</para>
+    <para id="id6456143">Trong đa số các hệ viễn thông digital, dạng thực tế được chọn cho các từ mã là một số nhị phân 0 và 1. Lý do để chọn sẽ trở nên rõ ràng khi ta bàn đến kỹ thuật truyền chuyên biệt. Trở lại thí dụ trên, converter sẽ hoạt dộng trên nhưng mẫu từ 0 đến 10V bằng cách làm tròn những trị mẫu đến Volt gần nhất, rồi đổi số nguyên đó thành số nhị phân 4 bit ( mã BCD ).</para>
+    <para id="id6456157">Sự chuyển đổi A/ D được xem như là sự lượng tử hoá ( quantizing ). Trong sự lượng tử hoá đều đặn, các trị liên tục của hàm thời gian được chia thành những vùng đều đặn, và một mã số nguyên được kết hợp cho mỗi vùng. Như vậy, tất cả các trị của hàm trong một vùng nào đó đều được mã hoá thành một số nhị phân giống nhau.</para>
+    <para id="id6456172">Hình 7.1 chỉ nguyên lý lượng tử hoá 3 bit theo hai cách khác nhau Hình 7.1a, chỉ khoảng các trị của hàm được chia làm 8 vùng eău nhau. Mỗi vùng kết hợp với một số nhị phân 3 bit. Chọn 8 vùng vì 8 là luỹ thừa của 2 ( = 23 ). Tất cả tổ hợp 3 bit đều được dùng, làm hiệu quả lớn hơn.</para>
+    <para id="id6456193">Hình 7.1b chỉ sự lượng tử hoá bằng cách dùng sự liên hệ của input và output. Trong khi input thì liên tục, output chỉ lấy những trị rời rạc. Bề rộng của mỗi bậc không đổi. Vì sự lượng tử hoá thì đều đặn. </para>
+    <figure id="id6456210">
+      <media id="id4302865" alt=""><image src="../../media/graphics1.jpg" mime-type="image/jpeg" height="219" width="403"/></media>
+    </figure>
+    <para id="id6456234">Hình 7.1: Sự lượng tử hóa.</para>
+    <para id="id6456245"><figure id="id6456255"><media id="id4310595" alt=""><image src=".jpg" mime-type="image/jpeg" height="262" width="449"/></media></figure>2-bit011111110100000101Hình 7.2 chỉ một s(t) và dạng digital của nó cho bộ đổi ADC 2 bit và 3 bit.</para>
+    <para id="id6456500">Hình 7.2: Thí dụ về A/D</para>
+    <para id="id6456510">* Mách lượng tử hoá :</para>
+    <para id="id6456516">Có ba loại mách lượng tử hoá.</para>
+    <para id="id6456521">1. Lượng tử hoá đếm, đếm lần lượt ứng với s thođng qua mỗi mức lượng tử.</para>
+    <para id="id6456529">2. Lượng tử hoá nối tiếp, tạo ra một từ mã, từng bit một. Đó là, chúng bắt đầu với bit có tróng soâ lớn nhất ( MSB ) và làm việc đến bit co tróng soâ nhỏ nhất ( LSB ).</para>
+    <para id="id6456541">3. Lượng tử hoá song song, tạo ra cùng lúc tất cả các bit của một từ mã hoàn chỉnh.</para>
+    <section id="id-631770288094">
+      <title>Lượng tử hóa đếm:</title>
+      <para id="id6456556">Hình 7.3 vẽ một khối lượng từ hoá đếm.</para>
+      <figure id="id6456565">
+        <media id="id4310961" alt=""><image src="../../media/graphics2.jpg" mime-type="image/jpeg" height="548" width="484"/></media>
+      </figure>
+      <para id="id6456589">Hình 7.3: Lượng tử hóa đếm</para>
+      <para id="id6456595">Ramp generator ( mạch tạo đường dốc ) bắt đầu tại mỗi điểm lấy mẫu. Mạch eâm cũng bắt đầu cùng lúc. Ngõ ra của mạch S/H là một tín hiệu bậc thang xấp xĩ với tín hiệu gốc. ( Những bậc sẽ giữ trị mẫu trước đó trong suốt mỗi khoảng lấy mẫu ). Mách eâm sẽ stop khi đường dốc đạt đến trị mẫu. </para>
+      <para id="id6456610">Dạng sóng tiêu biểu được chỉ ở Hình 7.3b. Và như vậy, thời gian đếm Ts tỷ lệ với trị mẫu ( vì độ dốc được giữ không đổi ).</para>
+      <para id="id6456630">Tần số clock chọn sao cho mách eâm có đủ thời gian để đếm đến số đếm cao nhất của nó đối với một thời khoảng (duration) của đường dốc tương ứng với mẫu lớn nhất. Số đếm cuối trên boô eâm tương ứng với mức lượng tử hoá.</para>
+      <para id="id6456644">Thí dụ : Thiết kế một khối lượng tử hoá đếm cho một tín hiệu tiếng nói có tần số tối đa 3 kHz. Độ dốc của đường dốc 106 V/sec. Biên độ tín hiệu nằm trong khoảng 0 đến 10 V.</para>
+      <para id="id6449165">Tìm tần số Clock cần thiết nếu dùng một counter 4 bit.</para>
+      <para id="id6449172">Giải : Lý do duy nhất để xét tần số max của tín hiệu là xem độ dốc có đủ để đạt đến trị max của mẫu hay không ( trong một chu kỳ lấy mẫu ). Với tần số max của tần số tín hiệu là 3 kHz, nhịp lấy mẫu tối thiểu là 6 kHz. Vậy chu kỳ lấy mẫu max là <figure id="id6449199"><media id="id4309566" alt=""><image src="graphics3.wmf" mime-type="image/wmf" height="43" width="15"/></media></figure>msec. Vì đường dốc có thể đạt đến tối đa 10V trong 0,01 msec, nó đủ nhanh để tránh được quá tải.</para>
+      <para id="id6449229">Counter phải có thể đếm từ 0000 đến 1111 trong 0,01 msec. Tần số Clock phải là 1,6 MHz, vì cần trên 16 lần đếm trong một chu kỳ lấy mẫu.</para>
+    </section>
+    <section id="id-993715766655">
+      <title>Lượng tử hóa nối tiếp:</title>
+      <para id="id6449247">Hình 7.4 chỉ sơ đồ khối của lượng tử hoá nối tiếp 3 bit, các input nằm trong khoảng từ 0 đến 1. Các hộp hình thoi là các bộ so sánh. Chúng ta so sánh input với một trị cố định và cho một output nếu input vượt quá một trị cố định đó và một output khác nếu ngược lại. Sơ đồ khối chỉ hai đường output có thể, được đặt tên là YES và NO.</para>
+      <para id="id6449262">Nếu khoảng của input của các trị mẫu không là 0 đến 1V, tín hiệu sẽ được chuẩn hóa ( được dời rồi khuếch đại hoặc giảm ) để được những trị nằm trong khoảng đó. Nếu cần số bit nhiều hơn ( hoặc ít hơn ) các khối so sánh được thêm vào ( hay bớt ra ). Số khối so sánh bằng số bit mã hoá. </para>
+      <figure id="id6449291">
+        <media id="id4309654" alt=""><image src="graphics4.png" mime-type="image/png" height="134" width="517"/></media>
+      </figure>
+      <para id="id6449320">Hình 7.4: Lượng tử hóa nối tiếp </para>
+      <para id="id6449331">b2 là bit thứ nhất của trị mẫu được mã hoá. Bit có tróng soâ lớn nhất (MSB). </para>
+      <para id="id6449344">b0 là bit thứ ba, cũng là bit cuối, bit có tróng soâ nho nhất (LSB).</para>
+      <para id="id6449356">Thí dụ : Giải thích hoạt động của hình 7.4, ứng với 2 trị mẫu của input: 0,2 và 0,8 V.</para>
+      <para id="id6449372">Giải: </para>
+      <para id="id6449384">* Với 0,2 V Sự so sánh thứ nhất với 1/4 có đáp số là No. Vậy b2 = 0 so sánh thứ 2 với 1/4 cũng có lời đáp là No.Vậy b1 = 0. So sánh thứ ba, Yes.Vậy b0 = 1.</para>
+      <para id="id6449415">Do đó, mã nhị phân cho 0,2V là 001.</para>
+      <para id="id6449426">* Với 0,8V. So sánh thứ nhất với <figure id="id6449432"><media id="id4317699" alt=""><image src="graphics5.wmf" mime-type="image/wmf" height="43" width="17"/></media></figure>, Yes  b2= 1 ta trừ với <figure id="id6449468"><media id="id4317728" alt=""><image src="graphics6.wmf" mime-type="image/wmf" height="43" width="17"/></media></figure>, được 0,3. So sánh thứ hai với <figure id="id6449495"><media id="id4317758" alt=""><image src="graphics7.wmf" mime-type="image/wmf" height="43" width="17"/></media></figure>, Yes  b1 = 1 và ta trừ với <figure id="id6449532"><media id="id4317787" alt=""><image src="graphics8.wmf" mime-type="image/wmf" height="43" width="17"/></media></figure>, được 0,05. So sánh thứ ba với <figure id="id6449558"><media id="id4317817" alt=""><image src="graphics9.wmf" mime-type="image/wmf" height="43" width="15"/></media></figure>, No  b0 = 0. Vậy mã cho 0,8V là 110.</para>
+      <para id="id6449595">* Một hệ thống đơn giản hoá có thể thực hiện được như hình 7.5, ở ngỏ ra của khối <figure id="id6449603"><media id="id4317858" alt=""><image src="graphics10.wmf" mime-type="image/wmf" height="43" width="29"/></media></figure>, đặt một khối X2 rồi hồi tiếp kết quả về khối so sánh thứ nhất. Tín hiệu mẫu có thể qua sơ đồ nhiều lần để đạt được số bit của chiều dài của từ mã hóa.</para>
+      <figure id="id6449638">
+        <media id="id4317893" alt=""><image src="graphics11.png" mime-type="image/png" height="103" width="315"/></media>
+      </figure>
+      <para id="id6449662">Hình 7.5: Lượng tử hoá nối tiếp đơn giản hóa.</para>
+    </section>
+    <section id="id-723334694338">
+      <title>Lượng tử hóa song song:</title>
+      <para id="id6449683"/>
+      <para id="id6449687">Hình 7.6 trình bày một mạch đổi song song 3 bit, và mỗi bậc của tiến trình là 1v.</para>
+      <para id="id6449695">Cầu chia điện thế lập ra các mức điện thế tham khảo cho mỗi mạch so sánh. Ta thấy có 7 mức mà các trị giá là 1, 2, 3, 4, 5,6,7v. Điện thế tương tự vào VA được đưa vào mỗi ngõ vào của các mạch so sánh.</para>
+      <para id="id6449714">CBAMã hoá ưu tiênNgõ vào tương tự <figure id="id6449808"><media id="id4326244" alt=""><image src=".wmf" mime-type="image/wmf" height="389" width="238"/></media></figure>Trọng số lớnNgõ ra sốa)</para>
+      <table id="id6451750" summary="">
+        <tgroup cols="3">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <tbody>
+            <row>
+              <entry>Ngõ vào tương tự</entry>
+              <entry>Ngõ ra các mạch so sánh</entry>
+              <entry>Ngõ ra số</entry>
+            </row>
+            <row>
+              <entry>VA</entry>
+              <entry>C1 C2 C3 C4 C5 C6 C7</entry>
+              <entry>C B A</entry>
+            </row>
+            <row>
+              <entry>&lt;1v&gt;1v, &lt;2v&gt;2v, &lt;3v&gt;3v, &lt;4v&gt;4v, &lt;5v&gt;5v, &lt;6v&gt;6v, &lt;7v&gt;7v</entry>
+              <entry>1 1 1 1 1 1 10 1 1 1 1 1 10 0 1 1 1 1 10 0 0 1 1 1 10 0 0 0 1 1 10 0 0 0 0 1 10 0 0 0 0 0 10 0 0 0 0 0 0</entry>
+              <entry>0 0 00 0 10 1 00 1 11 0 01 0 11 1 01 1 1</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6452257">b)</para>
+      <para id="id6452261">Hình 7.6 a) Sơ đồ mach ADC song song 3bit</para>
+      <para id="id6452276"> b) Bảng sự thật </para>
+      <para id="id6452292">Nếu VA&lt;1v, tất cả ngõ ra các mạch so sánh C1-C7 cao.</para>
+      <para id="id6452319">Nếu VA&gt;1v, có ít nhất một ngõ ra các mạch so sánh xuống thấp. Các ngõ ra được đưa vào mạch mã hoá ưu tiên tác động thấp, tạo một số nhị phân tương ứng với chân ra mạch so sánh có hiệu lực. Chân ra mạch so sánh có hịêu lực là chân có chỉ số cao nhất (nếu đồng thời có nhiều chân ra cùng xuống thấp). Thí dụ, khi VA nằm giữa 3 và 4v. Các chân ra C1, C2 và C3 đều thấp. Tất cả các chân khác cao. Mạch mã hoá ưu tiên chỉ thực hiện với trị giá thấp của C3, và cho ra ngõ CBA=011 (biễu diễn cho số nhị phân tương đương của VA với độ phân giải 1v).</para>
+      <para id="id6452385">Khi VA cao hơn 7v, C1-C7 đều thấp. Ngõ ra mạch mã hoá CBA=111.</para>
+      <para id="id6424866">Mạch ADC song song không cần xung đồng hồ, vì nó không có mạch đếm đồng bộ hoặc những thao tác tiến trình tuần tự. Tiến trình đổi gần như tức thời, ngay khi đặt VA vào. Thời gian chuyển đổi tuỳ thuộc duy nhất sự trễ của các mạch so sánh và mạch mã hoá.</para>
+      <list id="id6424888" list-type="enumerated">
+        <item>Mã hoá PCM thực tế :</item>
+      </list>
+      <para id="id6424898">Khối mã hoá PCM ( Pulse Code Modulation.- Biến điệu mã xung ) trong thực tế được xây dựng theo sơ đồ khối ở các phần trước. Hầu hết đều được đặt trong một IC.</para>
+      <para id="id6424910">* Bộ lượng tử hoá đếm được xem là bộ chuyển đổi A/D hai đường dốc. Mẫu được đặt ra một mạch tích phân trong một khoảng thời gian cố định. Output thì tỷ lệ với trị mẫu. Sau đó input được chuyển đến một trị điện thế tham khảo ( ngược dấu với mẫu ), counter bắt đầu và output của mạch tích phân được so sánh với zero. Counter sẽ stop khi đường dốc output của mạch tích phân đạt đến zero. </para>
+      <para id="id6424948"><figure id="id6424958"><media id="id4326485" alt=""><image src=".png" mime-type="image/png" height="368" width="271"/></media></figure>tenshundredsdisplaythousandpolarity(minus)hundredstensunitsdisplayL7126 là một IC CMOS, cho phép lượng tử hoá đếm như hình 7.8. </para>
+      <para id="id6425444">Hình 7.8: Lượng tử hóa đếm IC L7126.</para>
+      <para id="id6425455">Các chân từ 2 đến 25 được dùng để ra hiển thị. IC có cấu tạo để thúc trực tiếp màn hình tinh thể lỏng (LCD), vì nó bao gồm các mạch giãi mã 7 đoạn và các mạch thúc LCD. Display là <figure id="id6425473"><media id="id4326542" alt=""><image src="graphics12.wmf" mime-type="image/wmf" height="43" width="26"/></media></figure> digit, có nghĩa là nó có thể chỉ những số với biên độ cao như 1999. Những ngõ ra 7 đoạn để hiển thị Unit được đánh chỉ số A1 đến G1, để hiển thị chục đánh chỉ số 2 và hiển thị trăm đánh số 3. Hiển thị ngàn có chỉ số AB4 và chỉ có một chân được cần vì digit này hoặc là 0 hoặc là 1 ( cho một hiển thị <figure id="id6425555"><media id="id4326576" alt=""><image src="graphics13.wmf" mime-type="image/wmf" height="43" width="26"/></media></figure> digit ).</para>
+      <para id="id6425580">Input analog được đưa vào chân 30 và 31. Hoạt động của IC tiến hành trong 3 pha.</para>
+      <para id="id6425588">* Thứ nhất là autozero, những input analog được tách rời ra nối tắt bên trong với common ( chân 32 ). Output của mạch so sánh bị nối tắt với ngõ vô đảo của mạch tích phân.</para>
+      <para id="id6425605">* Pha thứ 2 xãy ra khi trị tín hiệu vào bị tích phân trong một thời gian tương ứng với 1.000 xung clock.</para>
+      <para id="id6425613">* Cuối cùng, trong pha thứ 3, điện thế tham khảo tích trữ trong một tụ ( được đấu giữa chân 33 và 34 ở bên ngoài ) được dùng để tạo đường dốc thứ hai. Khoảng trị giá của input xác định trị cần thiết của điện thế tham khảo ( được đưa vào chân 36 reference Hi ). Nếu input này là 1V, chip có khả năng chuyển đổi điện thế với các biên độ cao như 1999. Xung clock có thể lấy từ các chân 38, 39 và 40. Ta cũng có thể dùng hoặc một mạch dao động bên ngoài hoặc là một tinh thể thạch anh giữa các chân 39 và 40 hoặc là một mạch RC ngang qua các chân này.</para>
+      <para id="id6514938">Một mạch A/D toàn bộ của một tín hiệu mẫu cần 4.000 số đếm. Tín hiệu được tích phân cho 1/4 của chu kỳ này, tức là 1.000 số đếm.</para>
+      <para id="id6514948">Một tích phân thứ hai là autozero cần giữ 3.000 số đếm.</para>
+      <para id="id6514957">Xung clock bên trong được phát triển bằng cách chia dao động input cho 4. Vậy, thí dụ, nếu ta muốn thực hiện 10 chuyển đổi/sec, ngõ vô phải là 160 kHz.</para>
+      <para id="id6514967"><figure id="id6514970"><media id="id4326713" alt=""><image src="graphics14.wmf" mime-type="image/wmf" height="248" width="215"/></media></figure>Linh kiện này không có khả năng chuyển đổi nhanh và sẽ được dùng cho những tín hiệu biến thiên chậm ( nhịp lấy mẫu chậm ) hoặc input DC.</para>
+      <para id="id6515006">Hình 7.9: IC ADC0804 Lượng tử hóa nối tiếp.</para>
+      <para id="id6515018">- IC ADC0804 là một thí dụ về một IC đổi A/D kiểu nối tiếp, ( đôi khi còn gọi là " chuyển đổi xấp xĩ liên tiếp " ). Hình 7.9.</para>
+      <para id="id6515041">Đây là linh kiện 8 bit, bao gồm một số mạch FlipFlop, ghi dịch, một mạch giải mã và một mạch so sánh. Có 8 xung clock bên trong. Xung clock nội được cho bởi sự chia tín hiệu clock tại các chân 4 và 19 cho 8. Thí dụ, với một tín hiệu 64 kHz trên những chân này, IC có thể thực hiện một chuyển đổi trong 1msec. ADC 0804 có khả năng đổi một mẫu trong khoảng 120sec, nên ta không dùng nó để lấy mẫu với vận tốc nhanh.</para>
+      <para id="id6515103">Các output digital từ Bo đến B7 ra ở các chân điện tử 11 đến 18. IC này tương thích với một microprocessor, nên đó là lý do để gọi tên các chân, như bảng sau:</para>
+      <table id="id6515119" summary="">
+        <tgroup cols="3">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <tbody>
+            <row>
+              <entry>Chân </entry>
+              <entry>Nhãn </entry>
+              <entry>Nhiệm vụ</entry>
+            </row>
+            <row>
+              <entry>1 </entry>
+              <entry>CS (chip select) </entry>
+              <entry>L ban đầu, H khi bắt đầu chuyển đổi. </entry>
+            </row>
+            <row>
+              <entry>2 </entry>
+              <entry>RD ( Ready ) </entry>
+              <entry>Xuống L để chỉ p sẳn sàng nhận dữ liệu.</entry>
+            </row>
+            <row>
+              <entry>3 </entry>
+              <entry>WR (Write) </entry>
+              <entry>L bắt đầu. H khi bắt đầu chuyển đổi.</entry>
+            </row>
+            <row>
+              <entry>4 </entry>
+              <entry>CLK </entry>
+              <entry>Ngõ vô dao động bên ngoài hoặc nối điện từ giữa 4 và 19 đặt tần số dao động.</entry>
+            </row>
+            <row>
+              <entry>5 </entry>
+              <entry>INTR (Interrupt) </entry>
+              <entry>Xuống L để báo cho p rằng dữ liệu sẵn có để dùng.</entry>
+            </row>
+            <row>
+              <entry>6,7 </entry>
+              <entry>Vin (+);Vin () </entry>
+              <entry>Ngõ vô phần kđ vi sai.</entry>
+            </row>
+            <row>
+              <entry>9 </entry>
+              <entry>VREF/2 </entry>
+              <entry>Điện thế tham khảo ( một nữa )</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6515461">Digital outputDigital supply<figure id="id6515560"><media id="id4327091" alt=""><image src=".wmf" mime-type="image/wmf" height="495" width="521"/></media></figure>Hình 7.10: IC CA3308 lượng tử hóa song song.</para>
+      <para id="id6515592">- IC C43308 là một thí dụ về IC chuyển đổi A/D kiểu song song, 24 chân, vẽ ở Hình 7.10. IC có thể chuyển đổi một mẫu trong 66,7 nsec. Nó chứa một ngân hàng mạch so sánh. Tín hiệu analog vào các chân 16 và 21. Các điện thế tham khảo áp vào chân 10, 15, 20, 22 và 23. Tín hiệu digital ra được đọc từ các chân ( pins ) 1 đến 8.</para>
+      <para id="id6515631">CHUYỂN ĐỔI SỐ -TƯƠNG TỰ DAC (Digital analog converter)</para>
+      <para id="id6515637">Một tín hiệu digital được chuyển đổi thành analog nhờ mạch DAC. Để thực hiện việc chuyển đổi, ta chỉ cần kết hợp một mức mẫu với mỗi từ mã nhị phân. Vì từ mã biểu diễn cho một khoảng các trị mẫu, nên trị thực sự được chọn cho sự chuyển đổi, thường là điểm giữa của khoảng. Nếu A/D conv được thực hiện như đã mô tả trên đây, thì sự hoạt động ngược lại tương đương với việc phân chia một tróng soâ cho mỗi vị trí bit.</para>
+      <para id="id6515671">Xem trường hợp một từ nhị phân 4 bit. Ta giả sử rằng mẫu Analog thì được chuaơn hoa (Normallized, nghĩa là nó nằm trong khoảng giữa 0 và 1V ) và dùng sự mã hoá lần lượt. Sự chuyển đổi về trị Analog được thực hiện bằng cách đổi số nhị phân thành thập phân, chia cho 16 và cộng <media id="id4327169" alt=""><image src="graphics15.wmf" mime-type="image/wmf" height="43" width="25"/></media>. Thí dụ, mã 1101 biểu diễn số thập phân 13, vậy ta đổi nó thành <figure id="id6515723"><media id="id4327200" alt=""><image src="graphics16.wmf" mime-type="image/wmf" height="43" width="97"/></media></figure>.</para>
+      <para id="id6515748"><figure id="id6515758"><media id="id4327237" alt=""><image src=".wmf" mime-type="image/wmf" height="172" width="631"/></media></figure>Hình 7.11 vẽ cơ chế chuyển D/A. Nếu 1 xuất hiện ở vị trí MSB thì một pin 1/2V được đưa vào mạch ( S1 hở ). Bit thứ nhì kiểm soát một pin 1/4V và cứ thế. Mạch giải mã lý tưởng hình 7.11 tương tự với một mạch lượng tử hoá nối tiếp vì mỗi bit kết hợp với một thành phần riêng của trị mẫu.</para>
+      <para id="id6447157">Hình 7.11: Chuyển đổi D/A</para>
+      <list id="id6447168" list-type="bulleted">
+        <item>Mạch đổi D/A kiểu đếm thì phức tạp hơn, như hình 7.12. Một clock đưa vào mạch tạo bậc thang ( Staircase ) và mạch Counter cùng lúc. Tín hiệu ra của Counter được so sánh với input digital ( nhị phân ). Khi soâ eâm baỉng vi t ma a vao, mách táo baôc thang se stop. Tín hiệu ra của mạch tạo bậc thang được lấy mẫu và giữ cho cho đến khi trị mẫu kế tiếp đạt được. Kết quả xấp xĩ bậc thang cuối cùng được làm phẳng nhờ một lọc LPF, để hồi phục lại một trị xấp xĩ với tín hiệu gốc.</item>
+      </list>
+      <figure id="id6447196">
+        <media id="id4327313" alt=""><image src="graphics17.png" mime-type="image/png" height="202" width="455"/></media>
+      </figure>
+      <para id="id6447220">Hình 7.12: DAC kiểu đếm</para>
+      <list id="id6447230" list-type="enumerated">
+        <item>DAC Thực Tế :</item>
+      </list>
+      <para id="id6447243">Giả sử một mạch DAC cần phải hoạt động theo bảng sự thật ở H.10.4. Điện thế ra V0 tăng từng bậc từ 0 đến 6v. Mỗi sự tăng của số đếm nhị phân làm tăng điện thế ra 0,4v.</para>
+      <para id="id6447273">Hình H.10.5 trình bày mạch logic của DAC này. Mạch gồm hai mạch: mạng điện trở và mạch khuếch đại tổng. Điện thế vào đặt lên mạng điện trở thông qua các ngắt điện D, B,C, A. Các ngắt điện này đóng khi bit vào tương ứng =1 và mở khi bit vào tương ứng = 0. Điện thế vào Vi­=3v và điện thế ra, dĩ nhiên, phải tuân theo bảng sự thật.</para>
+      <para id="id6447296">Lưu ý R4­, điện trở tương ứng với MSB, có trị nhơ nhất. R3­ ­(điện trở tương ứng với bit có trọng số 4) có trị gấp đôi R­4. R2­ gấp đôi R3 và R1 gấp đôi R2. Dễ thấy rằng, để cho DAC chính xác, trị giá các điện trở cần thật chính xác.</para>
+      <table id="id6447352" summary="">
+        <tgroup cols="6">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <colspec colnum="4" colname="c4"/>
+          <colspec colnum="5" colname="c5"/>
+          <colspec colnum="6" colname="c6"/>
+          <tbody>
+            <row>
+              <entry/>
+              <entry>Vàonhị phân </entry>
+              <entry>Ra Tương tự </entry>
+              <entry/>
+              <entry>Vào Nhị phân </entry>
+              <entry>Ra Tương tự </entry>
+            </row>
+            <row>
+              <entry>Hàng </entry>
+              <entry>D C B A</entry>
+              <entry>V0</entry>
+              <entry>Hàng </entry>
+              <entry>D C B A</entry>
+              <entry>V0</entry>
+            </row>
+            <row>
+              <entry>12345678</entry>
+              <entry>0 0 0 00 0 0 10 0 1 00 0 1 10 1 0 00 1 0 10 1 1 00 1 1 1</entry>
+              <entry>00.40.81.21.62.02.42.8</entry>
+              <entry>910111213141516</entry>
+              <entry>1 0 0 01 0 0 11 0 1 01 0 1 11 1 0 01 1 0 11 1 1 01 1 1 1</entry>
+              <entry>3.23.64.04.44.85.25.66</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6447982">Bảng sự thật của một DAC</para>
+      <para id="id6447988">8 4 2 1Vào nhị phân Đóng khi bit=1Mở khi bit=0<figure id="id6406136"><media id="id4327671" alt=""><image src=".wmf" mime-type="image/wmf" height="207" width="406"/></media></figure>Mạng điện trởV020KHình 7.13. Sơ đồ mạch DAC</para>
+      <para id="id6406297">Khi số nhị phân vào là 0000, cả 4 ngắt điện đều mở (ứng với hàng 1 của bảng sự thật). Vi=0 nên V0=0.</para>
+      <para id="id6406317">Bây giờ ta xem hàng 2 của bảng sự thật, số nhị phân vào là 0001, chỉ có ngắt A đóng. Độ lợi tương ứng là:</para>
+      <para id="id6406327">Av =<media id="id4327729" alt=""><image src="graphics18.wmf" mime-type="image/wmf" height="50" width="135"/></media></para>
+      <para id="id6406374">Điện thế ra: V0 =Vi xAv =3x0.133= 0.4v.</para>
+      <para id="id6406390">Tương tự, nếu số nhị phân vào là 0010 (hàng 3 của bảng), chỉ có ngắt B đóng:</para>
+      <para id="id6406399">Av=<figure id="id6406413"><media id="id4327790" alt=""><image src="graphics19.wmf" mime-type="image/wmf" height="50" width="129"/></media></figure></para>
+      <para id="id6406437">Điện thế ra: V0 =Vi xAv=3x0.266=0.8v.</para>
+      <para id="id6406453">Xem hàng 7 của bảng sự thật, số nhị phân vào 0110, hai ngắt C và B đều đóng. Chúng đấu song song, nên trong trường hợp này Ri là:</para>
+      <para id="id6406469"> Ri =<figure id="id6406484"><media id="id4327853" alt=""><image src="graphics20.wmf" mime-type="image/wmf" height="49" width="183"/></media></figure></para>
+      <para id="id6406508">  Av=<figure id="id6406522"><media id="id4327891" alt=""><image src="graphics21.wmf" mime-type="image/wmf" height="50" width="113"/></media></figure></para>
+      <para id="id6406546">V0 =Vi x Av=3x0.8=2.4v</para>
+      <para id="id6406564">Cuối cùng, ta xem hàng 16:</para>
+      <para id="id6406570">Ri =<figure id="id6406583"><media id="id4327951" alt=""><image src="graphics22.wmf" mime-type="image/wmf" height="47" width="186"/></media></figure>.</para>
+      <para id="id6406608">Dễ dàng để tính kết quả V0­=6v.</para>
+      <para id="id6406620">Để thay đổi thang điện thế ra, ta chỉ cần thay đổi trị giá của điện trở hồi tiếp R­f.</para>
+      <para id="id6406632">VIỄN THÔNG MÃ HÓA( coded communication).</para>
+      <para id="id6406638">Ta đã thấy, một tín hiệu digital bao gồm một danh mục các số, trong đó mỗi số có thể lấy chỉ một số hữu hạn của các trị giá. Danh mục các số không chính xác bằng với các trị mẫu gốc, mà chỉ là những phiên bản làm tròn của các trị này. Như vậy, khi chuyển đổi từ analog thành digital, tín hiệu kết quả không thể dùng để tái tạo một cách hoàn toàn tín hiệu analog nguyên thủy. Vậy tại sao ta muốn đổi một tín hiệu analog thành digital ? Phần sau đây sẽ trả lời vấn đề quan trọng này.</para>
+      <para id="id6406664">Tiếng trống hay khói của thổ dân Châu Mỹ là một trong nhiều thí dụ về viễn thông digtal. Tín hiệu trống truyền đi xa hơn tiếng nói vì nơi tiếp nhận chỉ cần phân biệt một loại âm thanh trên nhiều nền ( background noise ). Những tín hiệu audio phức tạp sẽ khó phân biệt hơn trên mỗi nền nhiễu dọc theo đường truyền. Điện tín với những chuỗi chấm và gạch để đánh vần cho một từ được truyền, là một dạng viễn thông digital. Máy thu dễ phân biệt những thời khoảng ( Duration ) dài ngắn khác nhau của tín hiệu. Điện tín hiện nay dùng kỹ thuật mã hoá và giãi mã tín hiệu, nhờ một Operator. Operator đọc ( hay nghe ) bản tin và đổi mỗi chữ thành mã Morse. Ở máy thu, khi nhận một bản tin, operator sẽ thực hiện ngược lại. Vận tốc truyền được kiểm soát cẩn thận để không vượt quá vận tốc giới hạn của keyer.</para>
+      <para id="id6406698">Có 3 lý do chính cần phải mã hoá thông tin :</para>
+      <para id="id6406704">1. Kênh truyền ( thường là không khí ) bị ô nhiễm bởi quá nhiều tín hiệu điện, khiến cho sự thông tin " tự do nhiễu " ( noise - free ) trở nên rất khó khăn. Tín hiệu luôn bị làm sai lạc do nhiễu và các dạng giao thoa khác. Những kỹ thuật sửa sai sự méo do nhiễu thường không hiệu quả nhiều. Vậy khi thu được một tín hiệu bị làm thay đổi bởi nhiễu và các tín hiệu khác, phải có những biện pháp tách nhiễu ra khỏi tín hiệu. Điều này cần đến việc tín hiệu phải có những dạng đặc trưng để phân biệt. Nhưng hầu hết tín hiệu Analog không có dạng như thế.</para>
+      <para id="id6406733">2. Lý do thứ hai cho sự nhấn mạnh lần nữa về viễn thông mã hoá digital là sự thay đổi qui cách của các tín hiệu thông tin. Nhiều năm trước đây, tín hiệu tín hiệu thông tin chiếm ưu thế là tín hiệu audio ( có tần số bị giới hạn trong dãi tần thính cảm của tai người ). Nhưng ngày nay, ta có thể thấy những thiết bị truyền dữ liệu từ nơi này đến nơi khác với những thông tin khác biệt xa với sóng audio. Nên những yêu cầu đặt ra cho 1 hệ thống viễn thông hiện nay thì phức tạp hơn rất nhiều so với hệ viễn thông truyền tín hiệu tiếng nói.</para>
+      <para id="id6406760">3. Mặc dù việc xây dựng một mạch Analog thì dễ hơn so với một mạch digital, nhưng so với tiến bộ của ngành điện tử bán dẫn và công nghệ IC đã làm đảo ngược lại. Lý do thứ ba, không chỉ vì các mạch digital thì đáng tin cậy hơn mà trong nhiều trường hợp rất rõ hơn. Việc chế tạo dễ dàng các IC digital cho các mạch phức tạp đã mở ra những khả năng bao quát hơn.</para>
+      <para id="id6406775">Trong một hệ thống viễn thông mã hoá, ta truyền một "từ" từ một từ vựng ( dictionary ) của các từ bản tin có thể chấp nhận được. Từ ( word ) thu được không chính xác giống như từ trong từ vựng, vì khi truyền nó bị tác động bởi sự méo và nhiễu. Nếu sự sai lạc không lớn lắm, ta thử phỏng định với từ mà từ vựng đã gửi. Đó là điểm căn bản của thông tin mã hoá.</para>
+      <para id="id6406795">Tiếng nói con người có nhiều tính chất giống một hệ thông tin digital. Khi ta nói, mỗi gói năng lượng ( giữa những lần tạm dừng ) trình bày một tín hiệu lấy ra từ một từ vựng khoảng 25.000 từ ( tuỳ vào số từ trong vốn ngữ vựng của từng người ). Giả sử ta truyền một từ đến một người khác, cái mà kia nhận được không phải là một bản sao hoàn hảo của từ trong từ vựng. Tín hiệu có thể bị méo, bi sai lệch do nhiễu chen vào. Người nhận sẽ nhanh chóng so sánh nó với 25.000 từ trong từ vựng và chọn một từ gần giống với nó nhất. Bằng cách đó, nhiều sai sót có thể được sửa. ( Ta đã đơn giản hoá khả năng của " máy tính người ". Thực ra không chỉ có thế, ta còn xem xét tín hiệu nhận được trong mạch văn của những thông tin nhận được trước đó ).</para>
+      <para id="id6406825">Loại mã hoá thông tin thông dụng nhất là nhị phân. Ta đổi tín hiệu chứa tin Analog thành một chuỗi các bit 1 và 0 ( mà ta đã biết cách thực hiện ở phần trước ).</para>
+      <para id="id6406837">Xem kênh mà ngõ vô của nó là hoặc 0 hoặc 1 và ngõ ra là 0 hoặc 1 ( Hình 7.14 ). Bên trái là ngõ vô. Bên phải, ngõ ra. Những đường ngang chỉ sự thu đúng bit, còn những đường chéo chỉ bit - error. </para>
+      <figure id="id6406852">
+        <media id="id4328204" alt=""><image src="graphics23.png" mime-type="image/png" height="169" width="270"/></media>
+      </figure>
+      <para id="id6406876">Hình 7.14: Kênh nhị phân</para>
+      <para id="id6406886">Trên mỗi đường ta chỉ một xác xuất. Pij là xác xuất của sự thu nhận i khi j được gửi đi. Thí dụ, P10 là xác xuất khi một 0 được truyền và nhận sai ở máy thu là 1.</para>
+      <para id="id6406904">Nếu ta gửi một 1, máy thu phải nhận hoặc 0 hoặc 1. Tương tự như vậy nếu ta gửi một 0. Vậy: </para>
+      <para id="id6406912">P10 + P00 = P01 + P11 = 1. </para>
+      <para id="id6406938">Dĩ nhiên ta sẽ thích có một kênh mà P10 = P01 = 0 ( Và hậu quả là P11 = P00 = 1 ).</para>
+      <para id="id6406948">Phần lớn các hệ viễn thông digital đều có tính chất là P10 = P01 ( và hậu quả, P11 = P00 ). Điều này chỉ rằng xác xuất của sự truyền 1 được nhận sai là 0 thì bằng với xác xuất của sự truyền 0 và được nhận sai là 1. Một kênh có tính chất đó được gọi là kênh đối xứng nhị phân. ( Binary Symetric Channel - BSC ). Hình 7.14b chỉ đặt P10 = P01 = P rồi, P00 = P11 = 1 - P.</para>
+      <para id="id6407017">Giả sử ta muốn truyền một tín hiệu đến một khoảng cách xa. Trong viễn thông Analog, ta sẽ đặt nhiều mạch khuếch đại dọc theo đường truyền. Tỷ số S/N tại ngõ ra của mỗi mạch khuếch đại thì không lớn hơn tại ngõ vô (thực tế, nó nhỏ hơn là do nhiễu cộng thêm vào). Vậy, nhiễu ngày càng lớn hơn khi khoảng cách gia tăng.</para>
+      <para id="id6407031">Bây giờ, ta giả sử đổi tín hiệu Analog thành digital gồm một chuỗi bit gồm 0 và 1. Hơn nữa, giả sử rằng ta có thể mô hình hóa kênh như là BSC. Ta tìm xác xuất toàn thể của error ( còn gọi là nhịp độ sai bit ):</para>
+      <para id="id6407036">Pe = P [ PR(1) ] + P [ PR(0) ](7.1)</para>
+      <para id="id6363266">PR(1) là khoảng thời gian khi gửi 1. Số hạng thứ nhất của phương trình là khoảng thời gian mà ta gửi 1 và nhận 0. Số hạng thứ hai là khoảng thời gian truyền khi ta gửi 0 và nhận 1. Đó chỉ là 2 cách xử lý bit error. Vì PR(1) + PR(0) = 1.</para>
+      <para id="id6363281">Ta có:</para>
+      <para id="id6363285">Pe = P [ PR1(1) ] + P [ PR(0) ] = P(7.2)</para>
+      <para id="id6363302">Bây giờ giả sử P không được cao. Một cách để cải thiện là làm giảm khoảng cách giữa đài phát và máy thu. Giả sử ta đặt một trạm giữa hai trạm gốc. Ta sẽ có một vị trí như hình 7.15.</para>
+      <figure id="id6363318">
+        <media id="id4328406" alt=""><image src="graphics24.png" mime-type="image/png" height="129" width="201"/></media>
+      </figure>
+      <para id="id6363342">Hình 7.15: Nối tiếp đôi 2 BSC</para>
+      <para id="id6363353">P' là xác xuất error cho mỗi BSC mới. Vì khoảng cách là phân nữa, P' sẽ nhỏ hơn P. Liên hệ giữa khoảng cách và bit error thì phi tuyến, nên sự cắt khoảng cách làm hai sẽ cắt bit error bởi một hệ số lớn hơn 2. Trạm ở giữa gọi là một Repeater.</para>
+      <para id="id6363372">Xác xuất toàn thể của bit error của hệ thống " hai bước nhảy " là tổng của xác xuất của một error trên bước thứ nhất và error trên bước thứ nhì. Nếu ta làm hai error ( một error cho mỗi bước ) thì bit error được cho bởi :</para>
+      <para id="id6363385">Pe = 2p' ( 1 - p' ) (7.3)</para>
+      <para id="id6363398">Xác suất error đối với một bước nhảy duy nhất thì thường bé. Những số tiêu biểu từ p' = 10- 3 đến p' = 10-10. Phương trình (7.3) thì được tính xấp xĩ:</para>
+      <para id="id6363419">Pe  2P' (7.4)</para>
+      <para id="id6363438">Vì P' thường nhỏ hơn <figure id="id6363443"><media id="id4328524" alt=""><image src="graphics25.wmf" mime-type="image/wmf" height="32" width="25"/></media></figure>, ta đã cải thiện bit error bằng cách cộng thêm Repeater.</para>
+      <para id="id6363470">Phương trình (7.4) có thể tổng quát hoá cho số bước nhảy (hop) bất kỳ, và các bước không cần có nhịp error bằng nhau. Một cách tổng quát, error toàn thể trong 1 hệ nhiều bước thì xấp xĩ bằng với tổng của các error thành phần. Khái niệm về repeater là sự phân biệt lớn nhất giữa viễn thông analog và viễn thông digital.</para>
+      <para id="id6363485">BIẾN ĐIỆU MÃ XUNG - PCM ( Pulse code modulation )</para>
+      <para id="id6363491">PCM là một áp dụng trực tiếp chuyển đổi A/D.</para>
+      <para id="id6363497">Giả sử biên độ của mỗi xung trong một hệ PAM thì được làm tròn đến một mức có thể. Giả sử, trước hết hàm thời gian gốc (Analog) được làm tròn cho dạng sóng hình bậc thang như hình 7.16. Kế đó, ta lấy mẫu hàm bậc thang và truyền các mẫu theo cách biến điệu biên độ xung ( PAM ). Sự làm tròn được hiểu như là sự lượng tử hoá, và nó sẽ gây ra một error ( nhiễu lượng tử hoá ). Đó là, sự xấp xĩ bậc thang thì không giống hệt hàm gốc và sự sai biệt giữa chúng là một error.</para>
+      <para id="id6363522">Bảng tự vựng các độ cao của xung PAM được thu gọn để chỉ bao gồm các mức lượng tử riêng biệt. Một xung thu nhận được sẽ so sánh với các xung có thể được truyền và nó được giãi mã thành tự vựng giống nhất với tín hiệu thu được. Với cách này, những error nhỏ được sửa sai. </para>
+      <para id="id6363544">Khả năng sửa error là lý do lớn nhất để lượng tử hoá tín hiệu. Thí dụ, giả sử ta muốn truyền một tín hiệu đến một khoảng cách xa trên cáp đồng trục. Nếu tín hiệu được truyền theo kiểu PAM thông thường nhiễu sẽ chen vào theo đường truyền và nhiễu cộng thêm vào mỗi mạch khuếch đại ( có nhiều mạch khuếch đại cần đến trên đường truyền để chống lại sự suy giảm dọc theo đường ).</para>
+      <para id="id6363559">Nếu cũng tín hiệu đó, bây giờ ta truyền bằng cách dùng PAM lượng tử hoá. Trong vài điều kiện, hầu hết error sẽ được sửa sai. Nếu những repeater được đặt sao cho nhiễu chen vào giữa bất kỳ hai trạm thì nhỏ hơn một nữa của cở bước của bậc thang. Mỗi repeater sẽ giữ hàm đến dạng bậc thang gốc trước khi khuếch đại và gửi đi.</para>
+      <para id="id6363573">Đó là, mỗi repeater sẽ làm tròn mỗi xung nhận được đến mức gần nhất có thể chấp nhận được và rồi truyền đi. </para>
+      <para id="id6363591">Sự lượng tử hoá làm tròn các mức dùng làm bậc thang giống tín hiệu mong muốn. Số mức xác định độ phân giải ( Resolution ) tín hiệu. Đó là, một sự thay đổi nhỏ cở nào trong mức tín hiệu có thể được phân tích bằng cách nhìn phiên bản lượng tử hoá của tín hiệu. </para>
+      <para id="id6363616">Nếu cần độ phân giải cao, số mức lượng tử hoá phải tăng. Lúc ấy, khoảng cách giữa các mức giảm. Vì tự vựng các từ rất khít nhau, nhiễu giảm.</para>
+      <figure id="id6363630">
+        <media id="id4328704" alt=""><image src="graphics26.jpg" mime-type="image/jpeg" height="147" width="311"/></media>
+      </figure>
+      <para id="id6363654">Hình 7.16: Tiến trình lượng tử hoá</para>
+      <para id="id6363660">Nếu độ phân giải được cải thiện mà không làm tăng cở tự vựng ( không di chuyển các từ khít nhau ), sự sửa error sẽ được giữ nguyên PCM là phương pháp để thực hiện điều đó.</para>
+      <para id="id6363672">Trong một hệ thống PCM, tự vựng của các tín hiệu truyền chỉ chứa hai, 0 và 1. Các mức lượng tử hoá được mã hoá thành các số nhị phân. Vậy, nếu có 8 mức lượng tử hoá, thì những trị được mã hoá thành các số nhị phân 3 bit. Ba xung sẽ được cần để gửi mỗi trị lượng tử. Mỗi xung biểu diễn hoặc 0 hoặc 1. Điều đó giống như khái niệm của ADC. Hình 7.17 biểu diễn s(t) và dạng sóng của PCM 2 bit và 3 bit. </para>
+      <figure id="id6363713">
+        <media id="id4328779" alt=""><image src="graphics27.jpg" mime-type="image/jpeg" height="347" width="349"/></media>
+      </figure>
+      <para id="id6363737">Hình 7.17: PCM</para>
+      <para id="id6363747">Một xung dương biểu diễn cho bit 1 và một xung Zero biểu diễn bit 0.</para>
+      <list id="id6363779" list-type="enumerated">
+        <item>Hoàn điệu BCM thì đơn giản là một DAC. Khối biến điệu và hoàn điệu thường là IC LSI và được gọi tên là CODEC ( coder decoder ).</item>
+        <item>Multiplexing chia thời gian ( TDM ):</item>
+      </list>
+      <para id="id6363804">Khái niệm TDM đã được triển khai ở chương 6. Ta chỉ cần cải biến một ít. Vì mỗi mẫu, thay vì dùng một xung để truyền, bây giờ cần một số xung bằng số bit của sự lượng tử hoá. Thí dụ, với PCM 6 bit, 6 xung phải được truyền trong mỗi chu kỳ lấy mẫu.</para>
+    </section>
+    <section id="id-082732074482">
+      <title>LƯỢNG TỬ HÓA KHÔNG ĐIỀU ĐẶN ( Nonuniform Quantization )</title>
+      <para id="id6363831">Lượng tử hoáS(t)Sq(t)inputouputS1S2Sn<figure id="id6364074"><media id="id4328907" alt=""><image src="graphics28.png" mime-type="image/png" height="311" width="640"/></media></figure></para>
+      <para id="id6364098">Hình 7.18 sự lượng tử hoá</para>
+      <para id="id6364103">Hình 7.18a, vẽ sự lượng tử hoá đều đặn. Khoảng của các trị mẫu được chia thành những vùng lượng tử mà mỗi vùng có cùng cở với các vùng khác. Thí dụ, với sự lượng tử hoá 3 bit ta chia toàn thể các trị mẫu thành 8 vùng bằng nhau.</para>
+      <para id="id6364117">Trong một vài trường hợp, ta lại có thể dùng sự lượng tử hoá không đều đặn. Các khoảng lượng tử hoá thì không hoàn toàn cùng cở với nhau. ( Hình 7.18 b ). </para>
+      <para id="id6364128">Hàm lượng tử hoá hình 7.18b có tính chất là các khoảng cách giữa các mức lượng tử thì không đều. Và những mức output thì không phải là điểm giữa của mỗi khoảng.</para>
+      <para id="id6364144">Giả sử trong một đoạn nhạc, điện thế của tín hiệu 1 nằm trong khoảng -2 đến +2. Nếu ta dùng lượng tử hoá đều đặn 3 bit, thì tất cả điện thế giữa 0 và <figure id="id6364155"><media id="id4329005" alt=""><image src="graphics29.wmf" mime-type="image/wmf" height="43" width="17"/></media></figure>V được mã hoá thành cùng một code word là 100. Mã này tương ứng với output được tái tạo có trị là <figure id="id6364185"><media id="id4329036" alt=""><image src="graphics30.wmf" mime-type="image/wmf" height="43" width="17"/></media></figure>V. Tương tự, tất cả các mẫu nằm giữa 1,5 và 2 V được mã hoá thành code word duy nhất là 111, tương ứng với một trị output được tái tạo là <figure id="id6364216"><media id="id4329067" alt=""><image src="graphics31.wmf" mime-type="image/wmf" height="43" width="17"/></media></figure>V. Với nhạc " Soft " tín hiệu có thể không vượt quá <figure id="id6364243"><media id="id4329097" alt=""><image src="graphics32.wmf" mime-type="image/wmf" height="43" width="17"/></media></figure>V trong một quảng dài, nên độ rõ của nhạc sẽ bị mất. Sự lượng tử hoá đều đặn cho cùng một độ phân giải ở các mức cao cũng như thấp.</para>
+      <para id="id6364274">Hình 7.18b: </para>
+      <para id="id6364279">Si: Vùng lượng tử hóa.</para>
+      <para id="id6364285">Sqi: Trị làm tròn.</para>
+      <para id="id6364291">Ta thấy ( ở phần sau ) một khi các vùng lượng tử hóa đã được chọn, các trị làm tròn cũng được chọn, là trọng tâm ( center of gravity ) của phần tương ứng của mật độ xác xuất.</para>
+      <para id="id6364303">Hình 7.19 chỉ một thí dụ biểu diễn cho hàm mật độ xác xuất ( giống như mật độ Gauss ). Ta chia nó làm 8 vùng đều nhau ( từ S0 đến S8 ). Nếu các vùng lượng tự hóa đã cho thì các trị làm tròn sẽ xấp xĩ gần như là trọng tâm của mỗi vùng ( các Sqi ).</para>
+      <figure id="id6605376">
+        <media id="id4329194" alt=""><image src="../../media/graphics33.jpg" mime-type="image/jpeg" height="180" width="311"/></media>
+      </figure>
+      <para id="id6605400">Hình 7.19: Mật độ xác xuất tín hiệu</para>
+      <para id="id6605411">Mặc dù tai người kém nhạy đối với những thay đổi ở các mức cao hơn. Đáp ứng của tai người thì không tuyến tính. Vì vậy, ta có thể dùng cách lượng tử hoá không đều: Các bước lượng tử hoá nhỏ ở những mức thấp và các bước lượng tử hoá lớn hơn ở những mức cao hơn.</para>
+      <list id="id6605432" list-type="enumerated">
+        <item>Nén và giải nén (Companding)</item>
+      </list>
+      <para id="id6605445">Dạng phổ biến nhất của LTH không đều đặn là " companding " thuật ngữ này lấy từ các thuật ngữ " compressing &amp; expanding " ( nén &amp; giại nen).</para>
+      <para id="id6605454">Việc xử lý như hình 7.20. Tín hiệu gốc được nén bằng các dùng 1 linh kiện phi tuyến không nhớ. Sau đó, tín hiệu bị nén được lượng tử hoá đều đặn. Sau khi được truyền đi, tín hiệu được giãi mã và phải được trương bằng cách dùng một hàm phi tuyến ngược lại với hàm đã dùng khi nén.</para>
+      <para id="id6605468">Compression amplifierF(x)Uniform quantizerExpansion amplifierF-1(x)Nonuniform quantizerDecoderDecoderHình 7.20: Companding</para>
+      <para id="id6605754">- Trước hết, ta phân giải tiến trình nén. Trước khi LTH, tín hiệu bị làm biến dạng bởi 1 hàm tương tự như thấy ở hình 7.21. Nó nén những trị lớn của input trong lúc nó làm tăng những trị nhỏ hơn. Nếu một tín hiệu analog đưa vào mạch nén, rồi output được LTH đều đặn, thì kết quả sẽ tương đương với sự LTH với các bước bắt đầu nhỏ và dần lớn hơn đối với các mức tín hiệu cao hơn ( hình 7.21 ). Ta chia output của mạch nén làm 8 vùng bằng nhau. Hàm được dùng để chuyển đổi các giới hạn của những vùng này thành hoành độ ( biểu diễn tín hiệu vào không bị nén ). Nhớ là các vùng trên trục 1 bắt đầu nhỏ và lớn hơn khi những trị của s gia tăng.</para>
+      <figure id="id6605785">
+        <media id="id4329342" alt=""><image src="graphics34.jpg" mime-type="image/jpeg" height="253" width="304"/></media>
+      </figure>
+      <para id="id6605809">Hình 7.21: Phương thức nén</para>
+      <para id="id6605820">Áp dụng tiêu biểu nhất của Companding là truyền tiếng nói. Bắc Mỹ và Nhật sử dụng một đường cong chuẩn, gọi là " Compading " theo luật . Châu Âu có kiểu khác hơn, gọi là Alaw Compading.</para>
+      <para id="id6605835">Công thức nén .law </para>
+      <para id="id6605845">F(S) = sgn(s)<figure id="id6605850"><media id="id4329420" alt=""><image src="graphics35.wmf" mime-type="image/wmf" height="50" width="89"/></media></figure></para>
+      <para id="id6605874">Hàm này được vẽ cho vài trị đã chọn lựa của .</para>
+      <para id="id6605886">Thông số  định nghĩa là độ cong của hàm. Trị thường dùng nhất:  = 255.</para>
+      <figure id="id6605907">
+        <media id="id4329473" alt=""><image src="graphics36.jpg" mime-type="image/jpeg" height="263" width="279"/></media>
+      </figure>
+      <para id="id6605931">Hình 7.22: Nén theo luật . ( . Law Compeding ).</para>
+      <para id="id6605948">* Một cách để sử dụng mạch Companding 255 là mô phỏng một hệ phi tuyến có đường cong liên hệ vào/ ra giống như đương cong 255. Rồi cho những trị mẫu vào hệ thống và lượng tử hoá đều đặn tín hiệu ra bằng cách dùng một mạch A/D 8 bit.</para>
+      <para id="id6605974">* Một cách khác là tính xấp xĩ đường cong 255 bằng cách tuyến tính hoá từng phần, như hình 7.23. Ta chỉ vẽ phần dương của input. Đường cong là một hàm lẽ. Ta tính xấp xĩ phần dương của đường cong bằng 8 đoạn thẳng. Ta chia phần output dương thành 8 đoạn bằng nhau ( Hậu quả là chia input thành 8 vùng không bằng nhau ). Trong mỗi đoạn này, ta lượng tử hoá 4 bit. Vậy mỗi vùng ( của 8 vùng input ) đã được chia làm 16 vùng phụ, tổng cộng là 128 vùng cho mỗi phía của trục. Vậy ta có 256 ( =28 ) vùng, tương ứng với sự LTH 8 bit. </para>
+      <figure id="id6606041">
+        <media id="id4329556" alt=""><image src="graphics37.jpg" mime-type="image/jpeg" height="312" width="593"/></media>
+      </figure>
+      <para id="id6606065">Hình 7.23: Sự tính xấp xĩ tuyến tính hóa từng phần 255.</para>
+      <para id="id6606077">* Kỹ thuật gửi 1 trị mẫu là gửi 8 bit mã hoá như sau :</para>
+      <para id="id6606084">- 1 bit được dùng để chỉ cực tính của mẫu: 1 cho dương và 0 cho âm.</para>
+      <para id="id6606091">- 3 bit dùng để nhận dạng trị mẫu nằm trong đoạn tuyến tính hoá nào.</para>
+      <para id="id6606098">- 4 bit dùng để nhận dạng mức LTH trong mỗi vùng lấy mẫu sự quan hệ logarithm của luật 255 đưa đến sự phụ thuộc thú vị giữa 8 đoạn:</para>
+      <list id="id6606115" list-type="enumerated">
+        <item>Mỗi đoạn trên trục input thì rộng gấp đôi đoạn bên trái của nó. Độ phân giải của đoạn thứ nhất, như vậy, sẽ gấp đôi đoạn kế tiếp. Và cứ thế.</item>
+      </list>
+      <para id="id6606141">Vùng thứ 6 ( kể từ gốc ) trên trục input gồm một khoảng có độ phân giải cho các trị mẫu bằng với độ phân giải của LTH đều đặn dùng A/D 8 bit.</para>
+      <para id="id6606156">Độ phân giải của vùng bên trái của nó giống như của LTH đều đặn 9 bit.</para>
+      <para id="id6606162">Tương tự, cứ dịch về bên trái, mỗi vùng có độ phân giải của 1 mạch LTH đều đặn nhiều hơn 1 bit so với vùng kế cận.</para>
+      <para id="id6606171"/>
+      <para id="id6606176">KỸ THUẬT BIẾN ĐIỆU LUÂN PHIÊN (alternate modulation techniques).</para>
+      <para id="id6606183">Trong kỹ thuật biến điệu mã hoá nguồn tin bằng phương pháp PCM, mỗi trị mẫu được mã hoá bằng một số nhị phân. Mã nhị phân này có khả năng biểu diễn các trị mẫu đo được trong toàn thể phạm vi động này. Ví dụ như nếu ta bắt đầu với một tín hiệu nằm trong khoảng từ –5 đến +5 V, mã phải có khả năng chỉ định được các trị mẫu trong khoảng 10 V. Kết quả nhiễu lượng tử phụ thuộc vào khoảng động này.</para>
+      <para id="id6606198">Nếu ta có thể bằng cách nào đó thu nhỏ khoảng động đã đề cập ở trên, tín hiệu nhiễu có thể được cải thiện (ví dụ như sai số làm tròn được giảm xuống). Các dạng nguồn tín hiệu mã hoá thay đổi luân phiên hoạt động dựa trên nguyên lý này.</para>
+      <list id="id6606214" list-type="enumerated">
+        <item>BIẾN ĐIỆU DELTA (delta modulation)</item>
+      </list>
+      <para id="id6606231">Biến điệu delta là một kỹ thuật đơn giản thu nhỏ khoảng động các số được mã hoá. Thay vì truyền mỗi trị mẫu độc lập, ta sẽ truyền hiệu số giữa một mẫu và mẫu trước đó. Nếu việc lấy mẫu với nhịp Nyquist, hiệu số này có một khoảng động rộng gấp đôi các mẫu nguyên thuỷ. Bởi vì với nhịp Nyquist, mỗi mẫu sẽ độc lập với mẫu trước đó. Hai mẫu kề nhau có thể nằm ở biên độ nhỏ nhất và lớn nhất. Tuy nhiên, nếu ta lấy mẫu ở tốc độ cao hơn nhịp Nyquyst, các mẫu này có liên quan với nhau và khoảng động của sự khác nhau giữa hai mẫu, nhỏ hơn so vớichính bản thân của mẫu đó. Nếu kết quả lấy mẫu ở một tốc độ nhanh hơn (nhưng thu nhỏ khoảng động), ta có thể truyền thông tin bằng cách dùng một vài bít nhị phân (giống như lượng tử hoá nhiễu).</para>
+      <para id="id6606267">Biến điệu Delta lượng tử hoá hiệu số này bằng cách chỉ sử dụng một bit. Ví dụ như bít 1 sẽ được gửi nếu hiệu số là dương và bít 0 được gửi nếu hiệu số là âm. Sự khác nhau giữa hai mẫu được mã hoáchỉ bằng một trong hai mức. Ta gọi hai khả năng đó là +  hoặc - . Tại mỗi thời điểm lấy mẫu, dạng sóng được lượng tử hoá chỉ có thể hoặc là tăng hoặc là giảm bằng số .</para>
+      <para id="id6606305">Hình 7.24 trình bày một dạng sóng analog điển hình và kết quả lượng tử hoá của nó. Vì dạng sóng được lượng tử hoá, chỉ có thể hoặc là tăng hoặc là giảm bởi  ở tại mỗi điểm lấy mẫu nên ta lấy gần đúng các trị bậc thang cho dạng sóng analog. Ta sẽ kiểm tra việc lựa chọn tốc độ lấy mẫu và kích thước cỡ bước trong phầnsau. Nếu bậc thang ở dưới trị mẫu analog, ta sẽ tăng chiều dương (và được gọi là một bước lên). Nếu nấc thang ở trên trị mẫu, ta sẽ tăng theo chiều âm (được gọi là một bước xuống). Các bit được truyền trong ví dụ trên hình 7.24 là:</para>
+      <para id="id6606339">1 1 1 1 1 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 0</para>
+      <figure id="id6606346">
+        <media id="id4329858" alt=""><image src="graphics38.jpg" mime-type="image/jpeg" height="131" width="323"/></media>
+      </figure>
+      <para id="id6606370">Hình 7.24 Biến điệu delta</para>
+      <para id="id6606375">Hệ thống thu sẽ tái tạo lại bậc thang gần đúng trực tiếp từ thông tin nhị phân nhận được. Nếu nhận được giá trị1, khối hoàn điệu sẽ tăng lên một bậc theo chiều dương. Còn nếu nhận được giá trị 0, sẽ giảm một bậc tương ứng (tăng theo chiều âm).</para>
+      <para id="id6606391">Mạch phát tín hiệu bậc thangaso sánhba&gt;ba&lt;bmẫus(t)+ step- stepSự diễn giải ở trên dẫn đến một bộ lượng tử hoá đơn giản sử dụng bộ so sánh (comparator) và khối phát hàm bậc thang (staircase generator). Bộ biến đổi A/D được trình bày như hình 7.25.</para>
+      <para id="id6493564">Hình 7.25 Khối biến điệu DM</para>
+      <para id="id6493570">Chìa khoá để dùng biến điệu delta có hiệu quả là sự chọn lựa thông minh hai thông số: cỡ bước (size step) và tốc độ lấy mẫu. Những thông số này phải được chọn sao cho tín hiệu bậc thang gần với dạng sóng analog thực tế. Bởi vì tín hiệu có một tần số trên xác định, nên ta biết được tốc độ nhanh nhất khi nó thay đổi. Tuy nhiên, để tính toán tốc độ nhanh nhất có thể của tín hiệu, tần số lấy mẫu và/hoặc cỡ bước phải tăng. Việc tăng tần số lấy mẫu dẫn đến kết quả trong dạng sóng biến điệu delta phải khổ băng rộng hơn. Tăng cỡ bước sẽ làm tăng sai số lượng tử hoá.</para>
+      <para id="id6493597">Hình 7.26 trình bày hậu quả của cở bước sai. Nếu các bậc quá nhỏ, ta sẽ gặp một điều kiện quá tải dốc (slope overload) mà ở đó các bậc thang không thể lần ra dấu vết của những sự thay đổi quá nhanh trong tín hiệu analog. Vì thế, độ dốc lớn nhất mà bậc thang có thể nhận ra là /Ts. Ngược lại, nếu các bậc này quá lớn, xảy ra sự quá đà đáng kể trong suốt chu kỳ khi tín hiệu không thay đổi nhanh. Trong trường hợp đó, ta có nhiễu lượng tử hóa s(t)Lượng tử hoátBước quá nhỏvà được gọi là nhiễu hạt (Granular Noise).Lượng tử hoás(t)t</para>
+      <para id="id6494672">Hình 7.26 Sự lựa chọn không đúng của kích thươc trong DM</para>
+      <para id="id6494679">Biến điệu delta sử dụng tiến trình mã hoá nguồn tin, và nó sử dụng bộ nhớ để giảm khoảng động. Trong mộtvài bối cảnh, chúng có thể lưu trữ các mức giống nhau như PCM với một vài bit được truyền trong mỗi giây. Tuy nhiên, vì hệ thống có bộ nhớ nên các lỗi truyền bit sẽ được cải thiện. Trong PCM, một lỗi bit truyền gây ra một lỗi trong việc sắp xếp lại cấu trúc giá trị mẫu có liên quan. Lỗi chỉ ảnh hưởng lên mẫu được sắp xếp lại. Nếu một lỗi bit xảy ra trong biến điệu delta, bộ biến đổi A/D trong hệ thống thu sẽ bước lên thay vì bước xuống (hoặc ngược lại) và tất cả các giá trị sau đó chứa một lỗi offset gấp đôi cở bước. Nếu một lỗi bit xảy ra theo hướng ngược lại, lỗi offset bị triệt. Và nếu lỗi offset có vấn đề, hệ thống cần thiết khởi động lại từ mức tham chiếu (thường là zero).</para>
+      <list id="id6494725" list-type="enumerated">
+        <item>BIẾN ĐIỆU DELTA THÍCH NGHI (adaptive delta modulation).</item>
+      </list>
+      <para id="id6494749">Ta đã trình bày cỡ bước thích hợp để sử dụng trong biến điệu delta phụ thuộc vào yếu tố: làm sao để tín hiệu thay đổi nhanh từ mẫu này sang mẫu kế tiếp. Khi tín hiệu thay đổi nhanh, cỡ bước lớn hơn sẽ tránh được quá tải. Còn khi tín hiệu thay đổi chậm, cỡ bước nhỏ hơn sẽ thu nhỏ bước quá đà (overshoot) và như thế giảm nhiễu hạt.</para>
+      <para id="id6494764">Biến điệu delta thích nghi là một phương pháp cho phép điều chỉnh cỡ bước phụ tuỳ vào các đặc điểm của tín hiệu tương tự. Tiêu chí của nó là, hệ thống thu có khả năng thích nghi với các cở bước một cách chính xác giống như ở hệ thống phát. Nếu không, thiết bị thu không hồi phục tín hiệu được phát gốc đã lượng tử hoá(hàmbậc thang). Vì sự truyền mộtchuỗi bit nhị phân liên tiếp, cỡ bước phải được tắt từ chuổi bit này (ngoại trừ trường hợp ta gửi một tín hiệu điều khiển riêng biệt).</para>
+      <para id="id6494790">Nếu trong chiều dài chuổi bit đã chứa số lượng cân bằng giữa các bit 1 và các bit 0, ta có thể giả sử rằng bậc thang giao động xung quanh một tín hiệu analog thay đổi chậm. Trong những trường hợp như thế, ta nên giảm cở bước. Ngược lại, nếu các bit 1 hoặc 0 vượt quá trong chuỗi bit, có nghĩa là bậc thang đang cố gắng đuổi bắt hàm. Trong những trường hợp như vậy, ta nên tăng cỡ bước lên.</para>
+      <para id="id6494805">Trong thực tế, kiểm soát cỡ bước được thực hiện bởi bộ tích hợp số (digital intergrator). Bộ tích hợp này sẽ tính tổng số bit qua một số chu kỳ nhất định. Nếu tổng bị lệch khỏi sự cân bằng các bit 0 và 1, cỡ bước sẽ được tăng lên. Thực chất tổng các bit sẽ được đổi sang một giá trị điện thế tương ứng rồi chuyển sang bộ khuếch đại có độ lợi thay đổi. Độ lợi có giá trị nhỏ nhất khi điện thế vào tương ứng với sự cân bằng của bit 1 và 0 trong chu kỳ. Và ta nói rằng đây là bộ khuếch đại điều khiển cỡ bước.</para>
+      <para id="id6494836"><figure id="id6494846"><media id="id4330132" alt=""><image src=".wmf" mime-type="image/wmf" height="223" width="243"/></media></figure> = cở bước nhỏ nhấtHình 7.27 Thuật toán Song.</para>
+      <para id="id6554311">Có vài thuật toán biến điệu delta thích nghi, đơn giản hơn những gì mà ta vừa đề cập. Đó là thuật toán Song và thuật toán Space Shuttle.</para>
+      <para id="id6554332">Thuật toán Song so sánh bit truyền với bit trước đó. Nếu hai bit này giống nhau, cỡ bước tăng lên một lượng cố định . Còn nếu hai bit này khác nhau, cỡ bước giảm đi một lượng tương ứng . Vì thế cỡ bước luôn thay đổi và nó có thể rất lớn không giới hạn nếu cần thiết. Ta sẽ minh hoạ điều này cho một hàm bước ngõ vào ở hình hình 7.27. Một hàm bước ngõ vào trình bày trường hợp đặc biệt và sẽ không xảy ra trong thực tế bởi vì một hàm bước có tần số hữu hạn. Chú ý rằng một giao động tắt dần xảy ra, sẽ kéo theo sự thay đổi nhanh chóng trong tín hiệu.</para>
+      <para id="id6554383">Nếu một tín hiệu tương tự chờ để có nhiều sự chuyển đột ngột giống như hàm bước, các giao động tắt dần sau thuật toán Song có thể có vấn đề. Những bức ảnh và các vật thể chi tiết có thể có nhiều cách chuyển như vậy vì chúng đã được quét (scan) cho việc truyền đó (đó là sự thay đổi nhanh từ trắng sang đen).</para>
+      <para id="id6554407">Thuật toán Space Shuttle là sự cải biến của thuật toán Song để hạn chế giao động tắt dần. Khi môt bit hiện tại giống với bit trước đó, cỡ bước sẽ tăng một trị cố định . Điều này giống như thuật toán Song. Tuy nhiên, khi các bit này khác nhau, cỡ bước đảo lại tức, đến một giá trị nhỏ nhất của nó là . Điều này, tương phản với thuật toán Song mà ở đó kích thước bước giảm hướng về zero ở tại mỗi chu kỳ lấy mẫu tỉ lệ với . Thuật toán Space Shuttle được minh hoạ ở hình 7.28 cho hàm dốc ngõ vào giống như ở hình 7.27.</para>
+      <para id="id6554462"><figure id="id6554472"><media id="id4330245" alt=""><image src=".wmf" mime-type="image/wmf" height="229" width="240"/></media></figure>Hình 7.28 Thuật toán Space shuttle</para>
+      <para id="id6554590">Ngoài PCM, DM, ADM còn có những phương pháp khác để mã hoá thông tin tương tự sang dạng số. Mục đích của mỗi hệ thống là gửi thông tin với độ tin cậy lớn nhất và băng thông nhỏ nhất. Bây giờ ta giới thiệu ba trong nhiều phương pháp: biến điệu mã hoá xung delta DPCD (delta pulse code modulatuion), PCM vi phân, biến điệu mã hoá xung vi phân thích nghi ADPCM (adaptive differential pulse code modulation).</para>
+      <para id="id6554606">Trong biến điệu delta, ta phỏng định một dạng sóng liên tục thành một sóng bậc thang. Ơ tại mỗi thời điểm lấy mẫu, ta phát triển số hạng lỗi (error term). Đó là hiệu số giữa tín hiệu và hàm bậc thang. Ta lượng tử hoá lỗi này để phát triển thành một số hạng đúng (correct term) rồi được cộng thêm vào hàmbậc thang. Trường hợp biến điệu delta cơ bản, việc lượng tử hoá được thực hiện trong đơn vị 1 bit. Trong biến điệu PCM delta (DPCM) ta mã hoá lỗi thành nhiều hơn một bit và cộng số hạng này vào giá trị bậc thang trước đó như trình bày ở hình 7.29. Vì thế, thay vì các bậc thang chỉ có một biên đô thì bây giờ chúng có thể có các cỡ là một trong 2, 4, 8 hoặc bất cứ giá trị nào là luỹ thừa 2. ở tại mỗi thời điểm lấy mẫu, bây giờ ta phải gửi nhiều hơn một bit thông tin, các bit thay đổi thể hiện mã PCM cho biểu thức lỗi. Thuận lợi của DPCM so với PCM thông thường là sự chọn lựa thích hợp của chu kỳ lấy mẫu và lỗi được lượng tử có một khoảng động nhỏ hơn tín hiệu gốc. Như vậy với cùng số bit lượng tử hoá ta có độ phân giải tốt hơn, cái giá phải trả là sự phức tạp của bộ biến điệu. Cái khó của ta là sự biến điệu. Nếu tín hiệu luôn ở tần số lớn nhất (một cách xác định tốc độ lấy mẫu trong PCM), DCPM cũng giống như PCM. Tuy nhiên, bởi vì các tần số tín hiệu thường được phân bố tron một khoảng, nên các mẫu gần nhau thường có mối tương quan với nhau và có thể thực hiện tốt từ hệ thống này hơn là từ hệ thống PCM với cùng một tốc độ truyền bit.</para>
+      <para id="id6554680">Mạch LT hoáMạch tạo bậc thangs(t)outputCở bướcclock+-</para>
+      <para id="id6555080">Hình 7.29 Delta PCM.</para>
+      <para id="id6555085">PCM vi phân là một kỹ thuật truyền thông tin khác về sự thay đổi trong các mẫu hơn làchính giá trị mẫu của nó. Cách tiếp cận này bao gồm các bước thêm vào mà nó không là một phần của PCM delta. Bộ biến điệu này không gửi sự khác nhau giữa các mẫu gần nhau. Nhưng nó lại gửi sự khác nhau giữa một mẫu và giá trị đoán trước của mẫu đó. Sự tiên đoán này dựa trên cơ sở của các mẫu trước đó. Điều này được minh hoạ ở hình 7.30. Ký hiệu <figure id="id6555112"><media id="id4330371" alt=""><image src="graphics39.wmf" mime-type="image/wmf" height="31" width="13"/></media></figure>(nTs) được dùng để biểu thị giá trị tiên đoán s(nTS).</para>
+      <para id="id6555149">Hình thức đơn giản nhất của sự tiên đoán khi ước lượng là một hàm tuyến tính của các giá trị mẫu trước đó. Vì thế, nếu chỉ sử dụng một mẫu ta có.</para>
+      <para id="id6555161"><figure id="id6555164"><media id="id4330424" alt=""><image src="graphics40.wmf" mime-type="image/wmf" height="46" width="18"/></media></figure>(nTs) = As[(n – 1)Ts]</para>
+      <para id="id6555200">Trong đó A là hằng số. Khối tiên đoán trong hình 7.30 là mạch nhân của giá trị A.Tiên đoánLượng tử hoá+-output++nTs<figure id="id6555811"><media id="id4330467" alt=""><image src=".wmf" mime-type="image/wmf" height="45" width="128"/></media></figure>s(t)<figure id="id6555857"><media id="id4330497" alt=""><image src=".wmf" mime-type="image/wmf" height="45" width="69"/></media></figure></para>
+      <para id="id6555881">Hình 7.30 PCM khác biệt (differential PCM).</para>
+      <para id="id6555886">Việc khó khăn là chọn giá trị A để tạo được sự tiên đoán tốt đến mức có thể. Ta định nghĩa một sai số tiên đoán như sự khác nhau giữa các mẫu và giá trị ước lượng của nó. Do đó,</para>
+      <para id="id6555900">E(nTs) = s(nTs) – <figure id="id6555916"><media id="id4330562" alt=""><image src="graphics41.wmf" mime-type="image/wmf" height="46" width="18"/></media></figure> (nTs)</para>
+      <para id="id6555946"> = s(nTs) – As[(n – 1)Ts]</para>
+      <para id="id6555969">Giá trị trung bình bình phương của lỗi là:</para>
+      <para id="id6555976">mse = E[e2(nTs)]</para>
+      <para id="id6468145"> = E[s2(nTs) + A2E[s2((n –1)Ts] – 2AE[s(nTs)s((n –1)Ts]</para>
+      <para id="id6468195"> = R(0)[(1+A2) – 2AR(Ts)]</para>
+      <para id="id6468215">Trong đó R(t) là hàm tự tương quan của s(t). Có thể làm lỗi nhỏ lại bằng cách lấy đạo hàm của mse theo A và cho giá trị này bằng zero.</para>
+      <para id="id6468226">d(mse)/dA = 2AR(0) – 2R(Ts) = 0 (7.7)</para>
+      <para id="id6468242">Hoặc E[s(n - 1)Ts(s(nTs) – As((n-1)Ts)] = 0</para>
+      <para id="id6468266">Và cuối cùng ta có:<figure id="id6468274"><media id="id4330692" alt=""><image src="graphics42.wmf" mime-type="image/wmf" height="49" width="75"/></media></figure></para>
+      <para id="id6468297">Biểu thức (7.7) cho ta một cách nhìn trực giác. Nó chứng tỏ rằng trị mong muốn tích của lỗi với mẫu được đo là zero. Thế thì, lỗi không có thành phần nào trong cách nhìn hai đại lượng đó là trực giao (orthogonal). Nếu lỗi đã có một thành phần trong cách nhìn đó, ta có thể giảm được thành phần này tiến tới zero bằng cách điều chỉnh lại hằng số A.</para>
+      <para id="id6468313">Bộ tiên đoán trong hình 7.30 mang giá trị mẫu gần nhất (nó hình thành bằng cách cộng giá trị tiên đoán vơi số hạng hiệu số và có độ lớn R(Ts)/R(0). Ta giả sử rằng việc xử lý ngõ vào được xem như đủ lâu để có thể ước lượng tính tự tương quang của nó.</para>
+      <para id="id6468336">Ví dụ 7.4: Tìm độ lớn liên hệ với một bộ tiên đoán hoạt động trên hai mẫu gần đây nhất. Hãy ước lượng cách thực hiện.</para>
+      <para id="id6468351">Giải: sự tiên đoán được cho bởi công thức sau</para>
+      <para id="id6468358"><figure id="id6468361"><media id="id4330784" alt=""><image src="graphics43.wmf" mime-type="image/wmf" height="46" width="18"/></media></figure> (nTs) = As[(n-1)Ts] + Bs[(n-2)Ts]</para>
+      <para id="id6468403">Trong đó, mục tiêu của ta là chọn giá trị thích hợp nhất cho A và B. Cách tốt nhất cho sự chọn lựa này là lỗi không có thành phần nào trong lượng đo trực tiếp. Vì thế ta có:</para>
+      <para id="id6468416">E([s(nTs) – As[(n-1)Ts] – Bs[(n-2)Ts]]s[(n-1)Ts]) = 0</para>
+      <para id="id6468444">E([s(nTs) – As[(n-1)Ts] – Bs[(n-2)Ts]]s[(n-2)Ts]) = 0</para>
+      <para id="id6468472">Khai triển biểu thức này ta được:</para>
+      <para id="id6468479">R(Ts) – AR(0) – BR(Ts) = 0</para>
+      <para id="id6468495">R(2Ts) – AR(Ts) – BR(0) = 0</para>
+      <para id="id6468512">Giải hệ phương trình trên ta tìm được kết quả của A và B như sau:</para>
+      <para id="id6468521">
+        <figure id="id6468525">
+          <media id="id4330908" alt=""><image src="graphics44.wmf" mime-type="image/wmf" height="50" width="178"/></media>
+        </figure>
+      </para>
+      <para id="id6468549">
+        <figure id="id6468553">
+          <media id="id4330953" alt=""><image src="graphics45.wmf" mime-type="image/wmf" height="53" width="176"/></media>
+        </figure>
+      </para>
+      <para id="id6468577"><figure id="id6468581"><media id="id4330996" alt=""><image src="graphics46.wmf" mime-type="image/wmf" height="24" width="13"/></media></figure>Vậy lỗi bình phương là:</para>
+      <para id="id6468608">mse = E([s(nTs) – <figure id="id6468620"><media id="id4331036" alt=""><image src="graphics47.wmf" mime-type="image/wmf" height="46" width="18"/></media></figure> (nTs)]2)</para>
+      <para id="id6468656"> = E(s2(nTs)) – E(<figure id="id6468675"><media id="id4331077" alt=""><image src="graphics48.wmf" mime-type="image/wmf" height="46" width="18"/></media></figure> (nTs)s(nTs))</para>
+      <para id="id6468712"> = <figure id="id6468720"><media id="id4331117" alt=""><image src="graphics49.wmf" mime-type="image/wmf" height="24" width="13"/></media></figure><figure id="id6468744"><media id="id4331145" alt=""><image src="graphics50.wmf" mime-type="image/wmf" height="53" width="322"/></media></figure></para>
+      <para id="id6468768">101010R(t)tGiả sử rằng hàm tự tương quan của s(t) được trình bày như hình 7.31 và chu kỳ lấy mẫu là 1 giây., kết quả của mse = 1.895.</para>
+      <para id="id6468957">Hình 7.31 Tự tương quan (Autocorrelation) cho ví dụ 7.4. </para>
+      <para id="id6468963">Để so sánh, nếu ta không xác định s[(n-1)Ts] và s[(n-2)Ts] mà chỉ tiên đoán một cách đơn giản nhất ở tại giá trị trung bình hoặc zero, trung bình bình phương của lỗi sẽ là R(0) hoặc 10.</para>
+      <para id="id6468986">Đối với tín hiệu tiếng nói, một hệ thống PCM vi phân sử dụng sự tiên đoán trên mẫu gần nhất có thể tiết kiệm một bit/mẫu, nên hệ thống PCM vi phân có thể có lỗi tương đương như hệ PCM nhưng ít hơn một bit/ mẫu. Vì thế, nếu ta nghĩ một kênh tiếng nói đòi hỏi lượng tử hoá 8 bit PCM, nhịp truyền sẽ là 64kbps. PCMvi phân chỉ cần 7 bit/ mẫu. Vì thế nó sẽ giảm nhịp truyền xuống còn 56kbps và giải phóng kênh đó cho việc khác.</para>
+      <para id="id6469010">Trong DPCM thích nghi, hệ số tiên đoán không là hằng số trong toàn bộ sự truyền. Vì mỗi nhóm (group) có chiều dài của các mẫu là n, nên ta có thể tính toán một ma trận [Rij­]. Ta sử dụng ma trận này để tìm ra các hệ số tiên đoán. Khi các hệ số tiên đoán không còn là hằng số nữa, phải có cách để đảm bảo rằng bên hệ thống thu cũng sử dụng cùng các hệ số như vậy. Phương pháp tổng quát nhất cho việc thiết lập này là gửi các hệ số cập nhật như một overhead( thông thường được nhân với một thông tin mẫu).</para>
+      <para id="id6469039">NHIỄU LƯỢNG TỬ (quantization noise).</para>
+      <para id="id6469044"><figure id="id6469055"><media id="id4331273" alt=""><image src=".wmf" mime-type="image/wmf" height="156" width="177"/></media></figure><figure id="id6469338"><media id="id4331302" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="35"/></media></figure><figure id="id6469362"><media id="id4331330" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="37"/></media></figure><figure id="id6469386"><media id="id4331358" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="35"/></media></figure><figure id="id6469410"><media id="id4331386" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="37"/></media></figure><figure id="id6469434"><media id="id4331414" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="35"/></media></figure><figure id="id6469458"><media id="id4331442" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="37"/></media></figure><figure id="id6469481"><media id="id4331470" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="37"/></media></figure><figure id="id6469505"><media id="id4331498" alt=""><image src=".wmf" mime-type="image/wmf" height="33" width="30"/></media></figure><figure id="id6469529"><media id="id4331526" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="51"/></media></figure><figure id="id6469553"><media id="id4331554" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="49"/></media></figure><figure id="id6469577"><media id="id4331582" alt=""><image src=".wmf" mime-type="image/wmf" height="33" width="51"/></media></figure><figure id="id6469601"><media id="id4331610" alt=""><image src=".wmf" mime-type="image/wmf" height="30" width="49"/></media></figure><figure id="id6469625"><media id="id4331638" alt=""><image src=".wmf" mime-type="image/wmf" height="31" width="48"/></media></figure><figure id="id6469648"><media id="id4331666" alt=""><image src=".wmf" mime-type="image/wmf" height="32" width="46"/></media></figure><figure id="id6469672"><media id="id4331694" alt=""><image src=".wmf" mime-type="image/wmf" height="32" width="48"/></media></figure><figure id="id6469696"><media id="id4331722" alt=""><image src=".wmf" mime-type="image/wmf" height="30" width="46"/></media></figure>outputinput</para>
+      <para id="id6469763">Hình 7.32 Mối quan hệ vào ra của lượng tự hoá.</para>
+      <para id="id6469770">Ta bắt đầu nghiên cứu nhiễu lượng tử trong kỹ thuật PCM bằng cách kiểm tra lại mối quan hệ vào ra lượng tử của hình 7.32. Nhiễu lượng tử hay lỗi, được định nghĩa như một hàm thời gian mà thực chất là hiệu giữa sq(t) (dạng sóng lượng tử) và s(t). Lỗi này được cho bởi: e(nTs) = s(nTs) – sq(nTs)</para>
+      <para id="id6469824">e(t)<figure id="id6606698"><media id="id4331789" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="45"/></media></figure><figure id="id6606722"><media id="id4331817" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="58"/></media></figure>t<figure id="id6606774"><media id="id4331846" alt=""><image src=".wmf" mime-type="image/wmf" height="119" width="369"/></media></figure><figure id="id6607139"><media id="id4331875" alt=""><image src=".wmf" mime-type="image/wmf" height="34" width="42"/></media></figure><figure id="id6607162"><media id="id4331903" alt=""><image src=".wmf" mime-type="image/wmf" height="34" width="51"/></media></figure><figure id="id6607186"><media id="id4331930" alt=""><image src=".wmf" mime-type="image/wmf" height="34" width="51"/></media></figure><figure id="id6607210"><media id="id4331958" alt=""><image src=".wmf" mime-type="image/wmf" height="34" width="51"/></media></figure>sq(t)s(t)(b)(a)Hình 7.33 minh hoạ một hàm thời gian tiêu biểu là s(t) và kết quả lượng tử của hàm thời gian là sq(t). Trong khi ta minh hoạ hàm thời gian, điều quan trọng nhất cần chú ý là các giá trị mẫu được làm tròn không giống như hàm thời gian tương tự. Vì thế, những giá trị có nghĩa của sq(t) là những giá trị ở tại những thời điểm gian lấy mẫu nTs. Hình hình 7.33 b trình bày lỗi lượng tử hoá e(t) như là hiệu của s(t) và sq(t). Chú ý rằng ta chỉ quan tâm những giá trị của hàm lỗi này ở tại những thời điểm lấy mẫu. Biên độ biểu thức của tín hiệu lỗi, không vượt quá một nữa khoảng của các mức lượng tử.</para>
+      <para id="id6607421">Hình 7.33 Lỗi lượng tử.</para>
+      <para id="id6607426">Ta mong muốn sẽ tìm ra được các thống kê trung bình của lỗi. Để làm được điều đó, đầu tiên ta phải tìm hàm mật độ lỗi có thể xảy ra. Hình 7.34 minh hoạ lỗi như một hàm giá trị mẫu ngõ vào. Đường cong lỗi bắt đầu tại -S/2 tức ở tại đường biên dưới của mỗi khoảng lượng tử và tăng tuyến tính đến giá trị +S/2 ở tại đường biên trên. Nếu bây giờ ta biết được hàm mật độ xác suất của những trị mẫu, vấn đề sẽ trở nên đơn giản cho việc tìm hàm mật độ xác suất của e. Đây là một ứng dụng của hàm có biến ngẫu nhiên. Kết quả là:</para>
+      <para id="id6607472">
+        <figure id="id6607475">
+          <media id="id4332046" alt=""><image src="graphics51.wmf" mime-type="image/wmf" height="50" width="136"/></media>
+        </figure>
+        <figure id="id6607499">
+          <media id="id4332081" alt=""><image src="graphics52.wmf" mime-type="image/wmf" height="24" width="13"/></media>
+        </figure>
+      </para>
+      <para id="id6607523">Si là các giá trị thay đổi của s tương ứng với e. Nếu ta đặt e bằng một giá trị xác định như trong hình 7.34,, có một số giá trị của s (bằng với số các vùng lượng tử) chính là giá trị của e. Biên độ hàm dốc, luôn là 1. Vì thế biểu thức 7.9 có thể viết lại là <figure id="id6607554"><media id="id4332130" alt=""><image src="graphics53.wmf" mime-type="image/wmf" height="38" width="110"/></media></figure> (7.10)</para>
+      <para id="id6607583">Giá trị thứ nhất của si ở bên phải so với giá trị gốc là: </para>
+      <para id="id6607598"><figure id="id6607601"><media id="id4332181" alt=""><image src="graphics54.wmf" mime-type="image/wmf" height="43" width="81"/></media></figure>.</para>
+      <para id="id6607626"><figure id="id6607794"><media id="id4332219" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="45"/></media></figure><figure id="id6607818"><media id="id4332248" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="58"/></media></figure>es(nTs)<figure id="id6607893"><media id="id4332277" alt=""><image src=".wmf" mime-type="image/wmf" height="29" width="42"/></media></figure></para>
+      <para id="id6607917">Hình 7.34 Giá trị mẫu kháng lỗi.</para>
+      <para id="id6607923">Tất cả các giá trị khác của si có thể tìm bằng cách cộng hoặc trừ thêm một lượng S từ giá trị này.</para>
+      <para id="id6607944">Nếu các mẫu được phân bố đều nhau trên dãy giá trị, các số hạng trong biểu thức tổng 7.10 sẽ trở thành hằng số tức là chiều cao của hàm mật độ gốc. Kết quả là mật độ lỗi đồng đều như được trình bày ở hình 7.35. Bây giờ ta giả sử rằng các mẫu có mật độ hình tam giác như được trình bày ở hình 7.36. Kết quả vẫn là mật độ lỗi đồng đều của hình 7.35. Thật vậy, khi e tăng, tổng si của biểu thức 7.10 cũng tăng một lượng tương ứng. Trong mật độ hình tam giác, mỗi giá trị tổng giảm xuống, giá trị khác sẽ tăng lên một lượng giống như vậy. Một đối số tương tự như vậy có thể dùng cho bất cứ </para>
+      <para id="id6607992">mật độ nào mà nó tương ứng giá trị tuyến tính qua phạm vi vùng lượng tử đơn. Vì thế, mật độ đồng đều của hình 7.35 được coi như gần đúng trên phạm vi rộng của các tín hiệu ngõ vào.</para>
+      <para id="id6608005"><figure id="id6608093"><media id="id4332377" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="58"/></media></figure><figure id="id6608117"><media id="id4332405" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="45"/></media></figure>p(en)en<figure id="id6608196"><media id="id4332435" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="45"/></media></figure><figure id="id6608280"><media id="id4332462" alt=""><image src=".wmf" mime-type="image/wmf" height="57" width="55"/></media></figure>-smaxsmaxp(s)s Hình 7.35 Mật độ xác suất lỗi.Hình 7.36 Mật độ xác suất tam giác.</para>
+      <para id="id6452445">Bây giờ nếu ta biết mật độ lỗi, ta có thể tìm được trung bình bình phương của nó:</para>
+      <para id="id6452454">
+        <figure id="id6452458">
+          <media id="id4332517" alt=""><image src="graphics55.wmf" mime-type="image/wmf" height="51" width="311"/></media>
+        </figure>
+      </para>
+      <para id="id6452483">Kết quả này cho trị trung bình bình phương của lỗi trong một mẫu của hàm thời gian. Để tìm nguyên nhân gây ra lỗi là vấn đề cần thiết để so sánh giá trị này với trung bình bình phương của mẫu có thời gian không đổi. Điều này rất quan trọng cho tỉ số tín hiệu trên nhiễu lượng tử. Ta có:</para>
+      <para id="id6452498">
+        <figure id="id6452502">
+          <media id="id4332577" alt=""><image src="graphics56.wmf" mime-type="image/wmf" height="57" width="175"/></media>
+        </figure>
+      </para>
+      <para id="id6452526">Trong đó, ps là công suất tín hiệu trung bình, biểu thức 7.12 là một kết quả cực kỳ quan trọng mà ta sẽ dùng nhiều trong các phần sau.</para>
+      <para id="id6452542">Ví dụ 7.5: xem một tín hiệu âm thanh có dạng sin s(t) = 3 cos500t.</para>
+      <list id="id6452560" list-type="enumerated">
+        <item>Tìm tỉ số nhiễu lượng tử khi dùng lượng tử hoá PCM 10 bit.</item>
+        <item>Cần bao nhiêu bit lượng tử để có tỉ số tín hiệu trên nhiễu lượng tử nhỏ nhất là 40 dB?</item>
+      </list>
+      <para id="id6452580">Giải:</para>
+      <list id="id6452585" list-type="enumerated">
+        <item>Biểu thức 7.12 được dùng để tìm tỉ số nhiễu lượng tử. Chỉ các tham số cần thiết được ước lượng là công suất tín hiệu trung bình và kích thước vùng lượng tử. Biên độ đỉnh là 6V. vì thế kích thước của mỗi khoảng thời gian là 6/210 = 5.86x10-3. Công suất tín hiệu trung bình là 32/2=4.5w. Tỉ số tín hiệu trên nhiễu lượng tử là:</item>
+      </list>
+      <figure id="id6452629">
+        <media id="id4332703" alt=""><image src="graphics57.wmf" mime-type="image/wmf" height="47" width="219"/></media>
+      </figure>
+      <para id="id6452653"/>
+      <para id="id6452658">Nếu ta muốn biểu diễn chúng dưới dạng decibels, ta lấy logarithm thập phân của giá trị này và nhân với 10. Ta có:</para>
+      <para id="id6452668">SNR=10log(1.58x106)=62dB.</para>
+      <list id="id6452678" list-type="enumerated">
+        <item>Giá trị nhỏ nhất của tỉ số tín hiệu trên nhiễu là 40dB. Giá trị này tương đương với 104. Ta sử dụng biểu thức 7.12 với S là giá trị chưa biết.</item>
+      </list>
+      <figure id="id6452709">
+        <media id="id4332793" alt=""><image src="graphics58.wmf" mime-type="image/wmf" height="44" width="221"/></media>
+      </figure>
+      <para id="id6452733">Bây giờ ta chú ý đến khích thước độ dốc là S=6/2N. Trong đó N là số bit lượng tử. Ta cần phải chọn giá trị của N mà S không vượt quá 7.35x102. Vì thế, ta có:<figure id="id6452768"><media id="id4332840" alt=""><image src="graphics59.wmf" mime-type="image/wmf" height="43" width="111"/></media></figure></para>
+      <para id="id6452792">Và 2N&gt;81.6</para>
+      <para id="id6452803">Ta có thể lấy logarithm để tìm ra N nhưng điều đó, không cần thiết. Nếu N=6, vế trái bằng 64. Nếu N=7, vế trái là 128. Do đó, ta chỉ cần 7 bit lượng tử để có được tỉ số tín hiệu trên nhiễu nhỏ nhất là 40dB.</para>
+      <para id="id6452817">Ta thấy rất rõ là mỗi bit lượng tử thêm vào sẽ làm giảm S đi một giá trị là 2. Điều này sẽ làm tăng tỉ số tín hiệu trên nhiễu lên một giá trị là4. Giá trị 4 này tương ứng với 6dB vì 10 log 4  6.</para>
+      <para id="id6452842">Vì thế, mỗi bit lượng tử hoá thêm vào sẽ làm tăng tỉ số SNR lên 6dB.</para>
+      <para id="id6452850">Biểu thức 7.12 trình bày rất cụ thể cách tìm tỉ số tín hiệu trên nhiễu lượng tử như một hàm tín hiệu và kích thước bậc lượng tử. Thật là hữu dụng để có được kết quả tổng quát dùng cho việc bắt đầu thiết kế hệ thống. Giả sử ta có tín hiệu s(t) được phân bố đồng đều giữa -Smax và +Smax như trình bày trong hình 7.37. Trong trường hợp đặc biệt này, biểu thức 7.12 sẽ đưa đến một công thức rất đơn giản. Ta chỉ cần 2 đại lượng để giải quyết biểu thức này. Đó là xác suất tín hiệu trung bình và kích thước của bậc. Xác suất được tìm từ lý thuyết cơ bản là:</para>
+      <figure id="id6452897">
+        <media id="id4332946" alt=""><image src="graphics60.wmf" mime-type="image/wmf" height="56" width="288"/></media>
+      </figure>
+      <para id="id6452921">Kích thước bậc được cho bởi:</para>
+      <figure id="id6452930">
+        <media id="id4332991" alt=""><image src="graphics61.wmf" mime-type="image/wmf" height="44" width="135"/></media>
+      </figure>
+      <para id="id6452954">Biểu thức 7.12 sẽ trở thành:</para>
+      <para id="id6452961"><figure id="id6452964"><media id="id4333045" alt=""><image src="graphics62.wmf" mime-type="image/wmf" height="53" width="176"/></media></figure> (7.13)</para>
+      <para id="id6452993">Chú ý rằng giá trị đặc biệt của Smax không ảnh hưởng đến tỉ số tín hiệu trên nhiễu SNR. Khi Smax thay đổi, cả công suất tín hiệu và công suất nhiễu lượng tử sẽ thay đổi một lượng giống nhau.</para>
+      <para id="id6453020"><figure id="id6453106"><media id="id4333098" alt=""><image src=".wmf" mime-type="image/wmf" height="35" width="63"/></media></figure><figure id="id6453130"><media id="id4333126" alt=""><image src=".wmf" mime-type="image/wmf" height="35" width="51"/></media></figure>p(s)s<figure id="id6453196"><media id="id4333156" alt=""><image src=".wmf" mime-type="image/wmf" height="57" width="63"/></media></figure>Hình 7.37 Tín hiệu phân bố đồng đều.</para>
+      <para id="id6453223">Ta có thể đổi tỉ số tín hiệu trên nhiễu của biểu thức 7.13 sang decibels với kết quả như sau: </para>
+      <para id="id6453233">SNRdB = 10 log (22N) = 20N log (2) = 6N dB (7.14)</para>
+      <para id="id6453252">Kết quả này thể hiện điểm bắt đầu thật tốt ngay cả khi tín hiệu phân bố không đồng đều. Trong câu b của ví dụ 7.5 ta yêu cầu chỉ ra số bit lượng tử để có được tỉ số tín hiệu trên nhiễu SNR nhỏ nhất là 40dB. Nhưng để 6N lớn hơn 40, N tối thiểu phải là 7. Như vậy kết quả này cũng giống như ta đã tìm trong ví dụ 7.5. Nhưng ta hãy cẩn thận khi sử dụng biểu thức (7.13) và (7.14). Hầu hết các tín hiệu trong đời sống thực tế, không được phân bố đồng đều và những biểu thức này chỉ áp dụng cho các trường hợp phân bố đồng đều. Nếu ta áp dụng không đúng biểu thức 7.14 cho một tín hiệu không đồng đều, ta sẽ gặp răc rối trong khi thiết kế hệ thống với giá trị N sai. Nếu sử dụng một giá trị nhỏ hơn giá trị cần thiết, ta sẽ không thấy được trường hợp đặc biệt của tỉ số tín hiệu trên nhiễu SNR. Ngược lại, nếu sử dụng một giá trị quá lớn, ta phải chi cho một khoảng tiền lớn vì yêu cầu việc truyền nhiều bit trên giây hơn làyêu cầu để thấy những trường hợp đặc biệt.</para>
+      <para id="id6453288">1. NHIỄU LƯỢNG TỬ: LƯỢNG TỬ HOÁ KHÔNG ĐỀU ĐẶN.</para>
+      <para id="id6453294">Trong những trường hợp mà các mẫu vào không được phân bố đồng đều, có thể có được các tỉ số tín hiệu trên nhiễu lớn hơn bằng cách sử dụng lượng tử hoá không đều đặn. Ta bắt đầu bằng cách giả sử rằng các mẫu được phân bố tuỳ theo mật độ xác suất p(s) như được trình bày trong hình 7.38. Mặc dù điều này tương đương với định lý Gausse nhưng có nghĩa là hàm mật độ xác suất tái hiện lại và kết quả mà ta sẽ thấy không phụ thuộc vào bất cứ dạng đặc biệt nào của tín hiệu. Ta đã minh hoạ lượng tử hoá 3 bits tạo ra 8 vùng được đánh dấu bởi các đường biên si và bởi các giá trị được làm tròn sqi. Lỗi lượng tử trung bình bình phương được cho bởi biểu thức:</para>
+      <para id="id6453341">mse = E([s(nTs) – sq(nTs)]2)</para>
+      <para id="id6453368"> =<figure id="id6453376"><media id="id4333294" alt=""><image src="graphics63.wmf" mime-type="image/wmf" height="43" width="301"/></media></figure></para>
+      <para id="id6453404">Trong biểu thức (7.15), các giá trị sqi là các mức lượng tử được làm tròn khác nhau và p(s) là hàm mật độ xác suất của các mẫu tín hiệu. Ta sẽ trở lại biểu thức này trong phần tiếp theo khi ta kiểm tra các hệ thống đã được nén. Còn bây giờ, ta sẽ sử dụng biểu thức này để chứng minh câu phát biểu đã đề cầp trước đó về vị trí tốt nhất cho các giá trị làm tròn. Ta giả sử rằng các vùng được xác định (si là giá trị cho trước) và ta muốn tìm vị trí tối ưu của các giá trị làm tròn sqi. Ta dùng từ “tối ưu” theo nghĩa là những giá trịnày làm cho trung bình bình phương của lỗi giảm đến mức nhỏ nhất. Để làm được điều đó, tìm sự khác nhau giữa biểu thức 7.15 với sqi và giá trị từ zero. </para>
+      <para id="id6453455">Ta có:</para>
+      <figure id="id6453463">
+        <media id="id4333360" alt=""><image src="graphics64.wmf" mime-type="image/wmf" height="39" width="156"/></media>
+      </figure>
+      <para id="id6453487">p(s)sq1sq2sq8s0s1s2s3s4s5s6s7s8s</para>
+      <para id="id6454250">Hình 7.38 Mật độ xác suất của các mẫu.</para>
+      <para id="id6454256">Biểu thưc (7.16) chỉ ra rằng một khi các vùng lượng tử hoá đã được làm tròn, được chọn ở giữa trọng tâm của phần tương ứng trong mật độ xác suất. Vì thế, mức lượng tử thay vì ở giữa của mỗi khoảng, bị lệch về phía xác suất lớn hơn của mỗi khoảng thời gian. Đây là cách nhìn trực giác.</para>
+      <para id="id6454271">Ví dụ 7.6: giả sử hàm mật độ của s(t) là một mật độ theo định lý Gausse tại giá trị zero với sự khác biệt là 1/9. Bởi vì khả năng của của một mẫu vượt quá biên độ 1, nhỏ hơn 1% (đó là điểm 3), giả sử rằng ta lượng tử hoá vùng giữa –1 và +1 (đó là các giá trị ở trên biên độ 1 sẽ bão hoà tại giá trị hoặc 000 hoặc 111). Ơ đây ta sử dụng lượng tử hoá 3 bit.</para>
+      <list id="id6454302" list-type="enumerated">
+        <item>Tìm lỗi lượng tử bình phương, giả sử rằng ta sử dụng lượng tử hoá đều đặn.</item>
+        <item>Đề nghị một sơ đồ mà ở đó các vùng lượng tử hoá được chọn có diện tích bằng nhau dưới hàm mật độ xác suất qua mỗi vùng. Đó là xác suất của hàm trong bất kỳ khoảng thời gian riên nào đều giống nhue trong những khoảng thời gian khác. Hãy chọn vị trí thích hợp nhất cho các giá trị làm tròn và tìm lỗi bình phương.</item>
+      </list>
+      <para id="id6454334">Giải:</para>
+      <list id="id6454339" list-type="enumerated">
+        <item>Ta dùng công thức tương đương của (7.11) để tìm lỗi bình phương trong trường hợp lượng tử hoá đều đặn. Kích thước của mỗi khoảng là 2/8 = ¼. Lỗi được cho bởi:</item>
+      </list>
+      <figure id="id6454358">
+        <media id="id4333517" alt=""><image src="graphics65.wmf" mime-type="image/wmf" height="46" width="197"/></media>
+      </figure>
+      <list id="id6454382" list-type="enumerated">
+        <item>Đầu tiên ta phải tìm các đường biên của các vùng lượng tử. Ta chia phần này ra tám đoạn bằng nhau. Vì thế mật độ của mỗi vùng là 1/8. Tham chiếu đến bảng các hàm lỗi ta thấy trị của si là:</item>
+      </list>
+      <para id="id6454403">-1, -0.38, -0.22, -0.1, 0, 0.1, 0.22, 0.38, 1</para>
+      <para id="id6454408">Biểu thức (7.16) bây giờ được dùng để tìm các trị làm tròn là sqi. Biểu thức này được rút gọn lại là:</para>
+      <figure id="id6454426">
+        <media id="id4333598" alt=""><image src="graphics66.wmf" mime-type="image/wmf" height="39" width="125"/></media>
+      </figure>
+      <para id="id6454450">Điều này được ước lượng bằng công thức gần đúng hoặc tương đương. Kết quả của các sqi được cho bởi:</para>
+      <para id="id6454463">-0.54, -0.3, -0.16, -0.05, 0.05, 0.16, 0.3, 0.54</para>
+      <para id="id6454468">cuối cùng, lỗi bình phương được tìm bằng biểu thức 7.15 là:</para>
+      <para id="id6454476">mse = 5.3 x 10-3</para>
+      <para id="id6454485">Điều này nói lên lượng tử hoá đều đặn, tốt hơn lượng tử hoá không đều đặn. Tuy nhiên, với mật độ Gausse và chỉ lượng tử hoá 3 bit, biểu thức 7.11 không tương đương với lỗi bình phương. Biểu thức này đòi hỏi mật độ phải tuyến tính qua các vùng khác nhau. Câu trả lời chính xác cho câu a có thể áp dụng biểu thức 7.15. Kết quả sẽ là 6.2 x 10-3, và vì thế lượng tử hoá không không đều đặn không cung cấp một tiến triển trong quá trình thực hiện.</para>
+      <para id="id6454513">Ví dụ này đề nghị một thuật toán khả thi cho việc chọn lựa trong các vùng lượng tử hoá. Thật sự, đây không phải là thuật toán tốt nhất khi so sánh với lượng tử hoá đều đặn trong một số trường hợp.</para>
+      <para id="id6454527">Biểu thức lỗi bình phương nhấn mạnh xác suất bình phương của sự sai lệch từ giá trị được lượng tử trước khi tích phân. Một cách tổng quát, vấn đề là làm giảm thiểu lỗi của biểu thức 7.15 như một hàm hai biến si và sqi. Các giá trị sqi bắt buộc thoả mãn biểu thức 7.16. Ngoại trừ mật độ xác suất có thể được tính toán bằng công thức gần đúng. Vấn đề này, tính toán không đơn giản.</para>
+      <para id="id6454573">Ta có thể sử dụng biểu thức 7.15 để có được sự tương đương nhằm cải tiến số bit lượng tử tăng. Qui luật sau đây cho phép chọn lựa vùng lượng tử hoá: chọn lựa vùng lượng tử hoá để phù hợp tính đều đặn.</para>
+      <para id="id6454590">(si+1 -si)2 p(điểm giữa) = hằng số. (7.17)</para>
+      <para id="id6454621">phần này ta sẽ nghiên cứu sâu ở cuối chương.</para>
+      <para id="id6454629">2. HỆ THỐNG NÉN VÀ GIẢI NÉN (companded systems)</para>
+      <para id="id6454635">Biểu thức tương đương bằng một hàm nén đặc biệt được so sánh với lượng tử đều đặn. Kết quả, tương đương, và sự tương đương này sẽ làm cải tiến số bit lượng tử tăng. Vì thế các vùng lượng tử trở nên nhỏ hơn. Ta giả sử rằng các trị làm tròn, ở giữa mỗi khoảng thời gian. Đây là cách chọn tốt nhất nếu mật độ có thể được giả sử là hằng số qua độ rộng của mỗi khoảng. Giả sử rằng hàm mật độ tương đương qua từng khoảng giá trị của nó ở tại các trị làm tròn. Biểu thứ 7.15 được viết lại là:</para>
+      <para id="id6454663"><figure id="id6454666"><media id="id4333808" alt=""><image src="graphics67.wmf" mime-type="image/wmf" height="64" width="364"/></media></figure> (7.18)</para>
+      <para id="id6454691">Và bây giờ ta lấy sqi là khoảng giữa của mỗi khoảng</para>
+      <figure id="id6454707">
+        <media id="id4333852" alt=""><image src="graphics68.wmf" mime-type="image/wmf" height="44" width="96"/></media>
+      </figure>
+      <para id="id6454731">Biểu thức 7.18 sẽ trở thành:</para>
+      <para id="id6454738"><figure id="id6454741"><media id="id4333904" alt=""><image src="graphics69.wmf" mime-type="image/wmf" height="50" width="188"/></media></figure>(7.19)</para>
+      <para id="id6454766">Thật sự nếu kích thước các bậc đều đặn của S được thay vào trong biểu thức 7.19 kết quả chỉ còn là S2/12. Nếu không rơi vào trường hợp này, ta phải kiểm tra lại sự thay đổi để tìm ra lỗi.</para>
+      <para id="id6454796">Ta có thể liên kết kích thước mỗi khoảng si+1 - si đến độ dốc của đường cong được nén.Nếu ngõ ra nén được lượng tử hoá đều đặn với cỡ bậc là S, cỡ bậc tương ứng của dạng sóng chưa nén tương đương với hình 7.38.</para>
+      <figure id="id6454830">
+        <media id="id4333967" alt=""><image src="graphics70.wmf" mime-type="image/wmf" height="49" width="132"/></media>
+      </figure>
+      <para id="id6454854">Ta cần giới hạn tổng này khi các khoảng thời gian càng ngày càng nhỏ. Để làm được điều đó, ta tách bình phương của mỗi khoảng từ toán hạng luỹ thừa 3 trong biểu thức 7.19 và viết lại số hạng bình phương này bằng cách sử dụng đạo hàm hàm.</para>
+      <para id="id6460084">
+        <figure id="id6460088">
+          <media id="id4334026" alt=""><image src="graphics71.wmf" mime-type="image/wmf" height="46" width="267"/></media>
+        </figure>
+      </para>
+      <para id="id6460113"><figure id="id6460120"><media id="id4334069" alt=""><image src="graphics72.wmf" mime-type="image/wmf" height="54" width="197"/></media></figure>(7.20)</para>
+      <para id="id6460412">tính giới hạn trở thành:</para>
+      <para id="id6460418">
+        <figure id="id6460422">
+          <media id="id4334121" alt=""><image src="graphics73.wmf" mime-type="image/wmf" height="51" width="167"/></media>
+        </figure>
+      </para>
+      <para id="id6460448">Lỗi bình phương cho một lượng tử hoá đều đặn xuất hiện trong biểu thức 7.21. Nếu tích phân trong biểu thức này nhỏ hơn 1, bộ nén và giải nén sẽ là lượn tử hoá đều đặn.</para>
+      <para id="id6460461">Ta muốn so sánh hệ thống nén và giải nén đều đặn. Trong sự so sánh này, ta sẽ chọn lượng tử hoá 8 bit bởi vì đây là cách thông dụng nhất trong việc truyền âm thanh. Nếu ta giả sử rằng các mẫu tín hiệu được phân bố không đều đặn, tỉ số tín hiệu trên nhiễu lượng tử là 48dB khi dùng lượng tử hoá 8 bit.</para>
+      <para id="id6460477">Giả sử rằng công suất tín hiệu giảm nhưng các mức lượng tử, không thay đổi (ta không thiết kế lại bộ biến đổi A/D). Miễn sao tín hiệu lấp đầy ít nhất một vùng được lượng tử (-S/2 đến +S/2), và công suất nhiễu trung bình còn lại không thay đổi. Vì thế, khi công suất tín hiệu giảm, tỉ số tín hiệu trên nhiễu SNR cũng giảm cùng một tỷ lệ. Ta có thể vẽ SNR như một hàm công suất ngõ vào như được trình bày bằng đường tuyến tính của hình 7.39. Khi tín hiệu tăng vượt quá phạm vi của các mức lượng tử (trong trường hợp quá tải), công suất nhiễu tăng lên khá nhanh. Điều này là đúng bởi vì các mẫu lớn hơn sẽ làm bảo hoà hệ thống và nhiễu sẽ không giới hạn về biên độ đến S/2 nữa. Với bất kỳ SNR nào, phần đường cong ở trên mức này thể hiện vùng lượng tử hoá động. Ví dụ nếu ta cần SNR ít nhất là 28dB, khoảng động này sẽ đi từ –20 đến khoảng +3dB trong trường hợp đầy tải như thể hiện trên sơ đồ.</para>
+      <para id="id6460547">0-10-20-30-40-501020304048SNR (dB)N=8overloadInput signal power (dB)</para>
+      <para id="id6461109">Hình 7.39 Nguồn tín hiệu kháng SNR.</para>
+      <para id="id6461115">0-10-20-30-40-50-6016263646051540100=255N=8Input power (dB relative to full load)<figure id="id6461828"><media id="id4334244" alt=""><image src=".png" mime-type="image/png" height="70" width="59"/></media></figure>Hệ thống nén-giải nén thực hiện tốt hơn hệ thống lượng tử hoá đều đặn đối với các tín hiệu nhỏ. Điều này đúng bởi vì, các khoảng nhỏ hơn, kích thước mẫu giảm.</para>
+      <para id="id6461862">Hình 7.40 Hoạt động của hệ thống nén.</para>
+      <para id="id6461868">Ta có thể ước lượng sự thự hiện hệ thống nén-giải nén và so sánh nó với hệ lượng tử hoá đều đặn. Trong hình 7.40 thực hiện điều đó cho mật độ tín hiệu đều đặn và nén-giải nén theo luật  (các giá trị thay đổi của m bao gồm -255). Các đường cong của hình 7.39 được lập lại trong hình này khi so sánh. Chú ý rằng hệ thống nén-giải nén thực hiện tốt hơn lượng tử hoá đều đặn cho các mức tín hiệu thấp như mong muốn. Ví dụ như, nếu ta mong muốn tỉ số tín hiệu trên nhiễu ít nhất là 28dB, khoảng động sẽ đi từ –50dB đến khoảng +3dB khi đủ tải như đã chỉ ra trong sơ đồ.</para>
+      <list id="id6461910" list-type="enumerated">
+        <item>NHIỄU LƯỢNG TỬ TRONG BIẾN ĐIỆU DELTA (quantization noise in delta modulation)</item>
+      </list>
+      <para id="id6461925">Một lần nữa ta định nghĩa lỗi lượng tử là hiệu số giữa tín hiệu gốc và sự lượng tử tương đương (hàmbậ thang):</para>
+      <figure id="id6461939">
+        <media id="id4334349" alt=""><image src="graphics74.wmf" mime-type="image/wmf" height="26" width="118"/></media>
+      </figure>
+      <para id="id6461962">Giả sử rằng tốc độ lấy mẫu và kích thước từng bậc, được chọn trước để tránh quá tải. Với những điều kiện này, biên độ của nhiễu lượng tử không bao giờ vượt quá kích thước bậc. Để đơn giản, ta giả sử tất cả biên độ tín hiệu thì bằng nhau, ta kết luận rằng lỗi được phân bố đều đặn qua phạm vi giữa - và + như được trình bày ở hình 7.41. Giá trị trung bình bình phương của nhiễu lượng tử được cho bởi:</para>
+      <figure id="id6462002">
+        <media id="id4334400" alt=""><image src="graphics75.wmf" mime-type="image/wmf" height="46" width="160"/></media>
+      </figure>
+      <para id="id6462026"><figure id="id6462112"><media id="id4334441" alt=""><image src=".wmf" mime-type="image/wmf" height="28" width="48"/></media></figure><figure id="id6462136"><media id="id4334469" alt=""><image src=".wmf" mime-type="image/wmf" height="28" width="35"/></media></figure>p(e)e<figure id="id6462202"><media id="id4334498" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="48"/></media></figure>Trong các hệ thống viễn thông số đang xây dựng, một câu hỏi hợp lý đặt ra là sử dụng PCM hay DM trong kỹ thuật mã hoá nguồn. Ta sẽ lo lắng về nhiều yếu tố: tốc độ bit truyền đòi hỏi về băng thông hệ thống, độ tin cậy, nhiễu lượng tử và sự ảnh hưởng của lỗi truyền. Ta nhận thấy công thức đơn giản của SNR liên hệ với PCM và với DM. Đường thẳng ở dưới đáy là những trường hợp chắc chắn mà DM sẽ cung cấp SNR giống như PCM với tốc độ truyền bit thấp. Trong những trường hợp khác, điều ngược lại vẫn đúng. Biến điệu delta thích nghi cộng thêm thông số khác vào phân tích.</para>
+      <para id="id6462254">Hình 7.41 Mật độ lỗi lượng tử cho DM</para>
+      <para id="id6462260">Ta bắt đầu phân tích bằng cách giải quyết lỗi lượng tử bình phương ở tại ngõ ra của bộ thu biến điệu delta. Sự hoàn điệu bao gồm bộ lọc hạ thông LPF làm phẳng các hàm bậc thang để trở thành một đường cong liên tục. Do đó ta phải tìm các đặc tính tần số của nhiễu lượng tử. Đây không phải là bài toán phân tích đơn giản mà nó đòi hỏi một dạng đặc thù mà ta phải chấp nhận cho s(t).</para>
+      <para id="id6462276">Ta giả sử rằng tín hiệu gốc s(t) là một sóng hình răng cưa. Đây là ví dụ đơn giản nhất về dạng sóng được phân bố đều đặn. Tức là dạng sóng với phiên bản lượng tử của nó và cho ra kết quả nhiễu lượng tử như được trình bày trong hình 7.42. Chú ý rằng hàm nhiễu, hầu như tuần hoàn với chu kỳ Ts (chu kỳ lấy mẫu). Nhiễu tuần hoàn chính xác có chu kỳ bằng với dạng sóng phẳng nếu chu kỳ đó là một tích phân nhân với Ts. Ta giả sử rằng kích thước bậc và chu kỳ lấy mẫu được chọn để tránh quá tải cho trường hợp này để có tính đối xứng hoàn chỉnh. Mật độ phổ công suất của sa(t) có thể tính một cách chính xác. Công thức của nó là: sin4 f/f4 vì biến đổi Fourier của hàm răng cưa cho ra dạng sin2 f/f2. Zero đầu tiên của mật độ phổ công suất của dạng sóng tam giác là f=1/Ts. Các phần nhô lên bên kia của điểm này, bị giảm công suất đi 1/f. Vì thế, có một ít công suất vượt ngoài độ dốc chính. Ta giả sử rằng tất cả công suất được tập trung ở dãy tần thấp với tần số f=1/Ts. Vì ta giả sử rằng lấy mẫu biến điệu delta xảy ra ở tại tốc độ trên tốc độ Nyquist (cụ thể là lớn hơn 7 lần tốc độ Nyquist). Số zero đầu tiên của phổ xảy ra tại tần số f=1/Ts. Tần số này lớn hơn nhiều so với tần số fm. Bộ lọc thông thấp LPF với tần số cắt là fm chỉ cho qua một lượng nhỏ có liên quan đến phần nhô lên chính của phổ công suất nhiễu. Điều này được minh hoạ ở hình 7.43. Để có được kết quả tương đương, ta giả sử rằng phổ, thật phẳng qua phạm vi tần số từ 0 đến fs. Tổng công suất nhiễu là lỗi bình phương đã được tìm ra trong các phần trước là 2/3. Vì ta giả sử là phổ phẳng nên phần công suất qua bộ lọc hạ thông LPF là Tsfm hay fm/fs. Công suất nhiễu ngõ ra, được cho bởi:</para>
+      <figure id="id6462474">
+        <media id="id4334616" alt=""><image src="graphics76.wmf" mime-type="image/wmf" height="50" width="90"/></media>
+      </figure>
+      <para id="id6462498"><figure id="id6462508"><media id="id4334658" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="51"/></media></figure><figure id="id6503460"><media id="id4334686" alt=""><image src=".wmf" mime-type="image/wmf" height="53" width="38"/></media></figure>Tse(t)t<figure id="id6503563"><media id="id4334715" alt=""><image src=".wmf" mime-type="image/wmf" height="73" width="115"/></media></figure>Tssq(t)sq(t)tTrong đó fs là số các mẫu trên giây.</para>
+      <para id="id6503924">Hình 7.42 Biến điệu delta của dạng sóng hình răng cưa.</para>
+      <para id="id6503931">Ví dụ 7.7: Một tín hiệu âm thanh có dạng s(t) = 3 cos 1000t được lượng tử bằng DM. Hãy tìm tỉ số tín hiệu trên nhiễu lượng tử.</para>
+      <para id="id6503951">Giải:</para>
+      <para id="id6503957">Đầu tiên ta chọn cỡ bậc và tần số lấy mẫu cho dạng sóng này. Nhịp Nyquist là fs= 1000mẫu/s. Giả sử vì lý do nào đó, ta chọn lớn hơn 8 lần so với nhịp Nyquist tứa fs= 8000mẫu/s. Số lượng lớn nhất của hàm có thể thay đổi trong 1/8ms tương đương với 1V. Nếu kích thước bậc của 1V được chọn, hàm dốc sẽ không quá tải. Công suất lượng tử hoá nhiễu được cho bởi:</para>
+      <figure id="id6503990">
+        <media id="id4334803" alt=""><image src="graphics77.wmf" mime-type="image/wmf" height="50" width="165"/></media>
+      </figure>
+      <para id="id6504014">Công suất tín hiệu là 32/2 hay 4.5 W. Cuối cùng tỉ số tín hiệu trên nhiễu được cho bởi:</para>
+      <para id="id6504028"><figure id="id6504032"><media id="id4334857" alt=""><image src="graphics78.wmf" mime-type="image/wmf" height="43" width="133"/></media></figure>hay 20.3 dB</para>
+      <para id="id6504057">Giá trị này nhỏ hơn những gì có được nếu sử dụng PCM cho ví dụ này.</para>
+      <para id="id6504064">f<figure id="id6504178"><media id="id4334909" alt=""><image src=".wmf" mime-type="image/wmf" height="46" width="63"/></media></figure>fmGq(f)<figure id="id6504279"><media id="id4334939" alt=""><image src="graphics79.wmf" mime-type="image/wmf" height="216" width="400"/></media></figure></para>
+      <para id="id6504302">GIỚI THIỆU VỀ MÃ HOÁ ENTROPY VÀ NÉN DỮ LIỆU.</para>
+      <para id="id6504309">Chủ đề chính của các phần trước thuộc chương này là mã hoá tín hiệu nguồn. Đó là kỹ thuật chuyển đổi một tín hiệu tượng tự sang tín hiệu số.</para>
+      <para id="id6504321">Phần chính trong phần này là mã hoá entropy. Đây là phương pháp kết hợp một từ dạng số với mỗi thông tin được truyền đi. Ta sẽ thấy sự liên kết này được thực hiện trong phương cách làm giảm thiểu chiều dài thông tin được truyền.</para>
+      <para id="id6504336">Trong phần 7.8, ta sẽ nghiên cứu về mã hoá kiểm soát lỗi. Phương pháp này thì khác so với mã hoá entropy.</para>
+      <para id="id6504346">Ngay cả trong trường hợp không có nhiễu thêm vào, các mã hoá entropy cũng phải được thiết kế cẩn thận để tránh nhiều lỗi trong khi giải mã. Vấn đề số một liên quan đến khái niệm này là sự giải đoán duy nhất. Giả sử rằng có 4 bản tin cần được truyền và những bản tin này được mã hoá sang số nhị phân như sau:</para>
+      <para id="id6504361">M1 = 1M2 = 10M3= 01M4 = 101</para>
+      <para id="id6504395">Giả sử bây giờ ta đang ở hệ thống thu và nhận được kết quả là 101. Ta sẽ không biết kết quả này là của M4 hoặc thông tin ghép của M2 và M1 hoặc M1 và M3. Do đó sự lựa chọn của các từ mã này cho ra một mã mà không có sự giải đoán mã duy nhất.</para>
+      <para id="id6504440">Một mã có thể giải đoán một cách duy nhất được nếu không có từ mã tạo nên bắt đầu (được xem như tiền tố) của bât kỳ từ mã nào khác. Vì thế, 4 mã thông tin sau đây là một ví dụ giải đoán duy nhất.</para>
+      <para id="id6504454">M1=1M2=01M3=001M4=0001</para>
+      <para id="id6504487">Đặc tính giới hạn tiền tố là đầy đủ nhưng không cần thiết cho khả năng giải mã duy nhất. Ví dụ khá, mã:</para>
+      <para id="id6504495">M1=1M2=10M3=100M4=1000</para>
+      <para id="id6504528">Là có thể giải đoán duy nhất được, mặc dù mỗi từ mã là tiền tố của mỗi từ mã khác ở bên phải của nó. Sự khác nhau chính yếu giữa ví dụ này và ví dụ trước là ở chỗ không từ mã nào có thể hình thành như là sự tổ hợp của những từ mã khác. Tuy nhiên đây là điều bất lợi. Mã thì có thể giải đoán duy nhất được nhưng không xảy ra lập tức. Giả sử rằng ta đang ở máy thu và nhận được mã 10. Đến khi ta thấy hai bit được nhận kế tiếp, ta không biết khi nào nhận được thông tin M2, M3, M4.</para>
+      <para id="id6504570">Ví dụ 7.8: Những mã nào sau đây là giải đoán duy nhất? Hãy xác định chúng khi nào xảy ra.</para>
+      <list id="id6504584" list-type="enumerated">
+        <item>0, 01, 001, 0011, 101</item>
+        <item>110, 111, 101, 01</item>
+        <item>0, 01, 011, 0110111</item>
+      </list>
+      <para id="id6504604">Giải:</para>
+      <list id="id6504610" list-type="enumerated">
+        <item>Đây không là giải đoán duy nhất vì từ đầu tiên và từ sau cùng khi gởi đi thành chuỗi 0101 và có thể diễn giải là 01 và 01. Đó là hai lần truyền của từ thứ hai.</item>
+        <item>Đây là giải đoán duy nhất vì tất cả những từ bắt đầu với một số 1 và đều có chiều dài là 3. Nếu một chuỗi 3 bit không bắt đầu với số 1, ta biết rằng nó chỉ là một từ có hai bit. Mã này, cũng xảy ra tức thì vì không từ mã nào là tiền tố của từ khác.</item>
+        <item>Đây là giải đoán duy nhất vì tất cả những từ bắt đầu với một số zero, số zero này không lập lại trong bất cứ từ nào là tổ hợp của những từ khác. Nó không xảy ra lập tức vì mỗi từ trong ba từ đầu tiên là một tiền tố của một từ sau cùng khác.</item>
+      </list>
+      <para id="id6504655">1. MÃ HOÁ ENTROPY (entropy coding) </para>
+      <para id="id6504668">Vấn đề ta quan tâm ở đây là tìm ra các mã có thể giải đoán duy nhất được với chiều dài nhỏ nhất. Điều này sẽ cho phép truyền với tốc độ lớn nhất trên kênh. Việc kiểm tra các mã được trình bày rõ ràng hơn trong phần này. Những bản tin khác nhau được mã hoá thành những từ có chiều dài khác nhau. Khi nói về chiều dài của một mã, ta phải chỉ ra chiều dài trung bình của những từ mã. Trị trung bình này được tính toán bằng cách lấy xác suất của mỗi bản tin. Rõ ràng rất thuận lợi khi gán những từ mã ngắn hơn cho hầu hết những bản tin có thể có. Mã Morse theo quy luật này bằng cách gán từ mã ngắn nhất bằng ký tự E.</para>
+      <para id="id6504700">Một định lý căn bản đã tồn tại trong thuyết mã hoá không có nhiễu. Định lý này được phát biểu rằng: đối với các chữ cái mã hoábằng số nhị phân, chiều dài từ mã trung bình, lớn hơn hoặc bằng với entropy. Người ta định nghĩa entropy là</para>
+      <figure id="id6504719">
+        <media id="id4335289" alt=""><image src="graphics80.wmf" mime-type="image/wmf" height="53" width="144"/></media>
+      </figure>
+      <para id="id6504743">Trong đó pi là xác suất của bản tin thứ i. Giá trị log2(1/pi) được hiểu như là nội dung của thông tin và đơn vị của nó là bit. Entropy là lượng tin trung bình trên bản tin.</para>
+      <para id="id6504771">Gọi chiều dài từ trung bình là n, định lý này được xác định bằng công thức sau:</para>
+      <figure id="id6504783">
+        <media id="id4335350" alt=""><image src="graphics81.wmf" mime-type="image/wmf" height="24" width="46"/></media>
+      </figure>
+      <para id="id6504807">Ví dụ 7.9: Tìm chiều dài trung bình nhỏ nhất của một mã với 4 bản tin với xác suất lần lược là 1/8, 1/8, ¼ và ½.</para>
+      <para id="id6504822">Giải: Theo mã hoá entropy ta có:</para>
+      <para id="id6504828">1/8 x 3 + 1/8 x 3 +1/4 x 2 + ½ x 1 = 1.75 bits</para>
+      <para id="id6504835">Đây cũng là chiều dài trung bình nhỏ nhất của mã này. Ta chú ý rằng mã có thể là:</para>
+      <para id="id6504842">M1 = 000, M2 = 001, M3=01, M4 =1</para>
+      <para id="id6504869">Mã này có thể giải đoán được và có chiều dài trung bình là 1.75 bits.</para>
+      <para id="id6504877">2. CÁC MÃ CÓ CHIỀU DÀI THAY ĐỔI (variable length codes)</para>
+      <para id="id6504884">Nếu các bản tin truyền đi với xác suất không bằng nhau tức các từ mã được chọn có chiều dài không bằng nhau, chiều dài mã trung bình ngắn hơn. Ví dụ giả sử rằng ta có 4 bản tin với xác suất lần lược là 1/8, 1/8, ¼, và ½ (giống như ví dụ 7.9). Một phương pháp để mã hoá những bản tin này sang các từ nhị phân là sử dụng 00, 01, 10 và 11 để gửi 4 bản tin có thể với chiều dài trung bình là 2 bit. Chiều dài trung bình được cho bởi:</para>
+      <para id="id6504899">1/8 x 3 + 1/8 x 3 +1/4 x 2 + ½ x 1 = 1.75 bits</para>
+      <para id="id6504906">Ta có thể mã hoá nhiều bản tin sang những từ mã ngắn hơn. Trong trường hợp đặc biệt này chiều dài từ trung bình hợp với entropy. Vì thế ta không thể tìm ra một mã với chiều dài trung bình nhỏ hơn.</para>
+      <para id="id6504919">Một phương pháp bắt nguồn từ các mã có chiều dài thay đổi là bắt đầu với những mã có chiều dài thay đổi và nhiều nhóm con mở rộng. Ví dụ bắt đầu với mã 1 bít ta có hai từ mã là 0 và 1 và mở rộng cho nó là: 100, 101, 110 và 111. Năm từ mã này là:</para>
+      <para id="id6504937">0</para>
+      <para id="id6504941">100</para>
+      <para id="id6504945">101</para>
+      <para id="id6504949">110</para>
+      <para id="id6504954">111</para>
+      <para id="id6504958">Một phương pháp khác bắt đầu với từ mã 2 bit 00, 01, 10, 11 và mở rộng cho một trong 4 từ mã này sang hai từ. Nếu 01 được chọn cho việc mở rộng, ta sẽ có mã 5 từ.</para>
+      <para id="id6504970">00</para>
+      <para id="id6504974">010</para>
+      <para id="id6504979">011</para>
+      <para id="id6504983">10</para>
+      <para id="id6504987">11</para>
+      <para id="id6504992">Câu hỏi bây giờ là làm sao có nhiều cách để thực hiện mở rộng mà nó sẽ cho kết quả với chiều dài trung bình nhỏ nhất. Ta đã trình bày hai cách để tìm một cách có hiệu quả những từ mã có chiều dài thay đổi. Đó là dùng mã Hufman và mã Shannon-Fano.</para>
+      <para id="id6505007">Mã Huffman cung cấp một kỹ thuật tổ chức cho việc tìm từ mã có chiều dài thay đổi cho một tập các bản tin. Ta trình bày các bước thực hiện như ví dụ sau đây:</para>
+      <para id="id6505019">Giả sử rằng ta muốn mã hoá 5 từ s1, s2, s3, s4, và s5 với xác suất lần lược là 1/16, 1/8, ¼, 1/16, và ½. Trình tự mã Huffman được thiết lập qua 4 bước sau đây:</para>
+      <para id="id6505057">Bước 1: Sắp xếp các bản tin theo xác suất giảm dần. Nếu có những xác suất bằng nhau, chọn bất cứ từ nào trước cũng được.</para>
+      <table id="id6505075" summary="">
+        <tgroup cols="2">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <tbody>
+            <row>
+              <entry>Từ</entry>
+              <entry>Xác suất</entry>
+            </row>
+            <row>
+              <entry>S5</entry>
+              <entry>½</entry>
+            </row>
+            <row>
+              <entry>S3</entry>
+              <entry>¼</entry>
+            </row>
+            <row>
+              <entry>S2</entry>
+              <entry>1/8</entry>
+            </row>
+            <row>
+              <entry>S1</entry>
+              <entry>1/16</entry>
+            </row>
+            <row>
+              <entry>S4</entry>
+              <entry>1/16</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6505247">Bước 2: Kể từ đáy lên, tổ hợp hai xác suất cuối thành một xác suất mới với xác suất là tổng của hai xác suất cần ghép. Ta sẽ sắp xếp lại khi có được xác suất mới nếu thấy cần thiết. Và ta cũng sắp xếp theo sự giảm dần.</para>
+      <table id="id6505266" summary="">
+        <tgroup cols="3">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <tbody>
+            <row>
+              <entry>Từ</entry>
+              <entry>Xác suất</entry>
+              <entry>Xác suất mới</entry>
+            </row>
+            <row>
+              <entry>S5</entry>
+              <entry>½</entry>
+              <entry>½</entry>
+            </row>
+            <row>
+              <entry>S3</entry>
+              <entry>¼</entry>
+              <entry>¼</entry>
+            </row>
+            <row>
+              <entry>S2</entry>
+              <entry>1/8</entry>
+              <entry>1/8</entry>
+            </row>
+            <row>
+              <entry>S1</entry>
+              <entry>1/16</entry>
+              <entry>1/8</entry>
+            </row>
+            <row>
+              <entry>S4</entry>
+              <entry>1/16</entry>
+              <entry/>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6505498">Chú ý rằng xác suất ở cuối của cột bên phải là sự tổ hợp của s1 và s4.</para>
+      <para id="id6505517">Bước 3: Tiếp tục kết nối như bước 2 cho đến khi cột bên phải cùng chỉ còn hai xác suất.</para>
+      <table id="id6505530" summary="">
+        <tgroup cols="5">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <colspec colnum="4" colname="c4"/>
+          <colspec colnum="5" colname="c5"/>
+          <tbody>
+            <row>
+              <entry>Từ</entry>
+              <entry>Xác suất</entry>
+              <entry>Xác suất</entry>
+              <entry>Xác suất</entry>
+              <entry>Xác suất mới</entry>
+            </row>
+            <row>
+              <entry>S5</entry>
+              <entry>½</entry>
+              <entry>½</entry>
+              <entry>½</entry>
+              <entry>½</entry>
+            </row>
+            <row>
+              <entry>S3</entry>
+              <entry>¼</entry>
+              <entry>¼</entry>
+              <entry>¼</entry>
+              <entry>½</entry>
+            </row>
+            <row>
+              <entry>S2</entry>
+              <entry>1/8</entry>
+              <entry>1/8</entry>
+              <entry>¼</entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>S1</entry>
+              <entry>1/16</entry>
+              <entry>1/8</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>S4</entry>
+              <entry>1/16</entry>
+              <entry/>
+              <entry/>
+              <entry/>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6505865">Bước 4:Gán những từ mã bằng cách bắt đầu ở bên phải với MSB (the most significant bit). Di chuyển sang bên trái và gán cho những bit khác nếu có sự phân chia xảy ra. Những bit được gán , được gạch dưới như bảng sau:</para>
+      <table id="id6505883" summary="">
+        <tgroup cols="5">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <colspec colnum="4" colname="c4"/>
+          <colspec colnum="5" colname="c5"/>
+          <tbody>
+            <row>
+              <entry>Từ</entry>
+              <entry>Xác suất</entry>
+              <entry>Xác suất</entry>
+              <entry>Xác suất</entry>
+              <entry>Xác suất mới</entry>
+            </row>
+            <row>
+              <entry>S5</entry>
+              <entry>½</entry>
+              <entry>½</entry>
+              <entry>½</entry>
+              <entry>½ 0</entry>
+            </row>
+            <row>
+              <entry>S3</entry>
+              <entry>¼</entry>
+              <entry>¼</entry>
+              <entry>¼ 10</entry>
+              <entry>½ 1</entry>
+            </row>
+            <row>
+              <entry>S2</entry>
+              <entry>1/8</entry>
+              <entry>1/8 110</entry>
+              <entry>¼ 11</entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>S1</entry>
+              <entry>1/16 1110</entry>
+              <entry>1/8 111</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>S4</entry>
+              <entry>1/16 1111</entry>
+              <entry/>
+              <entry/>
+              <entry/>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6441947">Cuối cùng các từ mã được xác định như sau:</para>
+      <para id="id6441955">S1 -&gt; 1110</para>
+      <para id="id6441964">S2 -&gt; 110</para>
+      <para id="id6441978">S3 -&gt; 10</para>
+      <para id="id6441992">S4 -&gt; 1111</para>
+      <para id="id6442002">S5 -&gt; 0 </para>
+      <para id="id6442016">Chú ý rằng tại mỗi điểm có thể có hai cách gán. Nếu có ba hoặc nhiều xác suất thấp nhất bằng nhau, việc chọn lựa tổ hợp là tuỳ ý.</para>
+      <para id="id6442027">Chiều dài trung bình là:</para>
+      <para id="id6442033"><figure id="id6442036"><media id="id4336860" alt=""><image src="graphics82.wmf" mime-type="image/wmf" height="22" width="15"/></media></figure> = 4 x 1/16 + 3x 1/8 +2x ¼ +4 x 1/16 + 1 x ½ = 15/8</para>
+      <para id="id6442063">Nếu mã hoá khối được sử dụng, ta cần 3 bit cho một bản tin và chiều dài trung bình sẽ là 3. Entropy của mã được xác định:</para>
+      <para id="id6442074">H= 2/16 log(16) + 1/8 log(8) + ¼ log(4) + ½ log(2) = 15/8 bits</para>
+      <para id="id6442080">Kết quả này cũng giống như chiều dài trung bình của mã Huffman. Vì thế, thủ tục Huffman sinh ra một mã có hiệu quả cao. Điều này tạo ra kết quả bởi vì tất cả các xác suất bản tin là bội của ½.</para>
+      <para id="id6442094">Điều bất lợi của mã Huffman là ta không thể bắt đầu gán từ mã cho đến khi toàn bộ tiến trình tổ hợp được hoàn tất. Đó là một trong những cột phải được khai triển trước khi từ mã đầu tiên được gán. Tiến trình mã hoá thường được thực hiện bằng một máy vi tính chuyên dụng.</para>
+      <para id="id6442111">Mã Shannon-Fanno cũng giống như mã Huffman. Sự khác nhau chủ yếu là các thao tác thường tiến hơn là lùi. Vì thế các yêu cầu lưu trữ, được xem như là thư giản và mã thực hiện dễ hơn. Nó thường dẫn đến chiều dài trung bình giống như mã Huffman. Các kết quả mã hoá Shannon-Fano thì không luôn luôn tốt như mã Huffman.</para>
+      <para id="id6442127">Ta sẽ minh hoạ lại kỹ thuật này bằng một ví dụ. Ta dùng một ví dụ giống như mã Huffman đã trình bày ở phần trước trong chương này.</para>
+      <para id="id6442138">Bước 1: Sắp xếp những bản tin theo xác suất giảm dần. Nếu có nhiều xác suất bằng nhau, chọn bất cứ từ nào trước cũng được.</para>
+      <table id="id6442153" summary="">
+        <tgroup cols="2">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <tbody>
+            <row>
+              <entry>Từ</entry>
+              <entry>Xác suất</entry>
+            </row>
+            <row>
+              <entry>S5</entry>
+              <entry>½</entry>
+            </row>
+            <row>
+              <entry>S3</entry>
+              <entry>¼</entry>
+            </row>
+            <row>
+              <entry>S2</entry>
+              <entry>1/8</entry>
+            </row>
+            <row>
+              <entry>S1</entry>
+              <entry>1/16</entry>
+            </row>
+            <row>
+              <entry>S4</entry>
+              <entry>1/16</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6442325">Bước 2: Chia những bản tin thành những tập con có xác suất ngang nhau nhất. Ta bắt đầu tại đỉnh hoặc đáy và chia nhóm này ra hai tập hợp. Ta tìm xác suất tổng cộng của tập hợp trên và tập hợp dưới. Ta chọn đường chia sao cho kết quả nằm trong xác suất gần nhau nhất. Trong trường hợp này đường phân cách sẽ nằm dưới mẫu tin dầu tiên. Kết quả xác suất cho các mẫu tin ở trên và ở dưới là ½ như được minh hoạ dưới đây.</para>
+      <table id="id6442351" summary="">
+        <tgroup cols="3">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <tbody>
+            <row>
+              <entry>Từ</entry>
+              <entry>Xác suất</entry>
+              <entry/>
+            </row>
+            <row>
+              <entry>S5</entry>
+              <entry>½</entry>
+              <entry>0</entry>
+            </row>
+            <row>
+              <entrytbl namest="c1" nameend="c2" cols="2">
+                <colspec colnum="1" colname="c1"/>
+                <colspec colnum="2" colname="c2"/>
+                <tbody>
+                  <row>
+                    <entry>S3</entry>
+                    <entry>¼</entry>
+                  </row>
+                  <row>
+                    <entry>S2</entry>
+                    <entry>1/8</entry>
+                  </row>
+                  <row>
+                    <entry>S1</entry>
+                    <entry>1/16</entry>
+                  </row>
+                  <row>
+                    <entry>S4</entry>
+                    <entry>1/16</entry>
+                  </row>
+                </tbody>
+              </entrytbl>
+              <entry>1</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6442567">Bây giờ ta gán giá trị zero cho tất cả các phần tử của một trong hai tập hợp và giá trị 1 cho tất cả các thành phần khác (đây là sự tuỳ chọn). Giả sử rằng ta chọn 0 cho tập hợp ở trên và 1 cho tập hợp ở dưới. Nếu một tập hợp chỉ chứa một mẫu tin, tiến trình xử lý cho tập hợp đó kết thúc. Vì thế từ mã hoá được dùng để gửi s5 đi là 0 và ta không cần xem lại tiến trình đó nữa. Ta tập trung vào tập hợp khác và ;ăpklại tiến trình chia nhỏ. Sau một lần chia nhỏ hơn ta có:</para>
+      <table id="id6442594" summary="">
+        <tgroup cols="3">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <tbody>
+            <row>
+              <entry>Từ</entry>
+              <entry>Xác suất</entry>
+              <entry>Từ mã</entry>
+            </row>
+            <row>
+              <entry>S3</entry>
+              <entry>½</entry>
+              <entry>10</entry>
+            </row>
+            <row>
+              <entrytbl namest="c1" nameend="c2" cols="2">
+                <colspec colnum="1" colname="c1"/>
+                <colspec colnum="2" colname="c2"/>
+                <tbody>
+                  <row>
+                    <entry>S2</entry>
+                    <entry>1/8</entry>
+                  </row>
+                  <row>
+                    <entry>S1</entry>
+                    <entry>1/16</entry>
+                  </row>
+                  <row>
+                    <entry>S4</entry>
+                    <entry>1/16</entry>
+                  </row>
+                </tbody>
+              </entrytbl>
+              <entry>11</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6442787">H</para>
+      <para id="id6442791">Chú ý rằng xác suất cả phần trên đường phân cách và phần dưới đường ấy đều là ¼. Ta đã cộng bit thứ hai cho các từ mã (cộng 0 cho từ mã ở trên đường phân cách và giá trị 1 cho ở dưới đường ấy). Bởi vì chỉ có một mẫu tin ở trên đường phân cách nên ta kết thúc và mã của s3 là 10. Tiếp tục chia nhỏ với tập hợp ở dưới đường phân cách ta có:</para>
+      <table id="id6442815" summary="">
+        <tgroup cols="3">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <tbody>
+            <row>
+              <entry>Từ</entry>
+              <entry>Xác suất</entry>
+              <entry>Từ mã</entry>
+            </row>
+            <row>
+              <entry>S2</entry>
+              <entry>1/8</entry>
+              <entry>110</entry>
+            </row>
+            <row>
+              <entrytbl namest="c1" nameend="c2" cols="2">
+                <colspec colnum="1" colname="c1"/>
+                <colspec colnum="2" colname="c2"/>
+                <tbody>
+                  <row>
+                    <entry>S1</entry>
+                    <entry>1/16</entry>
+                  </row>
+                  <row>
+                    <entry>S4</entry>
+                    <entry>1/16</entry>
+                  </row>
+                </tbody>
+              </entrytbl>
+              <entry>111</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6442980">Cuối cùng ta chia nhỏ tập hợp ở phần dưới đường phân cách ra:</para>
+      <table id="id6442988" summary="">
+        <tgroup cols="3">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <tbody>
+            <row>
+              <entry>Từ</entry>
+              <entry>Xác suất</entry>
+              <entry>Từ mã</entry>
+            </row>
+            <row>
+              <entry>S1</entry>
+              <entry>1/16</entry>
+              <entry>1110</entry>
+            </row>
+            <row>
+              <entry>S4</entry>
+              <entry>1/16</entry>
+              <entry>1111</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6443112">Kết quả của từ mã là: </para>
+      <para id="id6443119">S1 -&gt; 1110</para>
+      <para id="id6443128">S2 -&gt; 110</para>
+      <para id="id6443142">S3 -&gt; 10</para>
+      <para id="id6443156">S4 -&gt; 1111</para>
+      <para id="id6443166">S5 -&gt; 0</para>
+      <para id="id6443180">Quan sát kết quả trên ta thấy hoàn toàn giống với kết quả khi dùng với mã Huffman.</para>
+      <para id="id6443188">Ta đã minh hoạ hai kỹ thuật để rút ngắn tập hợp các bản tin thành mã nhị phân hiệu quả nhất. Ta giả sử rằng các bản tin đã được cho và chúng không tổ hợp thành mã được. Nếu các bản tin tổ hợp được, sẽ hiệu quả hơn nhiều. Ta minh hoạ điều này bằng một ví dụ với hai bản tin. Giả sử rằng bản tin này có xác suất lần lược là:</para>
+      <para id="id6443204">S1 -&gt; 0.9</para>
+      <para id="id6443213">S2 -&gt; 0.1</para>
+      <para id="id6443223">Thì Entropy được tính là:</para>
+      <para id="id6443229">H= -0.9 log 0.9-0.1 log 0.1 = 0.47 bit</para>
+      <para id="id6443234">Vì thế ta hy vọng sẽ đạt được một mã có chiều dài gần với giá trị này. Tuy nhiên ta sử dụng hoặc là kỹ thuật Huffman hoặc là mã Shannon-Fano sẽ cho kết quảlà gán giá trị 0 vào một trong các từ mã và giá trị 1 cho từ mã khác. Chiều dài trung bình thường là một bit trên một bản tin. Điều này, nhiều hơn hai lần Entropy.</para>
+      <para id="id6443249">Giả sử rằng ta tổ hợp các bản tin thành những cặp. Sau đó ta có 4 tập hợp của hai bản tin. Điều này không phụ thuộc vào các bản tin. Các tập hợp có thể và xác suất kết quả là:</para>
+      <para id="id6443262">S1S10.81</para>
+      <para id="id6443286">S1S20.09</para>
+      <para id="id6443309">S2S10.09</para>
+      <para id="id6443332">S2S20.01</para>
+      <para id="id6443356">Nếu sử dụng phương pháp Shannon-Fano ta gán những từ mã như sau:</para>
+      <para id="id6443364">S1S­10.810</para>
+      <para id="id6443389">S1S20.0910</para>
+      <para id="id6443415">S2S10.09110</para>
+      <para id="id6443440">S2S2 0.01111</para>
+      <para id="id6443468">Chiều dài từ trung bình thường được xác định như sau:</para>
+      <para id="id6443475"><figure id="id6443478"><media id="id4338318" alt=""><image src="graphics83.wmf" mime-type="image/wmf" height="22" width="15"/></media></figure> = 1 x 0.81 + 2 x 0.09 + 3 x 0.10 = 1.29 bits</para>
+      <para id="id6443504">Vì mỗi bản tin được tổ hợp sẽ thể hiện hai trong số những bản tin gốc, ta chia số này cho hai, tìm ra được 0.645 bit được dùng để gửi một trong số những bản tin gốc.</para>
+      <para id="id6443517">Bây giờ giả sử rằng ta kết hợp 3 bản tin ở cùng một thời điểm để có được những xác suất bản tin và từ mã như sau:</para>
+      <para id="id6443528">S1S1S10.7290</para>
+      <para id="id6443559">S1S1S20.081100</para>
+      <para id="id6443591">S1S2S10.081101</para>
+      <para id="id6443623">S1S2S20.00911100</para>
+      <para id="id6443655">S2S1S10.081110</para>
+      <para id="id6443687">S2S1S20.00911101</para>
+      <para id="id6443719">S2S2S10.00911110</para>
+      <para id="id6443751">S2S2S20.00111111</para>
+      <para id="id6443783">Chiều dài trung bình của các mã là 1.598 bits. Vì thế chiều dài trung bình cho bản tin gốc là:</para>
+      <figure id="id6443795">
+        <media id="id4338476" alt=""><image src="graphics84.wmf" mime-type="image/wmf" height="43" width="143"/></media>
+      </figure>
+      <para id="id6443819">Chú ý rằng ta càng kết hợp nhiều bản tin, chiều dài trung bình sẽ tiến gần đến Entropy. Chiều dài trung bình này sẽ bằng với Entropy nếu các xác suất là nghịch đảo bội của 2. Khi càng nhiều các bản tin được kết hợp, các xác suất càng tiến đến gần nhau.</para>
+      <para id="id6443834">3. NÉN DỮ LIỆU (data compression)</para>
+      <para id="id6443847">Nén dữ liệu là một thuật ngữ được dùng rộng rãi trong các kỹ thuật làm giảm số bit truyền cho một bản tin. Mã hoá Entropy là một dạng của nén dữ liệu.</para>
+      <para id="id6443859">Sự thành công của các kỹ thuật nén dữ liệu, phụ thuộc vào các thuộc tính của thông tin. Ví dụ mã hoá Entropy trở nên hiệu quả nhất khi các xác suất của bản tin không bằng nhau. Những kỹ thuật khác mà ta sẽ mô tả phụ thuộc vào các thuộc tính tuần tự của bản tin. Tức chúng phụ thuộc vào các biểu tượng xảy ra trong một trật tự có thể tiên đoán.</para>
+      <para id="id6443874">Bây giờ ta xem sự mã hoá của một bức ảnh ti vi. Giả sử, một bức ảnh ti vi chứa 426 điểm ảnh có thể nhìn thấy (pixel) trong một đường quét ngang. Nếu ta nói về ti vi trắng đen chỉ cần gửi độ sáng (độ chói) của mỗi điểm ảnh. Giả sử ta quyết định truyền 7 bits thông tin. Thế thì, ta lượng tử độ sáng bằng 27 hoặc 128 mức khác nhau. Điều này thể hiện chất lượng của độ phân giải cao. Ta cần 7 x 426 hoặc 2982 bits để truyền thông tin cho mỗi đòng bằng cách sử dụng PCM. Một ảnh ti vi chuẩn thường chứa mộ chuỗi các điểm ảnh gần nhau với cùng độ sáng. Khi ta theo dấu của một đường quét ngang ta có thể thấy hàng trăm điểm ảnh có độ sáng giống nhau (giả sử có một hình ở giữa màn hình và phông nền, giống nhau hoặc giả sử ta gửi một đoạn văn bản trên một nền giống nhau). Trong những trường hợp như thế ta có thể sử dụng kỹ thuật nén dữ liệu (được hiểu như mã run-length) để làm giảm số bit truyền tín hiệu. Thay vì gửi độ sáng cho mỗi điểm ảnh, ta gửi vị trí bắt đầu và độ sáng của điểm ảnh đầu tiên trong số các điểm ảnh có cùng độ sáng với cùng một độ sáng. Để gửi vị trí ta cần 9 bits thông tin bởi vì 29 = 512 và có 426 vị trí khác nhau. Vì thế ta cần 9 bits cho vị trí và 7 bits cho độ sáng (tổng cộng là 16 bits). Thí dụ nếu 10 điểm ảnh lân cận có cùng độ sáng, ta cần 10 x 7 = 70 bits để gửi những thông tin này một cách độc lập. Nhưng chỉ với 16 bit để gửi chúng nếu dùng mã run-length. Khái niệm này có thể dẫn đến tiết kiệm hơn nếu được mở rộng sang hai hướng.</para>
+      <para id="id6443941">Một trong những bất lợi của mã run-length là tín hiệu dữ liệu xảy ra với tốc độ không đồng đều. Đó là những bit không mã hoá được gửi đi với tốc độ không đổi. Tuy nhiên, bằng cách mã hoá các vùng sáng đều lớn sẽ cho kết quả dữ liệu truyền với nhịp thấp hơn. Vì thế hệ thống đòi hỏi một vùng đệm. Một sự thiếu sót nữa là các lỗi truyền đi vì hệ thống có bộ nhớ. Một bit lỗi trong một hệ thống dùng PCM để gửi riêng thông tin từng điểm ảnh sẽ gây ra một lỗi độ sáng cho riêng điểm ảnh đó. Nhưng nếu mã run-length được dùng, một bit lỗi có thể ảnh hưởng đến toàn bộ độ sáng của đường quét.</para>
+      <para id="id6443973">Ta có thể dùng sự tiên đoán trong các dạng nén dữ liệu. Nếu các giá trị của dữ liệu tiếp theo có thể được tiên đoán từ các giá trị hiện tại và các giá trị trước đó thì không cần gửi tất cả dữ liệu. Chỉ cần các giá trị dữ liệu hiện tại cộng thêm một số thông số chính đủ để giúp cho việc tiên đoán.</para>
+      <para id="id6443988">GIỚI THIỆU VỀ SỬA LỖI TIẾP CHUYỂN (forward error correction).</para>
+      <para id="id6443995">Ta sẽ cố gắng thiết kế một hệ thống để làm giảm thiểu xác suất của các bit lỗi. Tuy nhiên, trong một môi trường nhiễu thường, không thể làm giảm lỗi đến mức có thể chấp nhận được. Điều ta cần làm là tăng công suất tín hiệu đến giới hạn thực tế. Làm giảm tỉ lệ lỗi là yêu cầu truyền thông ở một tốc độ thấp khó có thể chấp nhận.</para>
+      <para id="id6444011">Có một sự lựa chọn khác để cải tiến việc thực hiện một hệ thống truyền thông số. Mã kiểm soát lỗi (error control coding) có thể được dùng để cải tiến cấu trúc tín hiệu. Cấu trúc này có thể nhận ra các lỗi ở tại hệ thống thu. Sự phát hiện lỗi (error detection) là tiến trình cung cấp cấu trúc đủ. Do đó hệ thống thu sẽ biết được khi nào lỗi xảy ra. Nếu cấu trúc thêm vào đầy đủ để định vị chính xác vị trí của các lỗi này, mã đó là một mã sửa lỗi (error correcting) và nó có thể sửa đúng các lỗi tại hệ thống thu mà không yêu cầu phải truyền lại. Sự sửa lỗi đó gọi là sửa lỗi tiếp chuyển (forward error correction). Sửa lỗi tiếp chuyển thường yêu cầu thêm vào một số bit khi truyền tín hiệu đi. Do đó ta gửi nhiều bit hơn yêu cầu.</para>
+      <para id="id6444051">Ta xem hai loại mở rộng của mã điều khiển lỗi là mã hoá khối (block coding) và mã hoá chồng (convolutional coding).</para>
+      <para id="id6444061">1. MÃ HOÁ KHỐI TUYẾN TÍNH (linear block coding):</para>
+      <para id="id6444067">Trong mã hoá khối tuyến tính các nhóm của bản tin có chiều dài không đổi được mãhoá sang các nhóm bit mã hoá có chiều dài cố định. Nhóm các bit để hình thành số bản tin mong muốn. Chẳng hạn như bằng cách kết hợp các nhóm 3 bits, ta có thể hình thành nên 8 bản tin có từ mãnhư sau: 000, 001, 010, 011, 100, 101, 110, 111. Mỗi một trong 8 từ bản tin này có thể được mã hoá sang một trong 8 từ mã khác. Các từ mã không cần thiết phải có chiều dài bản tin giống như từ bản tin gốc. Thật vậy, để điều khiển được lỗi, các từ mã phải dài hơn từ bản tin gọi là phần dư (redundancy).</para>
+      <para id="id6444097">Ta có thể kiểm tra khả năng sửa lỗi cho các lỗi được phân bố ngẫu nhiên. Ta giả sử rằng các bit thực tế đảo ngược trong khi truyền đi, được phân bố một cách ngẫu nhiên trong suốt bản tin. Đây không phải là trường hợp các lỗi ngẫu nhiên (burst error) mà ở đây xác suất lỗi bit cao xảy ra trong số các bit lân cận.</para>
+      <para id="id6444113">2. KHOẢNG CÁCH GIỮA CÁC TỪ MÃ </para>
+      <para id="id6444118">Khoảng cách giữa hai từ nhị phân có chiều dài bằng nhau được định nghĩa như số vị trí bit khác nhau giữa hai từ này. Ví dụ như khoảng cách giữa 000 và 111 là 3 trong khi khoảng cách giữa 010 và 011 là 1. Khoảng cách giữa bất cứ từ nào với từ được hình thành bằng sự thay đổi một bit là 1.</para>
+      <para id="id6444134">Giả sử bây giờ ta truyền một trong 8 từ mã 3 bit. Và ta truyền trên một kênh bị nhiễu và có một bít vị trí nhận sai vì mỗi tổ hợp 3 bít được dùng cho một bản tin, nên thu được chính là một trong các từ mã và một lỗi được tạo ra. Chẳng hạn như nếu giá trị 101 được truyền và có một lỗi xảy ra trong bit thứ ba nên ở hệ thống thu được sẽ là 100.</para>
+      <para id="id6444156">Bây giờ giả sử rằng từ vựng của các từ mã là khoảng cách giữa bất cứ hai từ mã nào ít nhất là hai. Tám từ mã sau đây có tính chất trên:</para>
+      <para id="id6444168">0000, 0011, 0101, 0110, 1001, 1010, 1100, 1111</para>
+      <para id="id6444173">Bây giờ ta truyền một trong 8 từ mã và một bit lỗi xảy ra trong khi truyền. Vì khoảng cách giữa từ nhận được và từ truyền là 1, từ nhận được không thể ghép bất cứ từ nào trong từ vựng. Ví dụ như giá trị 0101 được truyền và bit lỗi xảy ra ở bit thứ 3, hệ thống thu nhận được 0111. Đây không phải là một trong 8 từ trên. Không thể sửa lỗi được nếu từ mã truyền là một trong các trị sau: 0011, 0101, 0110, 1111.</para>
+      <para id="id6444194">Bây giờ ta sẽ vẽ các từ mã trong một không gian n chiều, 8 từ mã trở thành các góc của hình khối đơn vị như trình bày trong hình 7.44.Bắt đầu tại mỗi góc của hình khối, nếu một lỗi bit được tạo ra, ta sẽ di chuyển một trong những cạnh đến một góc kế bên với khoảng cách là một đơn vị. Vì thế khoảng cách giữa hai từ là số cạnh nhỏ nhất phải được xoay quanh trục để di chuyển từ một từ đến những từ khác.</para>
+      <para id="id6444223"><figure id="id6444234"><media id="id4338873" alt=""><image src=".wmf" mime-type="image/wmf" height="156" width="177"/></media></figure>000001010011100101110111</para>
+      <para id="id6444429">Hình 7.44 Mã hoá 3 bit trong không gian 3 chiều.</para>
+      <para id="id6444435">Trong ví dụ trên vơi các từ mã 4 bit ta cần một hình vẽ với 8 điểm thể hiện các từ mã 4 chiều. Đây là một hình khối trong một không gian 4 chiều. Ta tìm ít nhất hai cạnh được xoay quanh một trục từ một từ đến những từ khác.</para>
+      <para id="id6444453">Trong trường hợp tổng quát nếu khoảng cách nhỏ nhất giữa hai từ mã là 2, các từ mã được chia ít nhất là hai cạnh trong một không gian n chiều. Ta sẽ minh hoạ điều này trong hình 7.45. Trong hình này ta chỉ ra3 trong số các từ mã từ ví dụ trên. Khối cầu n chiều với bán kính đơn vị bao gồm tất cả các từ với khoảng cách bằng 1 được tính từ tâm.</para>
+      <para id="id6444478">000001100011d = 1</para>
+      <para id="id6416780">Hình 7.45 Không gian 4 chiều.</para>
+      <para id="id6416786">Giả sử bây giờ khoảng cách nhỏ nhất giữa các từ mã được tăng lên bằng 3. Ta thấy rằng nếu một lỗi được tạo ra, từ nhận được có khoảng cách bằng 1 từ một từ mã đúng và ít nhất 2 đơn vị so với khoảng cách từ mỗi từ mã khác. Ta sẽ giải mã với từ gần nhất có thể chấp nhận được. Vì thế mã này có khả năng sửa lỗi một bit lỗi. Nhưng khi truyền chắc gì không xảy ra hai bit lỗi. Đối với trường hợp này, tiến trình mã hoá của ta sẽ dẫn đến câu trả lời không đúng. Tuy nhiên xác suất của 2 bit lỗi, nhỏ hơn xác suất của một bit lỗi. Ví dụ nếu ta truyền các từ 5 bits và xác suất của bit lỗi là 10-4, xác suất của một bit lỗi được xác định như sau:</para>
+      <para id="id6416826">5 x 10-4 x (1-10-4)4 = 5 x 10-4</para>
+      <para id="id6416850">Và xác suất của 2 bit lỗi sẽ là:</para>
+      <para id="id6416857">10 x (10-4)2 x (1-10-4)3 = 10 x 10-8</para>
+      <para id="id6416887">Vì thế một bit lỗi, nhiều hơn khoảng 500 lần so với 2 bit lỗi. Vì thế chiến thuật của ta có một kết quả trung bình giữa việc ước lượng 500 lần lỗi được sửa đúng và một lần ước lượng sửa lỗi không đúng.</para>
+      <para id="id6416901">Tổng quát nếu khoảng cách nhỏ nhất giữa các từ mã là Dmin, ta có số các lỗi là Dmin – 1. Để chuyển từ từ mã được truyền sang từ mã có thể chấp nhận khác ít nhất là Dmin lỗi được tạo ra, ta có thể nhận ra nếu có nhiều hơn số lỗi được tạo ra.</para>
+      <para id="id6416933">Nếu ta sửa lỗi bằng cách di chuyển đến từ gần nhất có thể chấp nhận, ta sửa (Dmin - 2)/2 lỗi cho Dmin chẵn và (Dmin - 1)/2 lỗi cho Dmin lẻ.</para>
+      <para id="id6416966">3. CÁC MÃ SỐ HỌC (algebraic codes)</para>
+      <para id="id6416978">Giả sử rằng từ bản tin của ta bao gồm k bits và ta thêm phần dư với m bits thêm vào. Lúc đó chiều dài của mỗi từ mã vào là n = k + mbits. Vì thế mỗi từ thông tin k bits có liên quan đến một từ mã n bit. Nếu từ thông tin xuất hiện rõ như một phần của từ mã, ta qui ước cho điều này như một mã hệ thống. Nếu ta biểu thị các bit thông tin này là ui và các bit thêm vào là ci, từ mã có thể được viết như sau:</para>
+      <para id="id6417007">c1c2 . . . cmu1u2 . . . uk</para>
+      <para id="id6417042">Ta đã đặt các bit thông tin ở phần kết thúc của từ mã. Điều này, không cần thiết và chúng có thể xuất hiện bất cứ ở đâu trong từ.</para>
+      <para id="id6417053">Một mã toán học là một mã mà các từ mã và từ thông tin có liên hệ bằng một biểu thức ma trận.</para>
+      <figure id="id6417066">
+        <media id="id4339136" alt=""><image src="graphics85.wmf" mime-type="image/wmf" height="26" width="60"/></media>
+      </figure>
+      <para id="id6417090">Trong đó <figure id="id6417096"><media id="id4339179" alt=""><image src="graphics86.wmf" mime-type="image/wmf" height="24" width="14"/></media></figure> = [1 x k] là vector thông tin.</para>
+      <para id="id6417122"><figure id="id6417128"><media id="id4339218" alt=""><image src="graphics87.wmf" mime-type="image/wmf" height="24" width="13"/></media></figure> = [1 x n] là vector từ mã.</para>
+      <para id="id6417154">[G] = [k x n] là ma trận phát.</para>
+      <para id="id6417163">Đây là một mã tuyến tính (n, k) trong đó n là chiều dài của các từ mã.</para>
+      <para id="id6417170">Ví dụ 7.10: Từ mã tuyến tính A(4, 3) được phát bởi ma trận:</para>
+      <para id="id6417182">
+        <figure id="id6417188">
+          <media id="id4339294" alt=""><image src="graphics88.wmf" mime-type="image/wmf" height="24" width="13"/></media>
+        </figure>
+      </para>
+      <figure id="id6417216">
+        <media id="id4339330" alt=""><image src="graphics89.wmf" mime-type="image/wmf" height="78" width="135"/></media>
+      </figure>
+      <para id="id6417240">Hãy tìm các từ mã liên quan với mỗi từ thông tin.</para>
+      <para id="id6417247">Giải:</para>
+      <para id="id6417253">Mã A(4, 3) có các từ thông tin với chiều dài 3 bits và các từ mã có chiều dài 4 bits. Như vậy ta có 8 từ mã thông tin 3 bits. Ta nhân mỗi từ mã cho ma trận phát để tìm các từ mã như sau:</para>
+      <table id="id6417266" summary="">
+        <tgroup cols="2">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <tbody>
+            <row>
+              <entry>Thông tin</entry>
+              <entry>Từ mã</entry>
+            </row>
+            <row>
+              <entry>000</entry>
+              <entry>0000</entry>
+            </row>
+            <row>
+              <entry>001</entry>
+              <entry>1001</entry>
+            </row>
+            <row>
+              <entry>010</entry>
+              <entry>1010</entry>
+            </row>
+            <row>
+              <entry>011</entry>
+              <entry>0011</entry>
+            </row>
+            <row>
+              <entry>100</entry>
+              <entry>1100</entry>
+            </row>
+            <row>
+              <entry>101</entry>
+              <entry>0101</entry>
+            </row>
+            <row>
+              <entry>110</entry>
+              <entry>0110</entry>
+            </row>
+            <row>
+              <entry>111</entry>
+              <entry>1111</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6417486">Trước khi qua ví dụ này ta có một số chú ý. Chú ý đầu tiên là 3 bit mã cuối cùng ghép với từ thông tin. Vì thế mã này là mã hệ thống. Điều này xảy ra khi vế phải của ma trận [G] là một ma trận 3 chiều. Ta cũng chú ý rằng các bit dư thêm vào là một parity bit được chọn để cung cấp cho parity chẳn. Các bits thêm vào trong mã số học, luôn luôn là các bit kiểm tra parity. Mà ở đây ta chọn ký hiệu ci cho các bits dư này.</para>
+      <para id="id6417508">Ví dụ 7.11: Mã tuyến tính A(7, 4) được phát bởi ma trận [G]:</para>
+      <figure id="id6417523">
+        <media id="id4339657" alt=""><image src="graphics90.wmf" mime-type="image/wmf" height="100" width="208"/></media>
+      </figure>
+      <para id="id6417547">Hãy tìm các từ mã liên hệ với mỗi từ thông tin và tìm khoảng cách nhỏ nhất cho mã này.</para>
+      <para id="id6417556">Giải:</para>
+      <para id="id6417562">Với mã A(7, 4) có 4 bits thông tin 3 bits parity. Các từ thông tin và từ mã liên quan, được cho như sau:</para>
+      <table id="id6417571" summary="">
+        <tgroup cols="2">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <tbody>
+            <row>
+              <entry>Thông tin</entry>
+              <entry>Mã</entry>
+            </row>
+            <row>
+              <entry>0000</entry>
+              <entry>0000000</entry>
+            </row>
+            <row>
+              <entry>0001</entry>
+              <entry>1010001</entry>
+            </row>
+            <row>
+              <entry>0010</entry>
+              <entry>1110010</entry>
+            </row>
+            <row>
+              <entry>0011</entry>
+              <entry>0100011</entry>
+            </row>
+            <row>
+              <entry>0100</entry>
+              <entry>0110100</entry>
+            </row>
+            <row>
+              <entry>0101</entry>
+              <entry>1100101</entry>
+            </row>
+            <row>
+              <entry>0110</entry>
+              <entry>1000110</entry>
+            </row>
+            <row>
+              <entry>0111</entry>
+              <entry>0010111</entry>
+            </row>
+            <row>
+              <entry>1000</entry>
+              <entry>1101000</entry>
+            </row>
+            <row>
+              <entry>1001</entry>
+              <entry>0111001</entry>
+            </row>
+            <row>
+              <entry>1010</entry>
+              <entry>0011010</entry>
+            </row>
+            <row>
+              <entry>1011</entry>
+              <entry>1001011</entry>
+            </row>
+            <row>
+              <entry>1100</entry>
+              <entry>1011100</entry>
+            </row>
+            <row>
+              <entry>1101</entry>
+              <entry>0001101</entry>
+            </row>
+            <row>
+              <entry>1110</entry>
+              <entry>0101110</entry>
+            </row>
+            <row>
+              <entry>1111</entry>
+              <entry>1111111</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id6417982">Việc kiểm tra của ma trận [G] cho thấy rằng:</para>
+      <para id="id6417989">Bit parity đầu tiên cung cấp parity chẵn khi kết hợp với các bit thông tin thứ nhất thứ 3 và thứ tư.</para>
+      <para id="id6417998">Bit parity thứ hai cung cấp parity chẵn khi kết hợp với các bit thông tin thứ nhất thứ hai và thứ ba.</para>
+      <para id="id6418008">Bit parity thứ tư cung cấp parity chẵn khi kết hợp với các bit thông tin thứ hai thứ ba và thứ tư.</para>
+      <para id="id6418017">Ta có thể kiểm tra khoảng cách giữa mỗi cặp từ mã (có 120 cặp để kiểm tra). Nếu ta làm như thế, ta tìm khoảng cách nhỏ nhất của 3 bit parity. Mã này có thể sửa lỗi một bit hoặc 2 bits. Việc kiểm tra 3 bits parity của từ nhận được cho phép ta xác định các lỗi bằng phép đo đạc tam giác (triangulation).</para>
+      <para id="id6418037">Kiểm tra các khoảng cách trong ví dụ 7.11 là một tiến trình xử lý toàn diện. Một số phép toán tạo ra tiến trình hầu như đơn giản. Ta bắt đầu định nghĩa độ lớn của từ mã như số số 1 chứa trong từ đó. Nếu ta thêm hai từ (phép toán modulo -2), tổng chứa một số 1 trong mỗi vị trí bit với hai từ khác nhau. Vì thế khoảng cách giữa hai từ là độ lớn của tổng.</para>
+      <para id="id6418052">Ta có thể nhìn thấy từ biểu thức 7.23 mà tổng của các từ mã là một từ mã có thể chấp nhận được. Nếu ta cộng hai từ thông tin với nhau, kết quả từ mã là tổng của hai từ mã gốc. Đây là một thuộc tính cơ bản của mã toán học. Xem lại ví dụ 7.11 tổng của bất kỳ 2 trong số 16 vector mã phải bằng với một trong các vector mã khác. Vì thế một trong các vector mã nonzero thể hiện tổng của hai vector khác (vector zero là tổng của vector mã với chính nó). Khoảng cách nhỏ nhất giữa các từ mã chính là độ lớn nhỏ nhất của các từ mã nonzero. Đây là giá trị 3 cho ví dụ trước mà ta chỉ cần kiểm tra độ lớn là 15 thay vì 120 khoảng cách.</para>
+      <para id="id6418085">Mỗi ma trận phát [k x n] có một ma trận kiểm tra parity [(n - k) x n]được định nghĩa là [H]. Ta thiết lập ma trận này bằng lấy hoán vị của phần không xác định của [G] và biến chúng thành ma trận xác định. Vì thế ma trận [H] tương ứng với ma trận [G] trong ví dụ 7.11 là:</para>
+      <figure id="id6418103">
+        <media id="id4340242" alt=""><image src="graphics91.wmf" mime-type="image/wmf" height="78" width="208"/></media>
+      </figure>
+      <para id="id6418127">Ma trận kiểm tra parity có thuộc tính là:</para>
+      <figure id="id6418137">
+        <media id="id4340288" alt=""><image src="graphics92.wmf" mime-type="image/wmf" height="26" width="74"/></media>
+      </figure>
+      <para id="id6418161">Bất cứ từ mã nào được nhân với chuyển vị của [H] trở thành một vector zero. Ví dụ hãy chọn từ mã thứ 3 trong ví dụ 7.11 là 1001011. Ta tìm được:</para>
+      <para id="id6418173">
+        <figure id="id6418181">
+          <media id="id4340346" alt=""><image src="graphics93.wmf" mime-type="image/wmf" height="175" width="303"/></media>
+        </figure>
+      </para>
+      <para id="id6418205">Bây giờ giả sử rằng ta truyền mã vecotor <figure id="id6418212"><media id="id4340391" alt=""><image src="graphics94.wmf" mime-type="image/wmf" height="24" width="13"/></media></figure> và có một lỗi xảy ra trong vị trí bit thứ tư. Đây là biểu thức được thêm vào vector lỗi.</para>
+      <figure id="id6418244">
+        <media id="id4340424" alt=""><image src="graphics95.wmf" mime-type="image/wmf" height="26" width="185"/></media>
+      </figure>
+      <para id="id6418268">Với vector truyền <figure id="id6418274"><media id="id4340468" alt=""><image src="graphics96.wmf" mime-type="image/wmf" height="24" width="13"/></media></figure>. Ta thu được vector <figure id="id6418301"><media id="id4340498" alt=""><image src="graphics97.wmf" mime-type="image/wmf" height="24" width="60"/></media></figure> và nhân với [H]T. Kết quả sẽ là:</para>
+      <figure id="id6418336">
+        <media id="id4340530" alt=""><image src="graphics98.wmf" mime-type="image/wmf" height="26" width="257"/></media>
+      </figure>
+      <para id="id6418360">Nếu <figure id="id6418366"><media id="id4340573" alt=""><image src="graphics99.wmf" mime-type="image/wmf" height="24" width="13"/></media></figure> chứa giá trị 1, <figure id="id6418392"><media id="id4340603" alt=""><image src="graphics100.wmf" mime-type="image/wmf" height="24" width="13"/></media></figure>[H]T kết hợp với dòng của [H]T tương ứng với vị trí lỗi. Chẳng hạn như nếu ta thay đổi bit thứ tư trong ví dụ trên, ta sẽ nhận được 1000011. Nó được nhân với [H]T tạo thành [1 1 0]. Đây chính là dòng thứ tư của [H]T. Ta sẽ nhận ra sự ghép nối của dòng thứ tư. Do đó ta biết được nơi lỗi xảy ra và có thể sửa chúng. Kết qủa là vector nhận được với [H]T là một dấu hiệu. </para>
+      <para id="id6418459">Nếu có nhiều hơn một lỗi xảy ra, dấu hiệu là tổng của các dòng có liên quan đến ma trận. Nếu tổng này là duy nhất (tức là nó chỉ có thể có được bằng cách cộng một tập hợp các dòng đặc biệt lại với nhau), mã có khả năng đúng nhiều hơn là lỗi.</para>
+      <para id="id6418475">Các mã Hamming là một trong những ví dụ quan trọng của các mã toán học có khả năng sửa một lỗi. Các mã Bose, Chaudhuri, Hocquenghem (BCH) là một trong những ví dụ quan trọng của mã số học có thể sửa được nhiều hơn một lỗi.</para>
+      <para id="id6418490">4. CÁC MÃ CHU KY (cyclic codes)</para>
+      <para id="id6418502">Công cụ của các mã số học đòi hỏi khả năng về thực hiện nhân ma trận và so sánh kết quả với những số nhị phân biến đổi. Các mã phổ biến nhất, được hệ thống lại như các mạch tích hợp.</para>
+      <para id="id6418516">Các mã chu kỳ là một trường hợp đặc biệt của các mã khối mà nó có thể hình thành rất đơn giản. Chúng có thể trình bày như một bộ ghi lại các từ mã của mã số học. Ta có các mã chu kỳ như các đa thức. Ví dụ như một từ 1101 tương đương với đda thức 1 + X + X3. Mỗi vị trí trong từ nhị phân có liên hệ với một biến X. Và mã này tượng trưng cho đa thức phát và các từ mã bắt nguồn từ việc nhân đa thức với vector thông tin để tạo thành đa thức phát.</para>
+      <para id="id6418549">5. MÃ PN (pseudonoise)</para>
+      <para id="id6418561">Một lớp đặc biệt của đa thức phát hình thành một tập hợp các mã chu kỳ với các thuộc tính khoảng cách mong muốn. Những điều này được hiểu như các đa thức tối giản cực đại.</para>
+      <para id="id6418574">Kết quả mã hoá từ các đa thức tối giản được hiểu như mã PN hay pseudonoise. Pseudonoise là một dãy số nhị phân với các thuộc tính giống như nhiễu bạch (white noise). Mã được phát với các thanh ghi dịch hồi tiếp. Ta minh hoạ điều này bằng một ví dụ với sơ đồ khối hình 7.46. Ta cho giá trị ban đầu vào bộ phát bằng hồi tiếp trong dãy số 3 bits. Bộ phát bắt đầu hoạt động và phát mỗi bit thành công bằng cách cộng vào hai bit trước đó lại với nhau. Giả sử rằng ta thêm vào bộ phát 3 bit 010., ngõ ra sẽ là: 010111001011100101110. . .</para>
+      <para id="id6418608">+R0R1R2Initiating sequenceout</para>
+      <para id="id6418998">Hình 7.46 Bộ phát mã PN.</para>
+      <para id="id6419003">Chú ý rằng điều này lặp lại với chu kỳ 7 bits. Nếu ta lấy bất cứ 7 bits liên tiếp nào trong dãy số này, ta có một từ mã mới. Vì thế nếu ta thêm vào dãy số giá trị 101, kết quả từ mã sữ là 1011100. Và kết quả này trông giống như từ 2 đến 8 bit trong dãy số này. Ta có thể nhận ra 7 từ mã nonzero như sau:</para>
+      <para id="id6419018">0111001</para>
+      <para id="id6419024">1110010</para>
+      <para id="id6419029">1100101</para>
+      <para id="id6419035">1001011</para>
+      <para id="id6419040">0010111</para>
+      <para id="id6419046">01011101011100</para>
+      <para id="id6419055">Những từ này có thuộc tính khoảng cách bằng nhau. Khoảng cách giữa bất cứ hai từ luôn luôn là 4.</para>
+      <para id="id6419064">Các dãy số PN dài hơn có các thuộc tính giống nhau. Nếu ta xây dựng một bộ phát với một tế bào lưu trữ nhiều hơn trong thanh ghi dịch và các tiếp điểm hồi tiếp phù hợp, các dãy số thêm vào sẽ có chiều dài 4 bits và các từ mã sẽ tăng chiều dài lên 15 bits. Bất cứ hai trong số 15 từ mã khác nhau sẽ có một khoảng cách cách giữa chúng là 8.</para>
+      <para id="id6419080">Tổng quát các mã PN với các dãy số thêm vào có chiều dài n, sẽ có các từ mã với chiều dài 2n – 1 và khoảng cách giữa hai từ mã là 2n-1. Điều này cho ta một kỹ thuật đơn giản về việc phát các dãy số dài với thuộc tính khoảng cách phù hợp. Khi dịch bất cứ từ mã nào sẽ cho kết quả bằng một từ mã khác, khoảng cách giữa bất cứ từ nào và bản sao của chính nó là 2n-1. Điều này tạo cho các mã PN hữu dụng trong các ứng dụng điều hoà thời gian. Ví dụ như khi một từ mã 127 bit PN, được so sánh với chính nó, có 127 đối số bằng nhau. Với một sự dịch chỉ một vị trí, số đối số giảm xuống còn 63.</para>
+      <para id="id6419127">6. MÃ HOÁ CHỒNG (Convolutional Coding)</para>
+      <para id="id6419139">Sự cải tiến trong thực hiện lỗi cho mã hoá khối là khi phần dư được thêm vào. Đó là các bit parity được thêm vào bản tin để tăng khoảng cách giữa các từ mã. Bằng cách đó sẽ cung cấp cho sự phát hiện lỗi và hoặc sửa lỗi. Để gia tăng khả nămg sửa lỗi, phải gia tăng số phần dư thêm vào.</para>
+      <para id="id6419160">Sự lựa chọn cho mã hoá khối là mã hoá chồng. Trong loại mã này ta không xem các khối bit độc lập như các từ mã nữa. Thay vì một dòng thông tin các bits liên tục được hoạt động trên hình dạng của bản tin mã hoá. Nguồn này phát một chuổi của bản tin liên tục các bit 1 và 0 và dãy số truyền được phát từ dãy số nguồn này. Dãy số được phát có thể hoặc không thể dài hơn dãy số của bản tin. Kỹ thuật này không thêm các bit dư. Nó sẽ giữ lại khả năng sửa lỗi bằng cấu trúc bộ nhớ trong hệ thống.</para>
+      <para id="id6419187">Kỹ thuật phát dãy số truyền là lấy chồng dãy số nguồn với dãy số nhị phân cố định. Vì thế một bit truyền đặc biệt tn được phát từ sự kết hợp của các bits, sn, sn-1, sn-2,. . ., sn-k­ tuỳ theo biểu thức chồng.</para>
+      <para id="id6495595"><figure id="id6495604"><media id="id4340987" alt=""><image src="graphics101.wmf" mime-type="image/wmf" height="38" width="100"/></media></figure>(7.24)</para>
+      <para id="id6495629">Giá trị h trong biểu thức 7.24, hoặc là 1 hoặc là 0 và thêm vào một mạch cộng modulo-2. Biểu thức này có thể được thiết lập lại với một thanh ghi dịch và một mạch cộng modulo-2. Hình 7.47 trình bày cách thiết lập tổng quát của biểu thức 7.24. Các công tắc trong hình đóng nếu giá trị h trong biểu thức 7.24 là 1 và mở nếu giá trị h là 0.</para>
+      <para id="id6495655">outputinputShift registerh0hnTrong ứng dụng của mã hoá chồng ta thường truyền nhiều hơn một bit cho mỗi ngõ vào 1 bit. Trong hình 7.47 ta có thể dịch ở một bit ngõ vào đặt các công tắc tương ứng với tập giá trị của h và phát bit ngõ ra đầu tiên. Trước khi cho vào một </para>
+      <para id="id6498515">Hình 7.47 Phát mã PN.</para>
+      <para id="id6498520">bit ngõ vào khác ta reset các công tắc tương ứng với tập giá trị thứ hai của h và truyền một bit thứ hai. Nếu hai bit ngõ vào được truyền cho một bit ngõ vào, mã đó được gọi là mã chồng với tỉ lệ ½ (rate ½ convolutional code). Trong khi truyền mã chồng với tỉ lệ tỉ lệ ½, ta thường chọn một bit trong mỗi cặp truyền được xác định để chỉ ra dãy số thông tin. Đây là một mã hệ thống.</para>
+      <para id="id6498864">Ví dụ 7.12: Hình 7.48 trình bày một bộ phát cho mã chồng tỉ lệ ½. Ta đưa ra hai qui ước của việc vẽ thanh ghi dịch. Hình 7.48 a và 7.48 b trình bày hệ thống gống nhau. Dãy số ngõ vào cũng được chỉ ra, bit ngõ vào đầu tiên cũng được chỉ ra ở bên trái và bit ngõ vào cuối cùng (gần nhất ) ở bên phải. Hãy tìm dãy số ngõ ra.</para>
+      <para id="id6498890">Giải:</para>
+      <para id="id6498895">Ta cho hệ thống được thêm vào với một chuổi các số zero phù hợp đến việc nhận bit đầu tiên của dãy số ngõ vào và bit cuối cùng là một chuổi số zero., ngõ ra sẽ là:</para>
+      <para id="id6498908">1 1 1 0 1 1 0 1 0 1 1 0 1 1 0 1 1 0 0 0 0. . .</para>
+      <para id="id6498914">Ngõ ra của giải mã chồng phụ thuộc vào bit ngõ vào hiện tại và các bit ngõ vào trước đó. Trong ví dụ 7.12 ta cần biết ngõ vào hiện tại và hai ngõ vào trước đó để tìm ngõ ra.</para>
+      <para id="id6498927">Một cách hữu dụng đặc biệt của việc trình bày mã chồng là một sơ đồ trạng thái. Trạng thái của hệ thống được định nghĩa bằng hai ngõ vào gần nhất.</para>
+      <para id="id6498939">Vì thế hệ thống có thể là một trong 4 trạng thái tuỳ thuộc vào hai ngõ vào là 00, 01, 10, 11. Khi hệ thống ở trong một trạng thái đặc biệt và nhận một bit ngõ vào hai việc này có thể xảy ra tuỳ thuộc vào bit ngõ vào là 1 hoặc 0. Khi ngõ vào tiếp theo được nhập vào hệ thống,, hệ thống sẽ tạo ra một sản phẩm ở ngõ ra và cũng di chuyển đến một trạng thái mới.</para>
+      <para id="id6498959">Stage 3Stage 2Stage 1++1101001Data in111011010110110(a)Ta có thể xem lại hệ thống phát của hình 7.48 và phát triển tành sơ đồ trạng thái. Hai ngõ vào trước đó tập trung vào các bước 1 và 2 của thanh ghi dịch. Ngõ vào tiếp theo dịch mọi thứ sang bên trái một ô và tạo ra sản phẩm ở ngõ ra. Trạng thái mới được chỉ ra bởi các nội dung mới của trạng thái 1 và 2.</para>
+      <para id="id6499767">(b)++Data inHình 7.48 Bộ phát mã hoá chồng cho ví dụ 7.12.</para>
+      <para id="id6500516">Trong tình trạng này ta phát triển sơ đồ trạng thái của hình 7.49. Trong trạng thái a cả bước 1 và 2 đều chứa chứa giá trị 0 trong khi ở trạng thái d đều chứa giá trị 1. Trạng thái b xảy ra khi bước 1 chứa một giá trị 1 và bước 2 chứa giá trị 0 còn bước c ở vị trí của bước b. Có hai đường rời khỏi mỗi trạng thái nó thể hiện các đường xảy ra bởi hệ thống khi ngõ vào hiện tại hoặc là 0 hoặc là 1. Kết quả ở ngõ ra (là hai bit khi tỉ lệ là ½) được chỉ ra trong ngoặc đơn trên mỗi đường trực tiếp.</para>
+      <para id="id6500540">Ví dụ 7.12 Có thể giải bằng bằng cách kiểm tra sử đụng sơ đồ trạng thái. Cho mỗi ngõ vào được chỉ ra các trạng thái kết quả 1101001 (giả sử ta bắt đầu ở trạng thái a) là:</para>
+      <para id="id6500557">b d c b c a b c a a a a a . . .</para>
+      <para id="id6500562">
+        ***SORRY, THIS MEDIA TYPE IS NOT SUPPORTED.***
+      Ngõ ra được đọc bằng cách kiểm tra từ sơ đồ và hoàn toàn phù hợp với lời giải của ví dụ 7.12.</para>
+      <para id="id6500600">Hình 7.49 Lược đồ trạng thái của bộ phát cho hình 7.48.</para>
+      <para id="id6500607">Thách thức thật sự của mã hoá chồng là việc giải mã ở hệ thống thu. Ta có thể thiết lập trạng thái yêu cầu giải mã trong các số hạng của sơ đồ trạng thái mà kết quả trong một từ mã gần nhất nhận được. Số đường dẫn có thể gia tăng với số bit nhận được. Chẳng hạn như với hai bit nhận được sẽ có hai đường dẫn qua lược đồ (giả sử ta bắt đầu ở trạng thái cuối cùng). Với 4 bit nhận được sẽ có 22 hoặc 4 đường. Với 6 bit nhận được sẽ có 23 hoặc 8 đường. Điều này sẽ xuất hiện ở một tiến trình kết thúc cho chiều dài các dòng bit và thực sự nó không phải là thuật toán Vertibi. Thuật toán này rút ngắn số đường cần thiết được dùng cho sự giải mã. Nó tạo ra vị trí để xây dựng các bộ giải mã đơn giản. </para>
+    </section>
+  </content>
+</document>

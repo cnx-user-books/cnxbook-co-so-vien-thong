@@ -1,0 +1,590 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Phân tích tín hiệu</title>
+  <metadata>
+  <md:content-id>m30580</md:content-id><md:title>Phân tích tín hiệu</md:title>
+  <md:abstract>+ XEM LẠI CHUỖI FOURRIER.
++ PHỔ VẠCH.
++ BIẾN ĐỔI FOURRIER.
++ CÁC HÀM KỲ DỊ: ( SINGNLARITY FUNCTIONS ).
++ PHÉP CHỒNG (CONVOLUTION).
++ PHÉP CHỒNG ĐỒ HÌNH ( GRAPHICAL CONVOLUTION ).
++ ĐỊNH LÝ PARSEVAL.
++ NHỮNG TÍNH CHẤT CỦA BIẾN ĐỔI FOURRIER.
++ ĐỊNH LÝ VỀ SỰ BIẾN ĐIỆU.
++ CÁC HÀM TUẦN HOÀN.</md:abstract>
+  <md:uuid>dfbe4fd4-6abb-41e5-9856-2e5c72c6cc6f</md:uuid>
+</metadata>
+
+<content>
+    <para id="id6063591">XEM LẠI CHUỖI FOURRIER.</para>
+    <section id="id-858613527862">
+      <title>Một hàm bất kỳ S(t) có thể được viết: ( dạng lượng giác ).</title>
+      <para id="id6063606">S(t) = a0cos(0) + 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:munderover><m:mo stretchy="false">∑</m:mo><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mi>n</m:mi><m:mo stretchy="false">=</m:mo><m:mn>1</m:mn></m:mrow></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mi>¥</m:mi></m:mrow></m:mstyle></m:munderover><m:mrow/></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ Sum cSub { size 8{n=1} }  cSup { size 8{¥} }  {} } {}</m:annotation></m:semantics></m:math>[ an cos 2 nf0t + bn sin 2f0t ](2.1)</para>
+      <para id="id6063752">Với t0 &lt; t &lt; t0 + T ; T <figure id="id6063772"><media id="id1845344" alt=""><image src="../../media/graphics1-144c.png" mime-type="image/png" height="18" width="14"/></media></figure><figure id="id6063797"><media id="id6332824" alt=""><image src="graphics2.wmf" mime-type="image/wmf" height="47" width="24"/></media></figure></para>
+      <para id="id6063821">Số hạng thứ nhất là a0 vì cos (0) = 1.</para>
+      <para id="id6063832">Việc chọn các hằng an và bn theo các công thức sau:</para>
+      <para id="id6063849">- Với n = 0 ; a0 = <figure id="id6063861"><media id="id1168576077114" alt=""><image src="graphics3.wmf" mime-type="image/wmf" height="53" width="72"/></media></figure>(2.2)</para>
+      <para id="id6063888">- Với n  0 ;an = <figure id="id6063905"><media id="id8874534" alt=""><image src="graphics4.wmf" mime-type="image/wmf" height="53" width="146"/></media></figure>(2.3)</para>
+      <para id="id6063932">bn = <figure id="id6063942"><media id="id1168581271783" alt=""><image src="graphics5.wmf" mime-type="image/wmf" height="53" width="144"/></media></figure>(2.4)</para>
+      <para id="id6063968">Hệ thức (2.2) có được bằng cách lấy tích phân 2 vế của (2.1).</para>
+      <para id="id6063978">Hệ thức (2.3) và (2.4) có được bằng cách nhân cả 2 vế của (2.1) cho hàm sin và lấy tích phân.</para>
+    </section>
+    <section id="id-740114897066">
+      <title>Dùng công thức EULER, có thể đưa dạng s(t) ở trên về dạng gọn hơn ( dạng hàm mũ phức ).</title>
+      <para id="id6064000">EULER  ej2nfot = cos 2nfot + j sin 2nfot(2.5)</para>
+      <para id="id6064050">S(t) = 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:munderover><m:mo stretchy="false">∑</m:mo><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mi>n</m:mi><m:mtext>=-¥</m:mtext></m:mrow></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mi>¥</m:mi></m:mrow></m:mstyle></m:munderover><m:mrow/></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ Sum cSub { size 8{n"=-¥"} }  cSup { size 8{¥} }  {} } {}</m:annotation></m:semantics></m:math>Cn e j2nfot(2.6)</para>
+      <para id="id6064172"/>
+      <para id="id6064179">Tròn đó n: Số nguyên; dương hoặc âm. Và Cn được định bởi:</para>
+      <para id="id6064191">Cn = <figure id="id6064202"><media id="id1168576011272" alt=""><image src="graphics6.wmf" mime-type="image/wmf" height="46" width="69"/></media></figure>s(t) e -j2nfot dt(2.7)</para>
+      <para id="id6064243">Điều này dễ kiểm chứng, bằng cách nhân hai vế của (2.5) cho e -j2nfot và lấy tích phân hai vế. </para>
+      <para id="id6064264">Kết quả căn bản mà ta nhận được = một hàm bất kỳ theo thời gian có thể được diễn tả bằng tổng các hàm sin và cos hoặc là tổng của các hàm mũ phức trong một khoảng.</para>
+      <para id="id6064276">Nếu s(t) là một hàm tuần hoàn, ta chỉ cần viết chuỗi Fourrier trong một chu kỳ, chuỗi sẽ tương đương với s(t) trong mọi thời điểm.</para>
+      <para id="id6064285">Ví dụ 1: Hãy xác định chuỗi Fourrier lượng giác của s(t) như hình vẽ. Chuỗi này cần áp dụng trong khoảng - /2 &lt; 1&lt; /2 .</para>
+      <figure id="id6064313">
+        <media id="id1168574688897" alt=""><image src="../../media/graphics7-7dc5.png" mime-type="image/png" height="183" width="224"/></media>
+      </figure>
+      <para id="id6064337">Ta dùng chuỗi Fourrier lượng giác, với T =  và fo = <figure id="id6064354"><media id="id1168570121460" alt=""><image src="graphics8.wmf" mime-type="image/wmf" height="43" width="47"/></media></figure> như vậy chuỗi có dạng:</para>
+      <para id="id6064380">s(t) = a0 + <figure id="id6064390"><media id="id1168583846431" alt=""><image src="graphics9.wmf" mime-type="image/wmf" height="58" width="35"/></media></figure>[ an cos 2nt + bn sin 2nt ]</para>
+      <para id="id6064426">Trong đó: a0 = <figure id="id6064438"><media id="id6213368" alt=""><image src="graphics10.wmf" mime-type="image/wmf" height="65" width="136"/></media></figure></para>
+      <para id="id6064462">và an = <figure id="id6064475"><media id="id6520035" alt=""><image src="graphics11.wmf" mime-type="image/wmf" height="65" width="310"/></media></figure></para>
+      <para id="id6064498">Ta định giá bn như sau:</para>
+      <para id="id6064509">bn = <figure id="id6064523"><media id="id5947009" alt=""><image src="graphics12.wmf" mime-type="image/wmf" height="65" width="146"/></media></figure></para>
+      <para id="id6064547">Vì s(t) là một hàm chẵn theo thời gian, nên s(t) .sin 2nt là một hàm lẻ và tích phân từ - /2 đến /2 là zero. Vậy bn = 0 với mọi s(t) lẻ. Chuỗi Fourrier được viết :</para>
+      <para id="id6064575">s(t) = <figure id="id6064579"><media id="id3610395" alt=""><image src="graphics13.wmf" mime-type="image/wmf" height="61" width="251"/></media></figure>(2.8)</para>
+      <para id="id6064605">Lưu ý: Chuỗi Fourrier cho bởi phương trình trên đây có cùng khai triển như của hàm tuần hoàn sp(t) như hình dưới đây:</para>
+      <figure id="id6064634">
+        <media id="id4665916" alt=""><image src="../../media/graphics14-f40c.png" mime-type="image/png" height="166" width="469"/></media>
+      </figure>
+    </section>
+    <section id="id-105013810626">
+      <title>Phổ vạch</title>
+      <para id="id6064669">Trong lúc tìm sự biểu diễn chuỗi Fourrier phức của 1 hàm theo thời gian, ta dùng một thừa số trọng lượng phức Cn cho mỗi trị của n. Thừa số Cn có thể được vẽ như là hàm của n. Vậy cần đến 2 đường biểu diễn. Một để biểu diễn cho suất của n và một để biểu diễn pha.</para>
+      <para id="id6064696">Đường biểu diễn này thì rời rạc. Nó chỉ khác zero đối với những trị gián đoạn của trục hòanh. ( Ví dụ: C1/2 thì không có ý nghĩa ).</para>
+      <para id="id6064709">Đường biểu diễn Cn đối với nf0 gọi là phổ Fourrier phức. Trong đó nf0 là lượng tương ứng với tần số của hàm mũ phức mà đối với nó Cn là một hệ số trọng lượng.</para>
+      <para id="id6064748">Ví dụ 2: Tìm phổ Fourrier phức của sóng cosin được chỉnh lưu toàn sóng, s(t) = cos t, như hình vẽ dưới đây.</para>
+      <figure id="id6064773">
+        <media id="id1168576104841" alt=""><image src="../../media/graphics15-9fb6.png" mime-type="image/png" height="201" width="492"/></media>
+      </figure>
+      <para id="id6064797">Trước hết ta phải tìm khai triển chuỗi Fourrier theo dạng hàm mũ phức.</para>
+      <para id="id6064804">Với F0 = <figure id="id6064814"><media id="id1168576080794" alt=""><image src="graphics16.wmf" mime-type="image/wmf" height="43" width="18"/></media></figure>, ta tính trị giá Cn từ (2.6) và tìm chuỗi Fourrier trực tiếp.</para>
+      <para id="id6064849">Tuy nhiên ở ví dụ 1, ta đã khai triển chuỗi Fourrier dưới dạng lượng giác rồi, nên có thể khai triển hàm cos để đưa về dạng hàm mũ phức bằng cách dùng công thức Euler:</para>
+      <para id="id6064861">s(t) = <figure id="id6064865"><media id="id6284452" alt=""><image src="graphics17.wmf" mime-type="image/wmf" height="61" width="251"/></media></figure></para>
+      <para id="id6064889">Với cos 2nt = <figure id="id6064894"><media id="id1168576102381" alt=""><image src="graphics18.wmf" mime-type="image/wmf" height="43" width="117"/></media></figure></para>
+      <para id="id6064918">Vậy chuỗi Fourrier dạng hàm mũ:</para>
+      <para id="id6064923">s(t) = <figure id="id6064930"><media id="id8277850" alt=""><image src="graphics19.wmf" mime-type="image/wmf" height="61" width="224"/></media></figure></para>
+      <para id="id6064954">= <figure id="id6064958"><media id="id7436311" alt=""><image src="graphics20.wmf" mime-type="image/wmf" height="61" width="219"/></media></figure>(2.9)</para>
+      <para id="id6064984">Ta đã đổi biến số ở số hạng sau. Vậy Cn liên hệ với an:</para>
+      <para id="id6065001">Cn = <figure id="id6065011"><media id="id8131902" alt=""><image src="graphics21.wmf" mime-type="image/wmf" height="43" width="25"/></media></figure> Với n &gt; 0</para>
+      <para id="id6065038">Cn = <figure id="id6065047"><media id="id8607123" alt=""><image src="graphics22.wmf" mime-type="image/wmf" height="43" width="33"/></media></figure> Với n &lt; 0</para>
+      <para id="id6065075">Cn = <figure id="id6065084"><media id="id5983784" alt=""><image src="graphics23.wmf" mime-type="image/wmf" height="43" width="18"/></media></figure></para>
+      <para id="id6065108">Trong trường hợp này, Cn là số thực. Nên chỉ cần vẽ một đồ hình.</para>
+      <para id="id6065121">nf02/2/32/351-1-2-3233-2/15</para>
+      <para id="id6065552">Hình 2.4: Phổ vạch của ví dụ 2 .</para>
+    </section>
+    <section id="id-485185459839">
+      <title>Biến đổi Fourrier:</title>
+      <para id="id6065570">Một tín hiệu không tuần hoàn được xem như là trường hợp giới hạn của một tín hiệu tuần hoàn, trong đó chu kỳ T của tín hiệu tiến đến . Nếu chu kỳ tiến đến , tần số căn bản F0 tiến đến 0. Các họa tần khép lại với nhau và, trong giới hạn, tổng chuỗi Fourrier biểu diễn cho s(t) sẽ trở thành một tích phân.</para>
+      <para id="id6065604">F [s(t)] = S(f) 
+        ***SORRY, THIS MEDIA TYPE IS NOT SUPPORTED.***
+       
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:munderover><m:mo stretchy="false">∫</m:mo><m:mstyle fontsize="8pt"><m:mrow><m:mtext>-¥</m:mtext></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mi>¥</m:mi></m:mrow></m:mstyle></m:munderover><m:mrow><m:mi>s</m:mi><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:msup><m:mi>e</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mrow><m:mo stretchy="false">−</m:mo><m:mi fontstyle="italic">j2p</m:mi></m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ft</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msup></m:mrow></m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>dt</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ Int cSub { size 8{"-¥"} }  cSup { size 8{¥} }  {s \( t \) e rSup { size 8{-j2p ital "ft"} } }  ital "dt"} {}</m:annotation></m:semantics></m:math></para>
+      <para id="id6065778">(2.10)</para>
+      <para id="id6065783">F [.] kí hiệu cho biến đổi Fourrier của [.].</para>
+      <para id="id6065789">Nó còn được gọi là phổ - hai - phía ( Two - Side - Spectrum ) của s(t), vì cả hai thành phần tần số dương và âm đều thu được từ (2.10). Giả sử s(t) là một hàm thực (vật lý).</para>
+      <para id="id6065802">Một cách tổng quát, S(f) là một hàm phức theo tần số. S(f) có thể phân làm hai hàm thực X(f) và Y(f) :</para>
+      <para id="id6065811">S(f) = X(f) + jY(f) (2.11)</para>
+      <para id="id6065817">Dạng trên gọi là dạng Cartesian, vì S(f) có thể được biểu diễn trong một hệ trục tọa độ Descartes. Cũng có thể biểu diễn S(f) trong một hệ trục cực. Khi đó, cặp hàm thực sẽ trình bày suất và pha.</para>
+      <para id="id6065832">S(f) = S(f)  ej(f) </para>
+      <para id="id6065884">(2.12)</para>
+      <para id="id6065889">Với :</para>
+      <para id="id6065894">S(f) = <figure id="id6065908"><media id="id6485923" alt=""><image src="graphics24.wmf" mime-type="image/wmf" height="32" width="118"/></media></figure>(2.13)</para>
+      <para id="id6065934">và: </para>
+      <para id="id6065939">(f) = tan-1 <figure id="id6065953"><media id="id1168569543556" alt=""><image src="graphics25.wmf" mime-type="image/wmf" height="50" width="57"/></media></figure>(2.14)</para>
+      <para id="id6065979">Dạng trên đây còn gọi là dạng cực ( Polar form ).</para>
+      <para id="id6065985">Để xác định những tần số nào hiện hữu, ta khảo sát phổ của xuất S(f). ( Đôi khi gọi tắt là ” Phổ “ ).</para>
+      <para id="id6066007">Phổ của một dạng sóng ( dòng hay thế ) có thể thu được từ những phép tính toán học. Nó không xuất hiện một cách vật lý trong các mạch điện thực tế. Tuy nhiên có thể dùng Spectrum Analyser để quan sát một cách gần đúng.</para>
+      <para id="id6066023">* Để phục hồi lại s(t) từ biến đổi Fourrier của nó, ta tính tích phân sau:</para>
+      <para id="id6066031">s(t) = 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:munderover><m:mo stretchy="false">∫</m:mo><m:mstyle fontsize="8pt"><m:mrow><m:mtext>-¥</m:mtext></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mi>¥</m:mi></m:mrow></m:mstyle></m:munderover><m:mrow><m:mi>S</m:mi><m:mo stretchy="false">(</m:mo><m:mi>f</m:mi><m:mo stretchy="false">)</m:mo><m:msup><m:mi>e</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mi fontstyle="italic">j2p</m:mi><m:mstyle fontstyle="italic"><m:mrow><m:mtext>ft</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle></m:msup></m:mrow></m:mrow><m:mstyle fontstyle="italic"><m:mrow><m:mtext>dt</m:mtext></m:mrow></m:mstyle></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ Int cSub { size 8{"-¥"} }  cSup { size 8{¥} }  {S \( f \) e rSup { size 8{j2p ital "ft"} } }  ital "dt"} {}</m:annotation></m:semantics></m:math> = F -1 [S(f)]</para>
+      <para id="id6066171">(2.15)</para>
+      <para id="id6066176">Phương trình này thường gọi là biến đổi ngược của S(f). Hai hàm s(t) và S(f) tạo thành một cặp biến đổi Fourrier. Trong đó, s(t) diễn tả trong phạm vi thời gian, còn S(f) diễn tả trong phạm vi tần số.</para>
+      <para id="id6066194">Ký hiệu cho một cặp biến đổi Fourrier :</para>
+      <para id="id6066200">S(f)  s(t) s(t)  S(f) </para>
+      <para id="id6066243">Hoặc(2.16)</para>
+      <para id="id6066250">Nếu tín hiệu hoặc nhiễu được mô tả trong phạm vi này, thì sự mô tả tương ứng trong phạm vi kia sẽ được biết nhờ cách dùng (2.10) hoặc (2.15).</para>
+      <para id="id6066261">Dạng sóng s(t) có thể biến đổi Fourrier được nếu nó thỏa các điều kiện Dirichelet. Tuy nhiên, tất cả các dạng sóng vật lý trong kỷ thuật đều thỏa các điều kiện đó.</para>
+      <para id="id6066275">Ví dụ 3: Phổ của một xung expo.</para>
+      <para id="id6066280">Đặt s(t) là một xung expo tắt ( Decaying Exponential Pulse ) bị ngắt ( Switched ) tại t = 0.</para>
+      <para id="id6066289">s(t) = <figure id="id6066293"><media id="id1168576074940" alt=""><image src="graphics26.wmf" mime-type="image/wmf" height="57" width="99"/></media></figure>(2.16)</para>
+      <para id="id6066319">Phổ của xung này có được bằng dùng phép biến đổi Fourrier.</para>
+      <para id="id6066326">S(f) = <figure id="id6066330"><media id="id3950976" alt=""><image src="graphics27.wmf" mime-type="image/wmf" height="78" width="83"/></media></figure></para>
+      <para id="id6066354">S(f) = 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mfrac><m:mn>1</m:mn><m:mrow><m:mn>1</m:mn><m:mo stretchy="false">+</m:mo><m:mi fontstyle="italic">j2pf</m:mi></m:mrow></m:mfrac></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {  {1}  over  {1+j2pf} } } {}</m:annotation></m:semantics></m:math></para>
+      <para id="id6066435">(2.17)</para>
+      <para id="id6066441">Phổ của S(f) có thể tính bằng cách hữu tỷ hóa mẫu số (2.17)</para>
+      <para id="id6066448">X(f) = <figure id="id6066452"><media id="id3350882" alt=""><image src="graphics28.wmf" mime-type="image/wmf" height="49" width="75"/></media></figure>Và Y(f) = <figure id="id6066481"><media id="id6916324" alt=""><image src="graphics29.wmf" mime-type="image/wmf" height="47" width="76"/></media></figure></para>
+      <para id="id6066505">Và dạng cực:</para>
+      <para id="id6066512">S(f)  = <figure id="id6066526"><media id="id1168575947379" alt=""><image src="graphics30.wmf" mime-type="image/wmf" height="53" width="89"/></media></figure>; (f) = tan-1(2f)</para>
+      <para id="id6066572">Cặp Fourrier trong ví dụ trên:</para>
+      <para id="id6066577"><figure id="id6066580"><media id="id6190593" alt=""><image src="graphics31.wmf" mime-type="image/wmf" height="56" width="261"/></media></figure>(2.18)</para>
+    </section>
+    <section id="id-384786919501">
+      <title>Các hàm kỳ dị: ( Singnlarity Functions ).</title>
+      <para id="id6066619">Ta phải đưa vào một loại hàm mới trước khi nói đến những ứng dụng của lý thuyết Fourrier. Loại hàm này nổi lên bất cứ lúc nào ta phân giải các loại hàm tuần hoàn. Đó là một phần của nhóm các hàm kỳ dị. Chúng có thể những chuyển hóa của hàm nấc đơn vị.</para>
+      <section id="id-438256959849">
+        <title>Ví dụ 4. Biến đổi Fourrier của hàm cổng ( Gating Function ):</title>
+        <para id="id6066645">Tìm biến đổi của s(t), trong đó:</para>
+        <para id="id6066650">s(t) = <figure id="id6066655"><media id="id1817221" alt=""><image src="graphics32.wmf" mime-type="image/wmf" height="56" width="157"/></media></figure>(2.19)</para>
+        <para id="id6066681">A-ts(t)</para>
+        <para id="id6066874">Hình 2.5 Tín hiệu s(t).</para>
+        <para id="id6066879">* Từ định nghĩa của biến đổi Fourrier.</para>
+        <para id="id6066885">S(f) = <figure id="id6066890"><media id="id3696637" alt=""><image src="graphics33.wmf" mime-type="image/wmf" height="78" width="111"/></media></figure></para>
+        <para id="id6066914">= <figure id="id6066918"><media id="id1168583766554" alt=""><image src="graphics34.wmf" mime-type="image/wmf" height="78" width="242"/></media></figure></para>
+        <para id="id6066942">= A<figure id="id6066948"><media id="id1168575794224" alt=""><image src="graphics35.wmf" mime-type="image/wmf" height="51" width="115"/></media></figure>(2.20)</para>
+        <para id="id6066974">= A<media id="id3932326" alt=""><image src="graphics36.wmf" mime-type="image/wmf" height="43" width="64"/></media></para>
+        <para id="id6067008">s(f)f21/21/Hình 2.6 Anh của s(t) trong biến đổi Fourier.</para>
+        <para id="id6067244">Những hàm thuộc loại trên đây rất phổ biến trong kỷ thuật thông tin. Để tránh lập lại hàm này ta định nghĩa hàm Sa(x) như sau:</para>
+        <para id="id6067253">Sa(x) <figure id="id6067258"><media id="id9071153" alt=""><image src="../../media/graphics37-144c.png" mime-type="image/png" height="18" width="14"/></media></figure><figure id="id6067283"><media id="id3932119" alt=""><image src="graphics38.wmf" mime-type="image/wmf" height="43" width="39"/></media></figure>(2.21)</para>
+        <para id="id6067309">Khi đó (2.20) được viết lại:</para>
+        <para id="id6067316">S(f) = 2A . Sa( 2f )(2.22)</para>
+      </section>
+      <section id="id-344721386646">
+        <title>Hàm xung lực ( Impulse ).</title>
+        <para id="id6067350">Bây giờ ta muốn tìm biến đổi Fourrier của 1 hằng, s(t) = A, với mọi t. Ta có thể xem nó là giới hạn của xung g(t) khi   . Ta cố gắng theo cách quanh co này, vì kỷ thuật trực tiếp thất bại trong trường hợp này.</para>
+        <para id="id6067380">Khi áp s(t) = A vào tích phân định nghĩa, ta có:</para>
+        <para id="id6067386">S(f) = <figure id="id6067390"><media id="id3176754" alt=""><image src="graphics39.wmf" mime-type="image/wmf" height="78" width="99"/></media></figure> (2.23)</para>
+        <para id="id6067418">Tích phân này không hội tụ. Từ (2.6), ta thấy khi    , biến đổi Fourrier tiến đến vô cực tại gốc và những điểm cắt trục zero trở nên cách nhau vô cùng lớn. Như vậy, trong giới hạn, chiều cao của biến đổi Fourrier tiến đến vô cực, còn bề rộng thì đến zero. Điều này nghe buồn cười ! Nhưng nó không phải là một hàm thực sự với mọi lúc vì nó không được xác định tại f = 0. Nếu ta có nói bất cứ điều gì về biến đổi Fourrier của một hằng, ta phải thay đổi cách nghĩ.</para>
+        <para id="id6067454">Sự thay đổi đó bắt đầu bằng cách định nghĩa một “ hàm “ mới đặt tên là xung lực ( mà nó không phải là một hàm thực sự tại mọi lúc ). Ký hiệu là (t).</para>
+        <para id="id6067471">Định nghĩa của xung lực được tạo bởi 3 quan sát đơn giản. Hai trong số đó đã nói đến rồi, đó là:</para>
+        <para id="id6067477"><figure id="id6067480"><media id="id1168569662976" alt=""><image src="graphics40.wmf" mime-type="image/wmf" height="49" width="147"/></media></figure>(2.24)</para>
+        <para id="id6067506">Tính chất thứ 3 là diện tích tổng dưới dạng xung lực là đơn vị:</para>
+        <para id="id6067514"><media id="id1168569732052" alt=""><image src="graphics41.wmf" mime-type="image/wmf" height="78" width="93"/></media>(2.25)</para>
+        <para id="id6067546">Vì tất cả diện tích của (t) tập trung tại một điểm, những giới hạn trên tích phân có thể chuyển về gốc mà không làm thay đổi giá trị của tích phân. Vậy:</para>
+        <para id="id6067563"><figure id="id6067566"><media id="id1168581332239" alt=""><image src="graphics42.wmf" mime-type="image/wmf" height="78" width="299"/></media></figure> (2.26)</para>
+        <para id="id6067593">Ta có thể thấy rằng tích phân của (t) là u(t), hàm nấc đơn vị:</para>
+        <para id="id6067606"><media id="id8189762" alt=""><image src="graphics43.wmf" mime-type="image/wmf" height="67" width="251"/></media>(2.27)</para>
+        <para id="id6067638">Bây giờ ta tính tích phân của một hàm bất kỳ với (t).</para>
+        <para id="id6067653"><media id="id7461844" alt=""><image src="graphics44.wmf" mime-type="image/wmf" height="78" width="208"/></media>(2.28)</para>
+        <para id="id6067685">Ở (2.28) ta đã thay s(t) bởi một hàm không đổi, bằng với s(0) mà không làm thay đổi tích phân. Ta nhớ rằng vì (t) = 0 với mọi t  0. Vì thế tích của (t) với một hàm bất kỳ chỉ phụ thuộc trị giá của hàm đó tại t = 0. Với hàm không đổi ( theo thời gian ) được chọn, ta có thể đem nó ra ngoài dấu tích phân.</para>
+        <para id="id6067721">
+          <m:math>
+            <m:semantics>
+              <m:mrow>
+                <m:mstyle fontsize="12pt">
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mrow>
+                        <m:mrow>
+                          <m:munderover>
+                            <m:mo stretchy="false">∫</m:mo>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mtext>-¥</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                            <m:mstyle fontsize="8pt">
+                              <m:mrow>
+                                <m:mi>¥</m:mi>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:munderover>
+                          <m:mrow>
+                            <m:mi>s</m:mi>
+                            <m:mo stretchy="false">(</m:mo>
+                            <m:mi>t</m:mi>
+                            <m:mo stretchy="false">)</m:mo>
+                            <m:mi>d</m:mi>
+                            <m:mo stretchy="false">(</m:mo>
+                            <m:mi>t</m:mi>
+                            <m:mo stretchy="false">)</m:mo>
+                            <m:mstyle fontstyle="italic">
+                              <m:mrow>
+                                <m:mtext>dt</m:mtext>
+                              </m:mrow>
+                            </m:mstyle>
+                          </m:mrow>
+                        </m:mrow>
+                        <m:mo stretchy="false">=</m:mo>
+                        <m:mi>s</m:mi>
+                      </m:mrow>
+                      <m:mo stretchy="false">(</m:mo>
+                      <m:mn>0</m:mn>
+                      <m:mo stretchy="false">)</m:mo>
+                      <m:mrow>
+                        <m:munderover>
+                          <m:mo stretchy="false">∫</m:mo>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mtext>-¥</m:mtext>
+                            </m:mrow>
+                          </m:mstyle>
+                          <m:mstyle fontsize="8pt">
+                            <m:mrow>
+                              <m:mi>¥</m:mi>
+                            </m:mrow>
+                          </m:mstyle>
+                        </m:munderover>
+                        <m:mrow>
+                          <m:mi>d</m:mi>
+                          <m:mo stretchy="false">(</m:mo>
+                          <m:mi>t</m:mi>
+                          <m:mo stretchy="false">)</m:mo>
+                        </m:mrow>
+                      </m:mrow>
+                      <m:mrow>
+                        <m:mtext>dt</m:mtext>
+                        <m:mo stretchy="false">=</m:mo>
+                        <m:mi>s</m:mi>
+                      </m:mrow>
+                      <m:mo stretchy="false">(</m:mo>
+                      <m:mn>0</m:mn>
+                      <m:mo stretchy="false">)</m:mo>
+                    </m:mrow>
+                  </m:mrow>
+                </m:mstyle>
+                <m:mrow/>
+              </m:mrow>
+              <m:annotation encoding="StarMath 5.0"> size 12{ Int cSub { size 8{"-¥"} }  cSup { size 8{¥} }  {s \( t \) d \( t \)  ital "dt"} =s \( 0 \)  Int cSub { size 8{"-¥"} }  cSup { size 8{¥} }  {d \( t \) } "dt"=s \( 0 \) } {}</m:annotation>
+            </m:semantics>
+          </m:math>
+        </para>
+        <para id="id6067920">(2.29)</para>
+        <para id="id6067926">Đây là một kết quả có ý nghĩa, và nó được xem như là đặc tính mẫu ( Sampling Property ) của xung lực.</para>
+        <para id="id6067939"><m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:munderover><m:mo stretchy="false">∫</m:mo><m:mstyle fontsize="8pt"><m:mrow><m:mtext>-¥</m:mtext></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mi>¥</m:mi></m:mrow></m:mstyle></m:munderover><m:mrow><m:mi>s</m:mi><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:mi>d</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>t</m:mi><m:mo stretchy="false">−</m:mo><m:msub><m:mi>t</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:mrow><m:mtext>dt</m:mtext><m:mo stretchy="false">=</m:mo><m:mrow><m:munderover><m:mo stretchy="false">∫</m:mo><m:mstyle fontsize="8pt"><m:mrow><m:mtext>-¥</m:mtext></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mi>¥</m:mi></m:mrow></m:mstyle></m:munderover><m:mrow><m:mi>s</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>k</m:mi><m:mo stretchy="false">+</m:mo><m:msub><m:mi>t</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">)</m:mo><m:mi>d</m:mi><m:mo stretchy="false">(</m:mo><m:mi>k</m:mi><m:mo stretchy="false">)</m:mo><m:mrow><m:mtext>dk</m:mtext><m:mo stretchy="false">=</m:mo><m:mi>s</m:mi></m:mrow><m:mo stretchy="false">(</m:mo><m:msub><m:mi>t</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ Int cSub { size 8{"-¥"} }  cSup { size 8{¥} }  {s \( t \) d \( t-t rSub { size 8{0} }  \) } "dt"= Int cSub { size 8{"-¥"} }  cSup { size 8{¥} }  {s \( k+t rSub { size 8{0} }  \) d \( k \) "dk"=s \( t rSub { size 8{0} }  \) } } {}</m:annotation></m:semantics></m:math>Nếu đổi các biến số, sẽ có một xung bị dời ( Shifted Impules ) với đặc tính mẫu tương tự.</para>
+        <para id="id6068180">(t)(t-t0)t011tt(2.30)</para>
+        <para id="id6068481">Hình 2.7 Xung drac bị dời một khoảng t0.</para>
+        <para id="id6068491">Hai hình vẽ trên trình bày (t) và ( t - t0 ). Mũi tên hướng lên để chỉ trị giá tiến đến vô cực. Số 1 bên cạnh mũi tên để chỉ diện tích toàn phần của xung lực.</para>
+        <para id="id6068519">Ví dụ 5: Tính các tích phân sau:</para>
+        <para id="id6068524">a) <figure id="id6068529"><media id="id1897677" alt=""><image src="graphics45.wmf" mime-type="image/wmf" height="67" width="114"/></media></figure></para>
+        <para id="id6068552">b) <figure id="id6068557"><media id="id5592023" alt=""><image src="graphics46.wmf" mime-type="image/wmf" height="67" width="135"/></media></figure></para>
+        <para id="id6068580">c) <figure id="id6068585"><media id="id1243881" alt=""><image src="graphics47.wmf" mime-type="image/wmf" height="67" width="160"/></media></figure></para>
+        <para id="id6068608">d) <figure id="id6068613"><media id="id1168569747239" alt=""><image src="graphics48.wmf" mime-type="image/wmf" height="67" width="135"/></media></figure></para>
+        <para id="id6068636">Giải:</para>
+        <para id="id6068641">a) Áp dụng trực tiếp đặc tính mẫu:</para>
+        <para id="id6068649"><media id="id1168569559780" alt=""><image src="graphics49.wmf" mime-type="image/wmf" height="67" width="94"/></media> = s(0) = 02 + 1 = 1</para>
+        <para id="id6068686">b) Vì xung lực rơi vào khoảng của tích phân: Từ phương trình (2.30)</para>
+        <para id="id6068695"><figure id="id6068698"><media id="id8539703" alt=""><image src="graphics50.wmf" mime-type="image/wmf" height="78" width="136"/></media></figure> = s(1) = 12 + 1 = 2</para>
+        <para id="id6068729">c) Xung lực xảy ra ở t = 1, nằm ngoài khoảng của tích phân. Vậy:</para>
+        <para id="id6068736"><figure id="id6068739"><media id="id3217703" alt=""><image src="graphics51.wmf" mime-type="image/wmf" height="67" width="160"/></media></figure> = 0</para>
+        <para id="id6068764">d) ( 1 - t ) rơi tại t = 1 vì đó là giá trị của t làm cho suất bằng zero. Vậy:</para>
+        <para id="id6068777"><figure id="id6068780"><media id="id3935372" alt=""><image src="graphics52.wmf" mime-type="image/wmf" height="67" width="135"/></media></figure> = 14 + 2 = 3 </para>
+        <para id="id6068815">* Bây giờ ta tìm biến đổi Fourrier của một xung lực:</para>
+        <para id="id6068822">(t)  <figure id="id6068836"><media id="id8858596" alt=""><image src="graphics53.wmf" mime-type="image/wmf" height="78" width="110"/></media></figure> = e0 = 1(2.31)</para>
+        <para id="id6068871">* Ta trở lại tính biến đổi của 1 hằng, s(t) = A. Ta dễ thấy là tích phân xác định không hội tụ.</para>
+        <para id="id6068880">A  <figure id="id6068890"><media id="id6533110" alt=""><image src="graphics54.wmf" mime-type="image/wmf" height="78" width="99"/></media></figure>(2.32)</para>
+        <para id="id6068916">Với f  0, tích phân này bị giới hạn bởi <figure id="id6068929"><media id="id2864932" alt=""><image src="graphics55.wmf" mime-type="image/wmf" height="43" width="25"/></media></figure>.</para>
+        <para id="id6068954">Với f = 0 tích phân sẽ ?</para>
+        <para id="id6068959">* Vì tích phân định nghĩa biến đổi Fourrier và tích phân để tính biến đổi ngược thì tương tự, nên ta có thể phỏng đoán rằng biến đổi của một hằng là 1 xung lực. Đó là vì, một xung lực biến đổi thành một hằng, vậy một hằng sẽ biến đổi thành một xung lực.</para>
+        <para id="id6068976">Ta hãy tìm biến đổi ngược của một xung.</para>
+        <para id="id6068985">(f)  <figure id="id6068999"><media id="id1168576117977" alt=""><image src="graphics56.wmf" mime-type="image/wmf" height="67" width="103"/></media></figure> = 1(2.33)</para>
+        <para id="id6069027">Như vậy, điều phỏng đoán của ta là đúng! Biến đổi ngược của (f) là một hằng, vậy ta có:</para>
+        <para id="id6069040">A  A(f)(2.34)</para>
+        <para id="id6069058">* Nếu ta biến đổi ngược 1 xung lực bị dời, ta khai triển cặp biến đổi sau:</para>
+        <para id="id6069066">Aej2fot  A ( f - f0 ) (2.35)</para>
+        <para id="id6069102">Ví dụ 6: Tìm biến đổi Fourrier của s(t) = cos2f0t</para>
+        <para id="id6069119">Giải: Dùng công thức Euler, để khai triển hàm cosin:</para>
+        <para id="id6069132">Cos2f0t = <figure id="id6069147"><media id="id7303769" alt=""><image src="graphics57.wmf" mime-type="image/wmf" height="43" width="15"/></media></figure>ej2fot + <figure id="id6069188"><media id="id8590098" alt=""><image src="graphics58.wmf" mime-type="image/wmf" height="43" width="17"/></media></figure>e - j2fot</para>
+        <para id="id6069226">Biến đổi Fourrier của s(t) là tổng các biến đổi của 2 hàm expo. Từ (2.34)</para>
+        <para id="id6069234">Cos2f0t 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mi>«</m:mi><m:mfrac><m:mn>1</m:mn><m:mn>2</m:mn></m:mfrac><m:mi>d</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">−</m:mo><m:msub><m:mi>f</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">+</m:mo><m:mfrac><m:mn>1</m:mn><m:mn>2</m:mn></m:mfrac></m:mrow><m:mi>d</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">+</m:mo><m:msub><m:mi>f</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{« {  {1}  over  {2} } d \( f-f rSub { size 8{0} }  \) + {  {1}  over  {2} } d \( f+f rSub { size 8{0} }  \) } {}</m:annotation></m:semantics></m:math></para>
+        <para id="id6069390">(2.36)</para>
+        <para id="id6069399">-f0f01/21/2s(f)fBiến đổi này được vẽ:</para>
+        <para id="id6069605">Hình 2.8 Biến đổi Fourier của cos2f0t.</para>
+      </section>
+      <section id="id-964240838785">
+        <title>Hàm nấc đơn vị ( Unit step function ).</title>
+        <para id="id6069649">Một cặp biến đổi khác mà ta sẽ nói đến, là hàm nấc đơn vị. Ở đây, một lần nữa, ta lại gắn hàm vào định nghĩa của phép biến đổi, tích phân không hội tụ. Ta lại dùng đến kỷ thuật phỏng đoán. Và do sự không liên tục của hàm nấc, kỷ thuật này trở nên có nhiều hy vọng. Phép biến đổi thì tương đối dễ tính khi ta thực hiện như sau:</para>
+        <para id="id6069664">u(t) = <figure id="id6069668"><media id="id4074766" alt=""><image src="graphics59.wmf" mime-type="image/wmf" height="43" width="72"/></media></figure>(2.37)</para>
+        <para id="id6069694">Trong đó, hàm Sgn được định nghĩa bởi:</para>
+        <para id="id6069700">1/21/2U(t)/2-1/2ttt+=11/2sign (t)/2Sgn (t) <figure id="id6070114"><media id="id8593760" alt=""><image src="../../media/graphics60-144c.png" mime-type="image/png" height="18" width="14"/></media></figure><figure id="id6070139"><media id="id1168581251772" alt=""><image src="graphics61.wmf" mime-type="image/wmf" height="51" width="101"/></media></figure> (2.38)</para>
+        <para id="id6070166">Hình 2.9 Tín hiệu của hàm dốc.</para>
+        <para id="id6070191">Biến đổi của <figure id="id6070196"><media id="id2381193" alt=""><image src="graphics62.wmf" mime-type="image/wmf" height="43" width="17"/></media></figure> là <figure id="id6070221"><media id="id1168576045124" alt=""><image src="graphics63.wmf" mime-type="image/wmf" height="43" width="17"/></media></figure>(t).</para>
+        <para id="id6070250">Biến đổi của hàm Sgn(t) có thể tính bằng cách xem nó như là một giới hạn của hàm expo. </para>
+        <para id="id6070259">a0Sgn(t) = lim [ e-at Sgn(t) ]</para>
+        <para id="id6070335">1-1te-at-eat</para>
+        <para id="id6070540">Hình 2.10 Hàm sgn(t).</para>
+        <para id="id6070545">Ta có:a0 F [ Sgn(t) ] = lim F [ e-at Sgn(t) ] (3.39)</para>
+        <para id="id6070611">a0= lim <figure id="id6070648"><media id="id3697441" alt=""><image src="graphics64.wmf" mime-type="image/wmf" height="50" width="194"/></media></figure></para>
+        <para id="id6070672">Biến đổi của hàm nấc đơn vị được cho bởi phương trình (2.40)</para>
+        <para id="id6070679">u(t)  
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:mfrac><m:mn>1</m:mn><m:mi fontstyle="italic">j2pf</m:mi></m:mfrac><m:mo stretchy="false">+</m:mo><m:mfrac><m:mn>1</m:mn><m:mn>2</m:mn></m:mfrac></m:mrow><m:mi>d</m:mi><m:mo stretchy="false">(</m:mo><m:mi>f</m:mi><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {  {1}  over  {j2pf} } + {  {1}  over  {2} } d \( f \) } {}</m:annotation></m:semantics></m:math></para>
+        <para id="id6070784">(2.40)</para>
+      </section>
+    </section>
+    <section id="id-204234078907">
+      <title>Phép chồng (CONVOLUTION)</title>
+      <para id="id6070805">Phép chồng 2 hàm r(t) và s(t) được định nghĩa bởi thuật toán tích phân:</para>
+      <para id="id6070813">r(t) * s(t) = 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mrow><m:munderover><m:mo stretchy="false">∫</m:mo><m:mstyle fontsize="8pt"><m:mrow><m:mtext>-¥</m:mtext></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mi>¥</m:mi></m:mrow></m:mstyle></m:munderover><m:mrow><m:mi>r</m:mi><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:mi>s</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>t</m:mi><m:mo stretchy="false">−</m:mo><m:mi>t</m:mi></m:mrow><m:mo stretchy="false">)</m:mo><m:mi fontstyle="italic">dt</m:mi></m:mrow></m:mrow><m:mo stretchy="false">=</m:mo><m:mrow><m:munderover><m:mo stretchy="false">∫</m:mo><m:mstyle fontsize="8pt"><m:mrow><m:mtext>-¥</m:mtext></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mi>¥</m:mi></m:mrow></m:mstyle></m:munderover><m:mrow><m:mi>s</m:mi><m:mo stretchy="false">(</m:mo><m:mi>t</m:mi><m:mo stretchy="false">)</m:mo><m:mi>r</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>t</m:mi><m:mo stretchy="false">−</m:mo><m:mi>t</m:mi></m:mrow><m:mo stretchy="false">)</m:mo><m:mi fontstyle="italic">dt</m:mi></m:mrow></m:mrow></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ Int cSub { size 8{"-¥"} }  cSup { size 8{¥} }  {r \( t \) s \( t-t \) dt} = Int cSub { size 8{"-¥"} }  cSup { size 8{¥} }  {s \( t \) r \( t-t \) dt} } {}</m:annotation></m:semantics></m:math>(2.41)</para>
+      <para id="id6071012">Ký hiệu * thì được qui ước và đọc “ r(t) chồng với s(t) “.</para>
+      <para id="id6071019">Tích phân thứ hai là kết quả từ sự đổi biến số và chứng tỏ rằng phép chồng có tính giao hoán vậy:</para>
+      <para id="id6071027">r(t) * s(t) = s(t) * r(t).</para>
+      <para id="id6071032">Nhớ là phép chồng 2 hàm của t là một hàm của t.  là một biến số giả do tích phân mà ra.</para>
+      <para id="id6071048">Một cách tổng quát, tích phân của phương trình (2.41) thì rất khó tính.</para>
+      <para id="id6071055">Ví dụ 7: Tính phép chồng của r(t) với s(t). Trong đó, r(t) và s(t) là những xung vuông được vẽ như hình.</para>
+      <para id="id6071064">r(t)s(t)11-11-22ttHình 2.11 Dạng tín hiệu r(t) và s(t).</para>
+      <para id="id6071451">Giải:</para>
+      <para id="id6071456">Các hàm có thể viết dưới dạng:</para>
+      <para id="id6071461">r(t) = u ( t + 1) - u ( t - 1)</para>
+      <para id="id6071465">s(t) = u ( t + 2) - u ( t - 2)</para>
+      <para id="id6071470">Trong đó, u(t) là hàm nấc định nghĩa bởi:</para>
+      <para id="id6071476">u(t) = <figure id="id6071480"><media id="id8709852" alt=""><image src="graphics65.wmf" mime-type="image/wmf" height="51" width="99"/></media></figure></para>
+      <para id="id6071504">Phép chồng</para>
+      <para id="id6071508">r(t) * s(t) <figure id="id6071513"><media id="id8931896" alt=""><image src="../../media/graphics66.png" mime-type="image/png" height="18" width="14"/></media></figure><figure id="id6071538"><media id="id1168576065985" alt=""><image src="graphics67.wmf" mime-type="image/wmf" height="67" width="111"/></media></figure></para>
+      <para id="id6071562">Ta thấy rằng:</para>
+      <para id="id6071567">r() = u ( + 1) - u ( - 1)</para>
+      <para id="id6071593">và:</para>
+      <para id="id6071597">s( t -  ) = u ( t -  + 2 ) - u ( t -  - 2 )</para>
+      <para id="id6071621">r() s(t-) = u (+1)u(t-+2) - u(+1)u(t--2) - u(-1)u(t-+2) + u(-1)u(t--2)</para>
+      <para id="id6071682">Như vậy, tích phân được tính thành từng phần:</para>
+      <para id="id6071688">r(t) * s(t) = <figure id="id6071693"><media id="id1168576077810" alt=""><image src="graphics68.wmf" mime-type="image/wmf" height="67" width="164"/></media></figure>-<figure id="id6071718"><media id="id5085282" alt=""><image src="graphics69.wmf" mime-type="image/wmf" height="67" width="164"/></media></figure></para>
+      <para id="id6071742">-<figure id="id6071746"><media id="id7322638" alt=""><image src="graphics70.wmf" mime-type="image/wmf" height="67" width="164"/></media></figure>+ <figure id="id6071771"><media id="id2039839" alt=""><image src="graphics71.wmf" mime-type="image/wmf" height="67" width="163"/></media></figure></para>
+      <para id="id6071795">Bây giờ, ta nhớ rằng u (  + 1 ) thì bằng zero với  &lt; -1 và u (  - 1 ) thì bằng zero với t &lt; 1. Như vậy, những giới hạn của tích phân được thu lại:</para>
+      <para id="id6071823">r(t) * s(t) = <figure id="id6071827"><media id="id1168569674571" alt=""><image src="graphics72.wmf" mime-type="image/wmf" height="67" width="111"/></media></figure>-<figure id="id6071852"><media id="id3114007" alt=""><image src="graphics73.wmf" mime-type="image/wmf" height="67" width="111"/></media></figure></para>
+      <para id="id6071876">-<figure id="id6071880"><media id="id8938171" alt=""><image src="graphics74.wmf" mime-type="image/wmf" height="67" width="111"/></media></figure>+ <figure id="id6071905"><media id="id5260308" alt=""><image src="graphics75.wmf" mime-type="image/wmf" height="67" width="111"/></media></figure></para>
+      <para id="id6071929">Ta đã thay một của các hàm nấc bằng trị giá của nó ( là 1 ) trong khoảng mà nó áp dụng. Bây giờ, ta cố gắng tính từng tích phân. Nhớ là:</para>
+      <para id="id6071939">u(t -  + 2) = 0 ,  &gt; t + 2</para>
+      <para id="id6071958">và u(t -  - 2) = 0,  &gt; t - 2</para>
+      <para id="id6071980">Ta có:</para>
+      <figure id="id6071988">
+        <media id="id1168581240326" alt=""><image src="graphics76.wmf" mime-type="image/wmf" height="67" width="226"/></media>
+      </figure>
+      <para id="id6072012">( Vì rằng t + 2 &gt; -1 hoặc t &gt; -3. Ở khoảng khác, tích phân là zero).</para>
+      <para id="id6072019">- Nếu t - 2 &gt; -1 hoặc t &gt; 1,</para>
+      <figure id="id6072027">
+        <media id="id1168575806569" alt=""><image src="graphics77.wmf" mime-type="image/wmf" height="67" width="225"/></media>
+      </figure>
+      <para id="id6072051">- Nếu t + 2 &gt; +1 hoặc t &gt; -1,</para>
+      <figure id="id6072059">
+        <media id="id2919746" alt=""><image src="graphics78.wmf" mime-type="image/wmf" height="67" width="224"/></media>
+      </figure>
+      <para id="id6072083">- Nếu t - 2 &gt; 1 hoặc t &gt; 3,</para>
+      <figure id="id6072092">
+        <media id="id1168569521448" alt=""><image src="graphics79.wmf" mime-type="image/wmf" height="67" width="225"/></media>
+      </figure>
+      <para id="id6072116">Dùng 4 kết quả đó ta có:</para>
+      <para id="id6072121">r(t) * s(t) = ( t + 3)u(t + 3) - (t - 1)u(t - 1) - (t + 1)u(t + 1) + (t - 3)u(t - 3)</para>
+      <para id="id6072127">ttttt(t+3)U(t+3)(t-3)U(t-3)-(t+1)U(t+1)-(t-1)U(t-1)r(t)*s(t)2-1-2-3-41234-1-1133-3Bốn số hạng này và tổng của chúng được vẽ như hình dưới đây. Từ ví dụ khiêm tốn này, ta có thể thấy rằng nếu r(t) hoặc s(t) chứa hàm nấc, thì cách tính phép chồng trở nên rất lúng túng.</para>
+      <para id="id6073071">Hình 2.12 Phép chồng của tín hiệu r(t) và tín hiệu s(t).</para>
+    </section>
+    <section id="id-970987029597">
+      <title>Phép chồng đồ hình ( Graphical convolution )</title>
+      <para id="id6073090">Nếu r(t) và s(t) quá phức tạp, hoặc dạng sóng không được biết chính xác, ta có thể dùng phép chồng đồ hình. Phương pháp này dùng những quan sát và kiểm tra tổng quát mà không phải tính chi tiết các tích phân. Trong nhiều áp dụng thông tin, phương pháp này thì đủ mà không cần thiết phải tính một phép chồng chính xác.</para>
+      <para id="id6073110">Ví dụ 8: Dùng phép chồng đồ hình cho 2 hàm ở ví dụ 7.</para>
+      <para id="id6073117"><table id="id6073139" summary=""><tgroup cols="5"><colspec colnum="1" colname="c1"/><colspec colnum="2" colname="c2"/><colspec colnum="3" colname="c3"/><colspec colnum="4" colname="c4"/><colspec colnum="5" colname="c5"/><tbody><row><entry>t</entry><entry>11-111-111-111-111-111-111-111-111-111-111-111-11-6-2-5-1-4.5-.5-4-3.5.5-31-2.51.5-22-1.52.5-13-.53.515-11-11-11-11-11-.51-1.5-1-1-.511111111111111111111111r(t)</entry><entry>s(t-)</entry><entry>r()s(t-)</entry><entry>Diện tích</entry></row><row><entry>-4</entry><entry/><entry/><entry/><entry>0</entry></row><row><entry>-3</entry><entry/><entry/><entry/><entry>0</entry></row><row><entry><media id="id4401915" alt=""><image src="graphics80.wmf" mime-type="image/wmf"/></media></entry><entry/><entry/><entry/><entry><media id="id1803316" alt=""><image src="graphics81.wmf" mime-type="image/wmf"/></media></entry></row><row><entry>2</entry><entry/><entry/><entry/><entry>1</entry></row><row><entry><media id="id3348256" alt=""><image src="graphics82.wmf" mime-type="image/wmf"/></media></entry><entry/><entry/><entry/><entry><media id="id1600749" alt=""><image src="graphics83.wmf" mime-type="image/wmf"/></media></entry></row><row><entry>-1</entry><entry/><entry/><entry/><entry>2</entry></row><row><entry><media id="id2838550" alt=""><image src="graphics84.wmf" mime-type="image/wmf"/></media></entry><entry/><entry/><entry/><entry>2</entry></row><row><entry>0</entry><entry/><entry/><entry/><entry>2</entry></row><row><entry><media id="id1842254" alt=""><image src="graphics85.wmf" mime-type="image/wmf"/></media></entry><entry/><entry/><entry/><entry>2</entry></row><row><entry>1</entry><entry/><entry/><entry/><entry>2</entry></row><row><entry><media id="id2867481" alt=""><image src="graphics86.wmf" mime-type="image/wmf"/></media></entry><entry/><entry/><entry/><entry><media id="id3592589" alt=""><image src="graphics87.wmf" mime-type="image/wmf"/></media></entry></row><row><entry>3</entry><entry/><entry/><entry/><entry>0</entry></row></tbody></tgroup></table>Hình 2.13 Phép chồng đồ hình cho hai hàm ở ví dụ 7.</para>
+      <para id="id6078542">Ảnh qua gương của s() là s( - ). Đó là s() được phản xạ qua trục đứng.</para>
+      <para id="id6078566">Với một t cho sẵn, ta lập s(t - ), biểu diễn cho hàm s( - ) bị dời về phía phải bởi t. Sau đó, ta lấy tích số:</para>
+      <para id="id6078586">r(t) s(t)( t -  )</para>
+      <para id="id6078596">Và lấy tích phân của tích số này ( chính là tìm diện tích ) để có được trị giá của phép chồng ứng với trị giá của t.</para>
+      <para id="id6078608">Hình trên đây trình bày 12 khung của sự dời hình. Với ví dụ đặc biệt này, không bắt buộc s(t) phải phản xạ để có ảnh qua gương, vì s(t) là một hàm chẳn.</para>
+      <para id="id6078622">Nhớ là diện tích của tích số biểu diễn cho trị giá của phép chồng. Diện tích này được vẽ thành một chuỗi các điểm. Có thể thấy là kết quả giống như ở ví dụ 7.</para>
+      <para id="id6078636">2231-1-2-3r(t)*s(t)tĐường nối các điểm là đường thẳng. Điều đó hiển nhiên, vì phép chồng trở thành tích phân của một hằng. Kết quả cho một hàm dốc ( Ramp Function ).</para>
+      <para id="id6080020">Hình 2.14 Kết quả phép chồng đồ hình của s(t) và r(t).</para>
+      <para id="id6080045">r(t)s(t)1113-11ttVí dụ 9: Tính phép chồng ( bằng đồ hình ) của 2 hàm sau đây: (Sinh viên tự giải)</para>
+      <para id="id6080402">Hình 2.15 Tín hiệu s(t) và r(t) .</para>
+      <para id="id6080426">Bây giờ ta xem phép chồng của một hàm bất kỳ với xung lực (t).</para>
+      <para id="id6080441">(T) * s(t) = <figure id="id6080450"><media id="id2082099" alt=""><image src="graphics88.wmf" mime-type="image/wmf" height="67" width="231"/></media></figure>(2.42)</para>
+      <para id="id6080476">Như vậy một hàm bất kỳ chồng với một xung lực thì giữ nguyên không thay đổi.</para>
+      <figure id="id6080487">
+        <media id="id1168576112038" alt=""><image src="../../media/graphics89.jpg" mime-type="image/jpeg" height="615" width="562"/></media>
+      </figure>
+      <para id="id6080512">Hình 2.16 Kết quả phép chồng đồ hình của s(t) và r(t)</para>
+      <para id="id6080518">Nếu ta chồng s(t) với xung lực bị dời ( Shifted ) (t - t0), ta thấy:</para>
+      <para id="id6080536">(t - t0) * s(t) = <figure id="id6080550"><media id="id1168576061864" alt=""><image src="graphics90.wmf" mime-type="image/wmf" height="67" width="288"/></media></figure>(2.43)</para>
+      <para id="id6080577">Tóm lại, phép chồng s(t) với một xung lực không làm thay đổi dạng hàm của s(t). Có thể chỉ gây nên một sự dời thời gian trong s(t) nếu xung lực không xảy ra tại t = 0.</para>
+      <para id="id6080588">Giờ ta đã có khái niệm về thuật toán gọi là “ phép chồng “. Ta hãy trở lại phép biến đổi Fourrier. Định lý về phép chồng:</para>
+      <para id="id6080605">Nếu r(t)  R(f)</para>
+      <para id="id6080618">Và s(t)  S(f)</para>
+      <para id="id6080630">Thì: r(t) * s(t)  R(f). S(f)(2.44)</para>
+      <para id="id6080646">Có thể chứng minh trực tiếp định lý bằng cách tính biến đổi Fourrier của phép chồng.</para>
+      <para id="id6080654">Ta cũng có thể chứng minh:</para>
+      <para id="id6080659">R(f) * S(f)  r(t) . s(t) (2.45)</para>
+      <para id="id6080672">Bằng cách tính biến đổi Fourrier ngược.</para>
+      <para id="id6080678">Ví dụ 9: Dùng định lý phép chồng để tính tích phân sau:</para>
+      <figure id="id6080690">
+        <media id="id8516588" alt=""><image src="graphics91.wmf" mime-type="image/wmf" height="67" width="153"/></media>
+      </figure>
+      <para id="id6080714">Giải:</para>
+      <para id="id6080719">Tích phân trên biểu diễn phép chồng của 2 hàm theo thời gian:</para>
+      <para id="id6080725">sin<figure id="id6080730"><media id="id2412551" alt=""><image src="graphics92.wmf" mime-type="image/wmf" height="43" width="63"/></media></figure></para>
+      <para id="id6080754">2-3/23/2-1/21/2-1/21/2tttF F x=Biến đổi Fourrier của tích phân là tích của biến đổi Fourrier của 2 hàm. Hai biến đổi này có thể xem ở bảng phụ lục.</para>
+      <para id="id6081384">Hình 2.17 Tích của hai biến đổi Fourier từ s(t) và r(t).</para>
+      <para id="id6081391">Lấy biến đổi Fourrier ngược của tích này, ta sẽ có kết quả của phép chồng. Đó là:</para>
+      <figure id="id6081402">
+        <media id="id2875800" alt=""><image src="graphics93.wmf" mime-type="image/wmf" height="43" width="46"/></media>
+      </figure>
+    </section>
+    <section id="id-516080862003">
+      <title>ĐỊnh lý Parseval</title>
+      <para id="id6081438">Dạng sóng của một hàm và của biến đổi Fourrier của nó thì rất ít giống nhau. Tuy nhiên, một vài hệ thức hiện hữu giữa năng lượng của một hàm thời gian và năng lượng của biến đổi Fourrier của nó.</para>
+      <para id="id6081450">Dùng “ năng lượng “ để chỉ tích phân của bình phương của hàm. Từ này được dùng và nó biểu diễn trị giá năng lượng ( watt - sec ) tiêu tán trong điện trở 1 nếu tín hiệu là điện thế hoặc dòng điện ngang qua điện trở.</para>
+      <para id="id6081472">Ta có:</para>
+      <para id="id6081477">r(t) s(t)  R(f) * S(f)</para>
+      <para id="id6081488">F [ r(t) s(t) ] = <figure id="id6081495"><media id="id1902670" alt=""><image src="graphics94.wmf" mime-type="image/wmf" height="67" width="133"/></media></figure>(2.46)</para>
+      <para id="id6081522">= <figure id="id6081526"><media id="id3673139" alt=""><image src="graphics95.wmf" mime-type="image/wmf" height="67" width="129"/></media></figure></para>
+      <para id="id6081550">Vì đẳng thức này đúng với mọi f, ta đặt f = 0. Khi đó:</para>
+      <para id="id6081557"><figure id="id6081560"><media id="id5038048" alt=""><image src="graphics96.wmf" mime-type="image/wmf" height="67" width="89"/></media></figure>= <figure id="id6081585"><media id="id3272875" alt=""><image src="graphics97.wmf" mime-type="image/wmf" height="67" width="117"/></media></figure>(2.47)</para>
+      <para id="id6081612">Biểu thức (2.47) là một dạng của công thức Paseval. Nó liên quan đến năng lượng nên ta xét trường hợp đặc biệt:</para>
+      <para id="id6081621">s(t) = r * (t)</para>
+      <para id="id6081626">r*(t) là liên hợp của r(t).</para>
+      <para id="id6081631">F [ r*(t)] cho bởi liên hợp của biến đổi Fourrier, bị phản xạ qua trục dọc. Đó là R*(-f).</para>
+      <para id="id6081641">Dùng kết quả của (2.47), ta được:</para>
+      <para id="id6081647"><media id="id1168581729011" alt=""><image src="graphics98.wmf" mime-type="image/wmf" height="67" width="179"/></media>(2.48)</para>
+      <para id="id6081680">Phương trình (2.48) chứng tỏ rằng năng lượng của hàm theo t thì bằng với năng lượng của biến đổi Fourrier của nó.</para>
+    </section>
+    <section id="id-284175595707">
+      <title>Những tính chất cỦa biến đổi Fourrier</title>
+      <section id="id-49101406523">
+        <title>Thực / ảo - Chẳn / lẻ.</title>
+        <para id="id6081710">Bảng sau đây tóm tắt những tính chất của biến đổi Fourrier dựa trên sự quan sát quan sát hàm theo t.</para>
+        <table id="id6081718" summary="">
+          <tgroup cols="3">
+            <colspec colnum="1" colname="c1"/>
+            <colspec colnum="2" colname="c2"/>
+            <colspec colnum="3" colname="c3"/>
+            <tbody>
+              <row>
+                <entry/>
+                <entry>Hàm thời gian</entry>
+                <entry>Biến đổi Fourrier </entry>
+              </row>
+              <row>
+                <entry>A</entry>
+                <entry>Thực</entry>
+                <entry>Phần thực chẳn - Phần ảo lẻ</entry>
+              </row>
+              <row>
+                <entry>B</entry>
+                <entry>Thực và chẳn</entry>
+                <entry>Thực và chẳn</entry>
+              </row>
+              <row>
+                <entry>C</entry>
+                <entry>Thực và lẻ</entry>
+                <entry>Ảo và lẻ</entry>
+              </row>
+              <row>
+                <entry>D</entry>
+                <entry>Ảo</entry>
+                <entry>Phần thực lẻ - Phần ảo chẳn</entry>
+              </row>
+              <row>
+                <entry>E</entry>
+                <entry>Ảo và chẳn</entry>
+                <entry>Ảo và chẳn</entry>
+              </row>
+              <row>
+                <entry>F</entry>
+                <entry>Ảo và lẻ</entry>
+                <entry>Thực và lẻ</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para id="id6081973">Có thể dùng công thức Euler để chứng minh:</para>
+        <para id="id6081979">S(f ) = <figure id="id6081983"><media id="id9022722" alt=""><image src="graphics99.wmf" mime-type="image/wmf" height="67" width="106"/></media></figure></para>
+        <para id="id6082008">= <figure id="id6082013"><media id="id7252430" alt=""><image src="graphics100.wmf" mime-type="image/wmf" height="67" width="253"/></media></figure></para>
+        <para id="id6082037">= R + j X</para>
+        <para id="id6082043">R là một hàm chẳn của f vì khi f được thay bằng -f thì hàm không đổi. Tương tự, X là một hàm lẻ của f.</para>
+        <para id="id6082052">Nếu s(t) giả sử là thực, R trở thành phần thực của biến đổi và X là phần ảo. Vậy tính chất A đã được chứng minh.</para>
+        <para id="id6082061">Nếu s(t) thực và chẳn, thì X = 0. Điều này đúng vì X lẻ ( tích của hàm chẳn và lẻ ) và tích phân là 0. Vậy tính chất B đã được chứng minh.</para>
+        <para id="id6082071">Nếu s(t) thực và lẻ, R = 0. ( Tính chất C ).</para>
+        <para id="id6082077">Nếu s(t) ảo, X trở thành phần ảo của biến đổi và R là phần thực. Từ quan sát đơn giản đó, các tích chất D, E, F dễ dàng được chứng thật.</para>
+      </section>
+      <section id="id-610249132144">
+        <title>Dời thời gian ( Time Shift ).</title>
+        <para id="id6082097">Biến đổi Fourrier của một hàm thời gian bị dời thì bằng với biến đổi của hàm thời gian gốc nhân bởi một hàm expo phức.</para>
+        <para id="id6082107">e-j2fot S(f)  s(t - t0 ) </para>
+        <para id="id6082176">(2.49)</para>
+        <para id="id6082181">Ví dụ 10: Tìm biến đổi Fourrier của:</para>
+        <para id="id6082187">s(t) = <figure id="id6082192"><media id="id9083045" alt=""><image src="graphics101.wmf" mime-type="image/wmf" height="53" width="143"/></media></figure></para>
+        <para id="id6082216">12ts(t)Hình 2.18 Dạng tín hiệu s(t).</para>
+        <para id="id6082393">Giải: Từ định nghĩa ta có:</para>
+        <para id="id6082403">S(f ) = <figure id="id6082407"><media id="id8938870" alt=""><image src="graphics102.wmf" mime-type="image/wmf" height="67" width="249"/></media></figure></para>
+        <para id="id6082431">= e-j2f <figure id="id6082450"><media id="id3812802" alt=""><image src="graphics103.wmf" mime-type="image/wmf" height="43" width="54"/></media></figure></para>
+        <para id="id6082475">Kết quả này có thể thu được từ việc dùng một hàm nấc trong ví dụ 4 và tính chất dời thời gian. s(t) ở ví dụ 10 trên đây thì giống như ở ví dụ 4 ( Với A =  = 1), ngoại trừ việc dịch thời gian 1 sec.</para>
+      </section>
+      <section id="id-233729174401">
+        <title>Dời tần số ( Frequency shift ).</title>
+        <para id="id6082504">Hàm theo thời gian tương ứng với một biến đổi Fourrier dời tần thì bằng với hàm theo thời gian của biến đổi không dời tần nhân với 1 hàm expo phức.</para>
+        <para id="id6082515">S(f - f0 )  ej2fo s(t)(2.50)</para>
+        <para id="id6082576">Ví dụ 11: Tìm biến đổi Fourrier của s(t).</para>
+        <para id="id6082582">s(t) = <figure id="id6082586"><media id="id5677422" alt=""><image src="graphics104.wmf" mime-type="image/wmf" height="58" width="146"/></media></figure></para>
+        <para id="id6082611">Giải:</para>
+        <para id="id6082615">s(t) này giống như s(t) ở ví dụ 4 ( với A =  = 1), trừ việc nhân với thừa số ej2t .</para>
+        <para id="id6082643">Định lý về sự dời tần được dùng để thấy rằng biến đổi là biến đổi gốc bị dời bởi một đơn vị tần số.</para>
+        <para id="id6082650">Như vậy, ta lấy biến đổi trong ví dụ 4 và thay thế f - 1 cho f.</para>
+        <para id="id6082657">S(f) = <figure id="id6082661"><media id="id1168581582340" alt=""><image src="graphics105.wmf" mime-type="image/wmf" height="49" width="89"/></media></figure></para>
+        <para id="id6082686">S(f)f0.51.51Hình 2.19 Biến đổi Fourier của tín hiệu s(t).</para>
+      </section>
+      <section id="id-107397022494">
+        <title>Sự tuyến tính.</title>
+        <para id="id6082952">Sự tuyến tính là tính chất quan trọng nhất của phép biến đổi Fourrier.</para>
+        <para id="id6082959">Biến đổi Fourrier của một tổ hợp tuyến tính của các hàm theo thời gian là một tổ hợp tuyến tính của các biến đổi Fourrier tương ứng.</para>
+        <para id="id6082971">as1(t) + bs2(t)  aS1(f) + bS2(f)(2.51)</para>
+        <para id="id6083027">Trong đó a, b là những hằng bất kỳ.</para>
+        <para id="id6083033">Có thể chứng minh trực tiếp từ định nghĩa của phép biến đổi Fourrier và từ tính chất của tuyến tính của thuật toán tích phân.</para>
+        <figure id="id6083046">
+          <media id="id2793321" alt=""><image src="graphics106.wmf" mime-type="image/wmf" height="67" width="451"/></media>
+        </figure>
+        <para id="id6083071">= aS1(f) + bS2(f)</para>
+        <para id="id6083086">Ví dụ 12: Tìm biến đổi Fourrier của s(t).</para>
+        <para id="id6083094">s(t) = <figure id="id6083099"><media id="id5760866" alt=""><image src="graphics107.wmf" mime-type="image/wmf" height="103" width="151"/></media></figure></para>
+        <para id="id6083123"><figure id="id6083159"><media id="id1168576064411" alt=""><image src=".wmf" mime-type="image/wmf" height="94" width="177"/></media></figure>s(t)21120.5t</para>
+        <para id="id6083390">Hình 2.20 Biến đổi Fourier của tín hiệu s(t).</para>
+        <para id="id6083396">Giải: </para>
+        <para id="id6083400">Ta dùng tính chất tuyến tính và thấy rằng s(t) là tổng của hàm trong ví dụ 4 với hàm trong ví dụ 11.</para>
+        <para id="id6083411">Vậy, biến đổi F cho bởi tổng của hai biến đổi.</para>
+        <para id="id6083419">S(f) = <figure id="id6083424"><media id="id1168574501878" alt=""><image src="graphics108.wmf" mime-type="image/wmf" height="43" width="126"/></media></figure></para>
+        <para id="id6083448">Vì hàm được cho sẽ chẳn nếu bị dời về trái 0,5 sec, ta có thể viết lại.</para>
+        <para id="id6083456">S(f) = <figure id="id6083460"><media id="id1168576075404" alt=""><image src="graphics109.wmf" mime-type="image/wmf" height="43" width="140"/></media></figure></para>
+      </section>
+    </section>
+    <section id="id-893046125984">
+      <title>Định lý về sự biến điệu</title>
+      <para id="id6083496">Định lý này kết hợp chặt chẻ với định lý về sự dời tần.</para>
+      <para id="id6083502">Cho một hàm s(t) và biến đổi Fourrier của nó. Hàm s(t) nhân với một sóng cosin:</para>
+      <para id="id6083509">s(t) cos2fot</para>
+      <para id="id6083524">Trong đó, f0 là tần số của cosin.</para>
+      <para id="id6083535">Biến đổi Fourrier của dạng sóng này cho bởi:</para>
+      <para id="id6083541">F [s(t) cos2f0t ] = 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:mfrac><m:mn>1</m:mn><m:mn>2</m:mn></m:mfrac><m:mi>S</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">−</m:mo><m:msub><m:mi>f</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:mrow><m:mo stretchy="false">)</m:mo><m:mo stretchy="false">+</m:mo><m:mfrac><m:mn>1</m:mn><m:mn>2</m:mn></m:mfrac></m:mrow><m:mi>S</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>f</m:mi><m:mo stretchy="false">+</m:mo><m:msub><m:mi>f</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mn>0</m:mn></m:mrow></m:mstyle></m:msub></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ {  {1}  over  {2} } S \( f-f rSub { size 8{0} }  \) + {  {1}  over  {2} } S \( f+f rSub { size 8{0} }  \) } {}</m:annotation></m:semantics></m:math>(2.52)</para>
+      <para id="id6083700">Kết quả của sự nhân một hàm theo t với một hàm sin thuần túy là làm dời biến đổi gốc, cả chiều lên và chiều xuống, bởi tần số của hàm sin. ( Và cắt biên độ còn phân nữa).</para>
+      <para id="id6083712">Ta có thể chứng minh trực tiếp từ định lý dời tần. Phân cos2f0t thành 2 thành phần expo và áp định lý dời tần cho ta thấy rằng biến đổi F của một hàm tuần hoàn theo t là một đoàn xung lực cách đều nhau. Mỗi xung lực có độ lớn ( Strength ) bằng với hệ số Cn tương ứng. </para>
+      <para id="id6083744">Ví dụ 12: Tìm biến đổi F của hàm tuần hoàn tạo bởi các xung lực đơn vị như hình vẽ. Hàm cho bởi:</para>
+      <para id="id6083753">s(t) = <figure id="id6083757"><media id="id3810513" alt=""><image src="graphics110.wmf" mime-type="image/wmf" height="61" width="96"/></media></figure></para>
+      <para id="id6083782">T2T3T-Ts(t)tHình 2.21 Hàm tuần hoàn s(t).</para>
+      <para id="id6084130">Giải:</para>
+      <para id="id6084135">Biến đổi F cho bởi phương trình (2.53) </para>
+      <para id="id6084143">S(f) = <figure id="id6084150"><media id="id3999070" alt=""><image src="graphics111.wmf" mime-type="image/wmf" height="61" width="122"/></media></figure></para>
+      <para id="id6084174">Trong đó:</para>
+      <para id="id6084178">f0 = <figure id="id6084188"><media id="id6637055" alt=""><image src="graphics112.wmf" mime-type="image/wmf" height="43" width="18"/></media></figure></para>
+      <para id="id6084212">Cn = <figure id="id6084221"><media id="id6216040" alt=""><image src="graphics113.wmf" mime-type="image/wmf" height="43" width="18"/></media></figure><figure id="id6084246"><media id="id5633500" alt=""><image src="graphics114.wmf" mime-type="image/wmf" height="100" width="125"/></media></figure></para>
+      <para id="id6084270">Trong khoảng của tích phân, sự phân bố của s(t) chỉ do xung lực tại gốc. Vậy:</para>
+      <para id="id6084278">Cn = <figure id="id6084287"><media id="id6870842" alt=""><image src="graphics115.wmf" mime-type="image/wmf" height="43" width="18"/></media></figure><figure id="id6084311"><media id="id4873420" alt=""><image src="graphics116.wmf" mime-type="image/wmf" height="100" width="125"/></media></figure> = <figure id="id6084336"><media id="id1168574835518" alt=""><image src="graphics117.wmf" mime-type="image/wmf" height="43" width="18"/></media></figure></para>
+      <para id="id6084361">Cuối cùng, biến đổi F của đoàn xung lực là:</para>
+      <para id="id6084369">S(f) = <figure id="id6084374"><media id="id6228817" alt=""><image src="graphics118.wmf" mime-type="image/wmf" height="43" width="18"/></media></figure><figure id="id6084398"><media id="id1168570374049" alt=""><image src="graphics119.wmf" mime-type="image/wmf" height="61" width="101"/></media></figure></para>
+      <para id="id6084422">Trong đó f0 = <figure id="id6084432"><media id="id3130624" alt=""><image src="graphics120.wmf" mime-type="image/wmf" height="43" width="18"/></media></figure>.</para>
+      <para id="id6084457">Mỗi thành phần:</para>
+      <para id="id6084462">s(t) cos2f0t = <figure id="id6084478"><media id="id2864241" alt=""><image src="graphics121.wmf" mime-type="image/wmf" height="43" width="183"/></media></figure></para>
+    </section>
+    <section id="id-927712906656">
+      <title>Các hàm tuần hoàn</title>
+      <para id="id6084514">Ở ví dụ 6, ta đã thấy biến đổi F của 1 hàm cosin (f0) và tại trị âm của tần số này (-f0). Bây giờ, ta sẽ chứng tỏ rằng biến đổi F của một hàm bất kỳ là một hàm rời rạc của tần số. Đó là biến đổi thì khác zero chỉ tại những điểm rời rạc dọc theo trục f.</para>
+      <para id="id6084555">Cách chứng minh dựa vào sự khai triển chuỗi F và sự tuyến tính của phép biến đổi F.</para>
+      <para id="id6084567">Giả sử ta phải tìm biến đổi F của một hàm tuần hoàn s(t), với chu kỳ T. Ta có thể viết hàm s(t) theo cách biểu diễn chuỗi F phức.</para>
+      <para id="id6084582">s(t) = <figure id="id6084586"><media id="id2845412" alt=""><image src="graphics122.wmf" mime-type="image/wmf" height="61" width="106"/></media></figure></para>
+      <para id="id6084611">Trong đó f0 = <figure id="id6084620"><media id="id1168575798660" alt=""><image src="graphics123.wmf" mime-type="image/wmf" height="43" width="18"/></media></figure>.</para>
+      <para id="id6084646">Ta lập một cặp biến đổi:</para>
+      <para id="id6084651">Aej2fot  A (f - f0­)</para>
+      <para id="id6084687">Từ cặp này và tính tuyến tính của phép biến đổi F, ta có:</para>
+      <para id="id6084694">F [s(t) ] = 
+<m:math><m:semantics><m:mrow><m:mstyle fontsize="12pt"><m:mrow><m:mrow><m:munderover><m:mo stretchy="false">∑</m:mo><m:mstyle fontsize="8pt"><m:mrow><m:mrow><m:mi>n</m:mi><m:mtext>=-¥</m:mtext></m:mrow></m:mrow></m:mstyle><m:mstyle fontsize="8pt"><m:mrow><m:mi>¥</m:mi></m:mrow></m:mstyle></m:munderover><m:msub><m:mi>C</m:mi><m:mstyle fontsize="8pt"><m:mrow><m:mi>n</m:mi></m:mrow></m:mstyle></m:msub></m:mrow></m:mrow></m:mstyle><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ Sum cSub { size 8{n"=-¥"} }  cSup { size 8{¥} }  {C rSub { size 8{n} } } } {}</m:annotation></m:semantics></m:math> F [ejn2fot]</para>
+      <para id="id6084832">(2.53)</para>
+      <para id="id6084841">s(f)fC4C2C0C-2f02f04f0-f0Biến đổi này được vẽ như hình dưới đây. Nhớ là Cn là số phức, vậy hình vẽ chỉ có chủ đích trình bày khái niệm. Nếu hàm s(t) thực và chẳn, Cn sẽ thực.</para>
+      <para id="id6085302">Hình 2.22 Biến đổi Fourier của hàm tuần hoàn s(t).</para>
+    </section>
+  </content>
+</document>
