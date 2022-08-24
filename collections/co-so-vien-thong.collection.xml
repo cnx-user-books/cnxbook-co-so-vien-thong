@@ -1,3 +1,20 @@
-<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en">  <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">  <md:content-id>col10755</md:content-id>  <md:title>Cơ sở Viễn thông</md:title>      <md:license url="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License 3.0</md:license>  <md:language>vi</md:language>              <md:uuid>a159f56f-cce4-46fd-be45-368c380defda</md:uuid>
-<md:slug>co-so-vien-thong</md:slug>
-</metadata>  <col:content>          <col:module document="m30831"/>                            <col:module document="m30580"/>                            <col:module document="m30332"/>                            <col:module document="m30228"/>                            <col:module document="m30230"/>                            <col:module document="m30231"/>                            <col:module document="m30771"/>                    </col:content></col:collection>
+<?xml version="1.0"?>
+<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en" authors="ThS Ph&#x1EA1;m V&#x103;n T&#x1EA5;n">
+  <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">
+    <md:content-id>col10755</md:content-id>
+    <md:title>C&#x1A1; s&#x1EDF; Vi&#x1EC5;n th&#xF4;ng</md:title>
+    <md:license url="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License 3.0</md:license>
+    <md:language>vi</md:language>
+    <md:uuid>a159f56f-cce4-46fd-be45-368c380defda</md:uuid>
+    <md:slug>co-so-vien-thong</md:slug>
+  </metadata>
+  <col:content>
+    <col:module document="m30831"/>
+    <col:module document="m30580"/>
+    <col:module document="m30332"/>
+    <col:module document="m30228"/>
+    <col:module document="m30230"/>
+    <col:module document="m30231"/>
+    <col:module document="m30771"/>
+  </col:content>
+</col:collection>
